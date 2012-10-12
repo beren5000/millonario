@@ -1,0 +1,77 @@
+<script type="text/javascript">
+
+</script>
+<br>
+<br>
+agregar pregunta al grupo: {{ encuesta.nombre }}
+<br>
+<br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Pregunta</th>
+            <th>Nivel</th>
+            <th>respuesta1</th>
+            <th>respuesta2</th>
+            <th>respuesta3</th>
+            <th>respuesta4</th>
+            <th>correcta</th>
+            <th>agregar o eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in preguntas %}
+        <tr>
+            <td>
+                {{ i.nombre }}
+            </td>
+            <td>
+                {{ i.grupo.nombre }}
+            </td>
+            {% for j in i.respuestas %}
+                <td {% if j.es_correcta %}bgcolor="yellow" {% endif %}>
+                    {{ j.nombre }}
+                </td>
+            {% endfor %}
+            <td>
+            {% for j in i.respuestas %}
+                {% if j.es_correcta %}
+                    {{ j.nombre }}
+                {% endif %}
+            {% endfor %}
+            </td>
+            <td>
+                <input type="submit" value="eliminar" onclick="eliminar_pregunta({{ i.id }})">
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><input id="nombre_pregunta" type="text" name="nombre"></td>
+            <td>
+                <select id='grupo_id' name="grupo">
+                    {% for i in grupos %}
+                        <option value="{{ i.id }}">{{ i.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td><input id='resp1' type="text" name="res1"></td>
+            <td><input id='resp2' type="text" name="res2"></td>
+            <td><input id='resp3' type="text" name="res3"></td>
+            <td><input id='resp4' type="text" name="res4"></td>
+            <td>
+                <select id='id_correcta' name="correcta">
+                    <option value="0">respuesta 1</option>
+                    <option value="1">respuesta 2</option>
+                    <option value="2">respuesta 3</option>
+                    <option value="3">respuesta 4</option>
+                </select>
+            </td>
+            <td>
+                <input type="submit" value="guardar" onclick="agregar_pregunta({{ encuesta.id }})">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+

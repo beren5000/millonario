@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/medjhonson2/!svn/ver/1/modulos/localizaciones
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/medjhonson2/!svn/ver/1/modulos/localizaciones/admin.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/medjhonson2/!svn/ver/1/modulos/localizaciones/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/medjhonson2/!svn/ver/1/modulos/localizaciones/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/medjhonson2/!svn/ver/1/modulos/localizaciones/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/medjhonson2/!svn/ver/1/modulos/localizaciones/models.py
+END

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Administrar</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function ver_preguntas(encuesta){
+            $.post( '/encuestas/ver_preguntas/',
+                    {
+                        'encuesta_id':encuesta
+                    },
+                    function(respuesta){
+                        alert("trayendo preguntas ve");
+                        respuesta=eval(respuesta);
+                        preguntas=respuesta.preguntas;
+                        $('#preguntas').html(preguntas);
+                        alert("preguntas puestas alla abajo");
+                    });
+        };
+
+        function agregar_pregunta(encuesta){
+            $.post( '/encuestas/agregar_pregunta/',
+                    {
+                        'encuesta_id':encuesta,
+                        'nombre':$('#nombre_pregunta').val(),
+                        'grupo':$('#grupo_id option:selected').val(),
+                        'res1':$('#resp1').val(),
+                        'res2':$('#resp2').val(),
+                        'res3':$('#resp3').val(),
+                        'res4':$('#resp4').val(),
+                        'correcta':$('#id_correcta option:selected').val()
+                    },
+                    function(respuesta){
+                        alert("trayendo preguntas ve");
+                        respuesta=eval(respuesta);
+                        preguntas=respuesta.preguntas;
+                        $('#preguntas').html(preguntas);
+                        alert("preguntas puestas alla abajo");
+                    });
+        };
+
+        function eliminar_pregunta(pregunta){
+            $.post( '/encuestas/eliminar_pregunta/',
+                    {
+                        'pregunta_id':pregunta
+                    },
+                    function(respuesta){
+                        alert("trayendo preguntas ve");
+                        respuesta=eval(respuesta);
+                        preguntas=respuesta.preguntas;
+                        $('#preguntas').html(preguntas);
+                        alert("preguntas puestas alla abajo");
+                    });
+        };
+
+        function agregar_encuesta(){
+            $.post( '/encuestas/agregar_encuesta/',
+                    {
+                        'nombre':$('#encuesta_nombre').val()
+                    },
+                    function(respuesta){
+                        alert("trayendo preguntas ve");
+                        respuesta=eval(respuesta);
+                        preguntas=respuesta.preguntas;
+                        idencuesta=respuesta.id
+                        $('#tabla_encuestas > tbody:first').append('<tr><td>'+$('#encuesta_nombre').val()+'</td><td>0</td><td><div onclick="ver_preguntas('+idencuesta+')">ver preguntas</div></td></tr>');
+                        $('#preguntas').html(preguntas);
+                        alert("preguntas puestas alla abajo");
+                    });
+        };
+
+    </script>
+</head>
+<body>
+
+    <table id="tabla_encuestas" border="1">
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>numero de preguntas</th>
+                <th>ver preguntas</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in encuestas %}
+            <tr>
+                <td>{{ i.nombre }}</td>
+                <td>{{ i.numero_de_preguntas }}</td>
+                <td><div onclick="ver_preguntas({{ i.id }})">ver preguntas</div></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td><input id="encuesta_nombre" type="text"></td>
+            <td> </td>
+            <td><input type="button" id="agregar_encuesta" onclick="agregar_encuesta()"></td>
+        </tr>
+        </tbody>
+    </table>
+<div id="preguntas">
+
+</div>
+</body>
+</html>

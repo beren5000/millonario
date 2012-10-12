@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/medjhonson2/!svn/ver/3/modulos/empresas
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/medjhonson2/!svn/ver/3/modulos/empresas/admin.py
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/medjhonson2/!svn/ver/1/modulos/empresas/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/medjhonson2/!svn/ver/1/modulos/empresas/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/medjhonson2/!svn/ver/1/modulos/empresas/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/medjhonson2/!svn/ver/1/modulos/empresas/models.py
+END

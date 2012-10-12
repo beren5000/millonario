@@ -1,0 +1,739 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <pedro.valente@gmail.com>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-11 19:18+0200\n"
+"PO-Revision-Date: 2008-03-31 18:12+0300\n"
+"Last-Translator: Pedro Valente <pedro.valente@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:37
+msgid "You must enter one of the options"
+msgstr ""
+
+#: forms.py:63
+msgid ""
+"That username has invalid characters. The valid values are letters, numbers "
+"and underscore."
+msgstr ""
+
+#: forms.py:68
+msgid "The username is already registered."
+msgstr ""
+
+#: forms.py:77 forms.py:137 forms.py:159 forms.py:178
+msgid "The passwords inserted are different."
+msgstr ""
+
+#: forms.py:89 forms.py:108
+msgid "That e-mail is already used."
+msgstr ""
+
+#: forms.py:93
+msgid "That e-mail is already being confirmed."
+msgstr ""
+
+#: forms.py:121
+msgid "There's no user with that e-mail"
+msgstr ""
+
+#: models.py:14 templates/templates_game/userprofile/makepublic.html:62
+#: templates/templates_game/userprofile/personal.html:37
+msgid "Female"
+msgstr "Feminino"
+
+#: models.py:14 templates/templates_game/userprofile/makepublic.html:60
+#: templates/templates_game/userprofile/personal.html:36
+msgid "Male"
+msgstr "Masculino"
+
+#: models.py:39
+msgid "Continent"
+msgstr "Continente"
+
+#: models.py:40
+msgid "Continents"
+msgstr "Continentes"
+
+#: models.py:66 templates/templates_game/userprofile/public.html:40
+#: templates/templates_game/userprofile/usercard.html:12
+msgid "Country"
+msgstr "País"
+
+#: models.py:67
+msgid "Countries"
+msgstr "Países"
+
+#: models.py:101
+#, python-format
+msgid "%s's profile"
+msgstr "Perfil de %s"
+
+#: models.py:184 models.py:227
+#, python-format
+msgid "Email change confirmation on %s"
+msgstr ""
+
+#: models.py:187 models.py:230
+#, python-format
+msgid "Password reset on %s"
+msgstr ""
+
+#: models.py:213
+#, python-format
+msgid "Email validation process for %(user)s of type %(type)s"
+msgstr ""
+
+#: views.py:243
+msgid "E-mail changed successfully."
+msgstr ""
+
+#: views.py:246
+msgid ""
+"The key you received via e-mail is no longer valid. Please try the e-mail "
+"change process again."
+msgstr ""
+
+#: views.py:256
+msgid ""
+"Account validated successfully. Now you can access to the login page with "
+"your username and password and start using this site."
+msgstr ""
+
+#: views.py:259
+msgid ""
+"The key you received via e-mail is no longer valid. Please try the e-mail "
+"validation process again."
+msgstr ""
+
+#: views.py:385
+msgid "Invalid e-mail"
+msgstr ""
+
+#: views.py:390 views.py:402 views.py:412
+msgid "E-mail not registered"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_choose.html:3
+#: templates/templates_game/userprofile/avatar_crop.html:3
+#: templates/templates_game/userprofile/avatar_done.html:3
+#: templates/templates_game/userprofile/avatar_search.html:3
+#: templates/templates_game/userprofile/delete.html:3
+#: templates/templates_game/userprofile/delete_done.html:3
+#: templates/templates_game/userprofile/location.html:3
+#: templates/templates_game/userprofile/makepublic.html:3
+#: templates/templates_game/userprofile/overview.html:3 templates/templates_game/userprofile/personal.html:3
+#: templates/templates_game/userprofile/profile_done.html:3
+#, python-format
+msgid "%(user)s's Dashboard"
+msgstr "Painel de controle de %(user)s"
+
+#: templates/templates_game/userprofile/avatar_choose.html:25
+#: templates/templates_game/userprofile/avatar_search.html:37
+msgid "Choose the source of your avatar"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_choose.html:29
+msgid "Delete"
+msgstr "Apagar"
+
+#: templates/templates_game/userprofile/avatar_choose.html:34
+#, fuzzy
+msgid ""
+"You have 3 options to select the image you want as avatar in your profile:"
+msgstr ""
+"Selecione o arquivo de imagem do seu computador que deseja incluir como "
+"avatar no seu perfil:"
+
+#: templates/templates_game/userprofile/avatar_choose.html:37
+msgid "Select an image from a remote URL:"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_choose.html:39
+#: templates/templates_game/userprofile/avatar_crop.html:32
+msgid "Done"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_choose.html:42
+#, fuzzy
+msgid "Select an image from disk:"
+msgstr "Selecionar outra imagem"
+
+#: templates/templates_game/userprofile/avatar_choose.html:47
+msgid "Search for an image on Picasa Web"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_crop.html:30
+msgid "Crop&resize the area you want"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_crop.html:33
+msgid "Select anoter image"
+msgstr "Selecionar outra imagem"
+
+#: templates/templates_game/userprofile/avatar_done.html:6
+msgid "Avatar selection finished"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_done.html:7
+msgid "Your avatar has been saved successfully."
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_search.html:38
+msgid "Search on Picasa Web:"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_search.html:38
+msgid "Search"
+msgstr ""
+
+#: templates/templates_game/userprofile/avatar_search.html:38
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: templates/templates_game/userprofile/delete.html:7
+#: templates/templates_game/userprofile/delete_done.html:6
+msgid "Delete all your personal information"
+msgstr "Apagar toda a informação do seu perfil"
+
+#: templates/templates_game/userprofile/delete.html:9
+msgid "Are you sure?"
+msgstr "Tem certeza?"
+
+#: templates/templates_game/userprofile/delete_done.html:7
+#, fuzzy
+msgid "Your profile information has been removed successfully."
+msgstr "Informação de perfil apagada com sucesso"
+
+#: templates/templates_game/userprofile/email_change.html:4
+#: templates/templates_game/userprofile/email_change.html:14
+msgid "E-mail change"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change.html:16
+#, fuzzy
+msgid "Add e-mail"
+msgstr "Incluir seu e-mail"
+
+#: templates/templates_game/userprofile/email_change.html:18
+msgid ""
+"Insert the new e-mail address. An e-mail will be send to it for testing and "
+"confirmation."
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change.html:21
+msgid "New e-mail address:"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change.html:25
+msgid "Send confirmation"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change_done.html:3
+#: templates/templates_game/userprofile/email_change_done.html:7
+msgid "E-mail change successful"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change_done.html:9
+msgid "E-mail change unsuccessful"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change_processed.html:3
+#: templates/templates_game/userprofile/email_change_processed.html:6
+msgid "E-mail change processed"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_change_processed.html:7
+msgid ""
+"An e-mail has been sent to the new e-mail address to verify and activate it. "
+"Please access to your e-mail and complete this process following the "
+"instructions specified in the e-mail body."
+msgstr ""
+
+#: templates/templates_game/userprofile/email_email.html:2
+msgid "You're receiving this e-mail because you requested an e-mail change"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_email.html:3
+#: templates/templates_game/userprofile/passwd_email.html:3
+#, python-format
+msgid "for your user account at %(site_name)s"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_email.html:5
+msgid "If you want to proceed with this change, follow this link:"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_email.html:9
+#: templates/templates_game/userprofile/passwd_email.html:9
+#: templates/templates_game/userprofile/user_email.html:9
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_email.html:11
+#: templates/templates_game/userprofile/passwd_email.html:11
+#: templates/templates_game/userprofile/user_email.html:11
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/templates_game/userprofile/email_email.html:13
+#: templates/templates_game/userprofile/passwd_email.html:13
+#: templates/templates_game/userprofile/user_email.html:13
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: templates/templates_game/userprofile/location.html:10
+msgid "Define your location"
+msgstr ""
+
+#: templates/templates_game/userprofile/location.html:13
+#: templates/templates_game/userprofile/makepublic.html:96
+msgid "Country:"
+msgstr "País:"
+
+#: templates/templates_game/userprofile/location.html:15
+#: templates/templates_game/userprofile/makepublic.html:34
+#: templates/templates_game/userprofile/makepublic.html:43
+#: templates/templates_game/userprofile/makepublic.html:52
+#: templates/templates_game/userprofile/makepublic.html:65
+#: templates/templates_game/userprofile/makepublic.html:74
+#: templates/templates_game/userprofile/makepublic.html:83
+#: templates/templates_game/userprofile/makepublic.html:92
+#: templates/templates_game/userprofile/makepublic.html:101
+#: templates/templates_game/userprofile/makepublic.html:110
+#: templates/templates_game/userprofile/makepublic.html:119
+msgid "Not set"
+msgstr "Não preenchido"
+
+#: templates/templates_game/userprofile/location.html:16
+msgid "More common..."
+msgstr "Mais comuns..."
+
+#: templates/templates_game/userprofile/location.html:17
+msgid "Spain"
+msgstr "Espanha"
+
+#: templates/templates_game/userprofile/location.html:28
+#: templates/templates_game/userprofile/makepublic.html:105
+msgid "Location:"
+msgstr "Localização:"
+
+#: templates/templates_game/userprofile/location.html:32
+#: templates/templates_game/userprofile/makepublic.html:114
+msgid "Position:"
+msgstr "Posição:"
+
+#: templates/templates_game/userprofile/location.html:37
+#: templates/templates_game/userprofile/makepublic.html:123
+#: templates/templates_game/userprofile/personal.html:52
+msgid "Save"
+msgstr "Salvar"
+
+#: templates/templates_game/userprofile/login.html:3 templates/templates_game/userprofile/login.html:10
+msgid "User login"
+msgstr ""
+
+#: templates/templates_game/userprofile/login.html:15 templates/templates_game/userprofile/overview.html:15
+#: templates/templates_game/userprofile/registration.html:15
+msgid "Username:"
+msgstr "Usuário:"
+
+#: templates/templates_game/userprofile/login.html:19
+#: templates/templates_game/userprofile/registration.html:20
+msgid "Password:"
+msgstr ""
+
+#: templates/templates_game/userprofile/login.html:22
+msgid "Have you lost your password?"
+msgstr ""
+
+#: templates/templates_game/userprofile/login.html:23
+msgid "Login"
+msgstr ""
+
+#: templates/templates_game/userprofile/login.html:26
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: templates/templates_game/userprofile/logout.html:4 templates/templates_game/userprofile/logout.html:7
+msgid "Logged out"
+msgstr ""
+
+#: templates/templates_game/userprofile/logout.html:8
+msgid "You've been logged out."
+msgstr ""
+
+#: templates/templates_game/userprofile/makepublic.html:26
+msgid "Click on the information you want to make public"
+msgstr ""
+
+#: templates/templates_game/userprofile/makepublic.html:29
+#: templates/templates_game/userprofile/overview.html:20
+msgid "E-mail:"
+msgstr "E-mail:"
+
+#: templates/templates_game/userprofile/makepublic.html:38
+#: templates/templates_game/userprofile/personal.html:27
+msgid "First Name:"
+msgstr "Nome:"
+
+#: templates/templates_game/userprofile/makepublic.html:47
+#: templates/templates_game/userprofile/personal.html:31
+msgid "Surname:"
+msgstr "Sobrenome:"
+
+#: templates/templates_game/userprofile/makepublic.html:56
+#: templates/templates_game/userprofile/personal.html:35
+msgid "Gender:"
+msgstr "Sexo:"
+
+#: templates/templates_game/userprofile/makepublic.html:69
+#: templates/templates_game/userprofile/personal.html:40
+msgid "Birth date:"
+msgstr "Data de nascimento:"
+
+#: templates/templates_game/userprofile/makepublic.html:72
+msgid "years old."
+msgstr ""
+
+#: templates/templates_game/userprofile/makepublic.html:78
+#: templates/templates_game/userprofile/personal.html:44
+msgid "Url:"
+msgstr "Url:"
+
+#: templates/templates_game/userprofile/makepublic.html:87
+#: templates/templates_game/userprofile/personal.html:48
+msgid "About:"
+msgstr "Sobre você:"
+
+#: templates/templates_game/userprofile/menu.html:4
+msgid "Overview"
+msgstr ""
+
+#: templates/templates_game/userprofile/menu.html:5
+#, fuzzy
+msgid "Edit personal information"
+msgstr "Apagar toda minha informação pessoal"
+
+#: templates/templates_game/userprofile/menu.html:6
+msgid "Edit avatar"
+msgstr ""
+
+#: templates/templates_game/userprofile/menu.html:7
+#, fuzzy
+msgid "Edit location"
+msgstr "Localização"
+
+#: templates/templates_game/userprofile/menu.html:8
+msgid "Define public info"
+msgstr ""
+
+#: templates/templates_game/userprofile/menu.html:9
+#, fuzzy
+msgid "Remove profile"
+msgstr "Perfil de %s"
+
+#: templates/templates_game/userprofile/overview.html:7
+msgid "Overview of your profile"
+msgstr ""
+
+#: templates/templates_game/userprofile/overview.html:17
+#, fuzzy
+msgid "Change password"
+msgstr "(Alterar senha)"
+
+#: templates/templates_game/userprofile/overview.html:22
+msgid "Not set yet"
+msgstr "Não preenchida"
+
+#: templates/templates_game/userprofile/overview.html:23
+msgid "Not validated"
+msgstr ""
+
+#: templates/templates_game/userprofile/overview.html:23
+msgid "Validated"
+msgstr ""
+
+#: templates/templates_game/userprofile/overview.html:25
+msgid "Change your e-mail address"
+msgstr "Alterar seu e-mail"
+
+#: templates/templates_game/userprofile/overview.html:25
+msgid "Add your e-mail address"
+msgstr "Incluir seu e-mail"
+
+#: templates/templates_game/userprofile/overview.html:26
+msgid "Resend validation e-mail"
+msgstr ""
+
+#: templates/templates_game/userprofile/passwd_email.html:2
+msgid "You're receiving this e-mail because you requested a password reset"
+msgstr ""
+
+#: templates/templates_game/userprofile/passwd_email.html:5
+msgid "Feel free to change this password going to this page:"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change.html:4
+#: templates/templates_game/userprofile/password_change.html:12
+msgid "Password change for"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change.html:13
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change.html:16
+msgid "New password:"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change.html:20
+msgid "Confirm password:"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change.html:24
+msgid "Change my password"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change_done.html:4
+#: templates/templates_game/userprofile/password_change_done.html:8
+msgid "Password change successful"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_change_done.html:9
+msgid "The password has been changed successfully."
+msgstr ""
+
+#: templates/templates_game/userprofile/password_expired.html:4
+#: templates/templates_game/userprofile/password_expired.html:7
+msgid "Password key expired"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_expired.html:8
+msgid ""
+"The password key you're trying to use is expired. Please, request a new one."
+msgstr ""
+
+#: templates/templates_game/userprofile/password_reset.html:4
+#: templates/templates_game/userprofile/password_reset.html:12
+msgid "Password reset"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_reset.html:13
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll reset "
+"your password and e-mail the new one to you."
+msgstr ""
+
+#: templates/templates_game/userprofile/password_reset.html:16
+#: templates/templates_game/userprofile/validation_reset.html:19
+msgid "E-mail address:"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_reset.html:20
+msgid "Reset my password"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_reset_done.html:4
+#: templates/templates_game/userprofile/password_reset_done.html:7
+msgid "Password reset successful"
+msgstr ""
+
+#: templates/templates_game/userprofile/password_reset_done.html:8
+msgid ""
+"We've e-mailed you the instructions to obtain a new password. You should be "
+"receiving it shortly."
+msgstr ""
+
+#: templates/templates_game/userprofile/personal.html:24
+#, fuzzy
+msgid "Edit your personal information"
+msgstr "Apagar toda a informação do seu perfil"
+
+#: templates/templates_game/userprofile/profile_done.html:6
+#, fuzzy
+msgid "Profile information updated"
+msgstr "Informação de perfil apagada com sucesso"
+
+#: templates/templates_game/userprofile/profile_done.html:7
+#, fuzzy
+msgid "Your profile information has been updated successfully."
+msgstr "Informação de perfil apagada com sucesso"
+
+#: templates/templates_game/userprofile/public.html:34 templates/templates_game/userprofile/usercard.html:11
+msgid "Username"
+msgstr "Usuário"
+
+#: templates/templates_game/userprofile/public.html:35
+#, fuzzy
+msgid "E-mail"
+msgstr "E-mail:"
+
+#: templates/templates_game/userprofile/public.html:36
+msgid "Name"
+msgstr "Nome"
+
+#: templates/templates_game/userprofile/public.html:37
+msgid "Url"
+msgstr "Url"
+
+#: templates/templates_game/userprofile/public.html:38
+msgid "About"
+msgstr "Sobre você"
+
+#: templates/templates_game/userprofile/public.html:39
+msgid "Gender"
+msgstr "Sexo"
+
+#: templates/templates_game/userprofile/public.html:41
+msgid "Location"
+msgstr "Localização"
+
+#: templates/templates_game/userprofile/registration.html:3
+#: templates/templates_game/userprofile/registration.html:11
+msgid "User registration"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration.html:12
+msgid ""
+"Joining this community is quick and easy. You only need to fill the "
+"following information to get access to the all the private content."
+msgstr ""
+
+#: templates/templates_game/userprofile/registration.html:24
+msgid "Password again:"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration.html:29
+msgid "E-mail (optional):"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration.html:33
+msgid "Register"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration.html:41
+msgid ""
+"If you already registered an account, but have not received the validation e-"
+"mail, please, click"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration.html:41
+msgid "here"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration_done.html:4
+#: templates/templates_game/userprofile/registration_done.html:6
+msgid "Registration complete"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration_done.html:7
+msgid "You have successfully registered a new account. Go to the"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration_done.html:7
+msgid "login page"
+msgstr ""
+
+#: templates/templates_game/userprofile/registration_done.html:7
+msgid "to authenticate and start using this site."
+msgstr ""
+
+#: templates/templates_game/userprofile/user_email.html:2
+msgid "You're receiving this e-mail because you requested an account "
+msgstr ""
+
+#: templates/templates_game/userprofile/user_email.html:3
+#, python-format
+msgid "at %(site_name)s"
+msgstr ""
+
+#: templates/templates_game/userprofile/user_email.html:5
+msgid "Following this link, you will validate your e-mail address:"
+msgstr ""
+
+#: templates/templates_game/userprofile/usercard.html:3
+#, fuzzy
+msgid "Public profile"
+msgstr "Perfil de %s"
+
+#: templates/templates_game/userprofile/usercard.html:9
+#, fuzzy
+msgid "No avatar"
+msgstr "Alterar avatar"
+
+#: templates/templates_game/userprofile/usercard.html:13
+msgid "Age"
+msgstr "Idade"
+
+#: templates/templates_game/userprofile/usercard.html:14
+msgid "My Website"
+msgstr "Meu site"
+
+#: templates/templates_game/userprofile/validation_reset.html:4
+#: templates/templates_game/userprofile/validation_reset.html:12
+msgid "Resend validation"
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset.html:13
+msgid ""
+"Enter your e-mail address below and we'll resend the user activation e-mail "
+"to you."
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset.html:23
+msgid "Resend the activation e-mail"
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset_done.html:4
+#: templates/templates_game/userprofile/validation_reset_done.html:9
+msgid "Validation e-mail sent"
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset_done.html:10
+msgid ""
+"We've e-mailed you the e-mail validation link. You are going to receive it "
+"shortly."
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset_done.html:12
+msgid "Your user account was already active"
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset_done.html:13
+msgid "If you have lost your password you can change it with this utility"
+msgstr ""
+
+#: templates/templates_game/userprofile/validation_reset_done.html:14
+msgid "Lost password utility"
+msgstr ""
+
+#~ msgid "The file type is invalid: %s"
+#~ msgstr "O tipo de arquivo é incorreto: %s"
+
+#~ msgid "Avatar:"
+#~ msgstr "Avatar:"
+
+#~ msgid "Please wait..."
+#~ msgstr "Por favor, aguarde..."
+
+#~ msgid "Tell others something about you"
+#~ msgstr "Conte algo sobre você"
+
+#~ msgid "Change"
+#~ msgstr "Alterar"
+
+#~ msgid "Other actions:"
+#~ msgstr "Outras ações:"
