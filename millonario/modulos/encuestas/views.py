@@ -10,8 +10,13 @@ from millonario.modulos.encuestas.models import *
 
 def administrar(request):
     encuestas=Encuesta.objects.all()
+    niveles=Grupo.objects.all()
     template = "administrador.html"
-    data = {'encuestas': encuestas }
+    data = {
+        'encuestas': encuestas,
+        'niveles':niveles,
+        'estado':1
+    }
     return render_to_response(template, data, context_instance=RequestContext(request))
 
 @csrf_exempt
@@ -19,6 +24,7 @@ def ver_preguntas(request):
     if request.POST:
         preguntas=Encuesta.objects.get(id=int(request.POST['encuesta_id'])).render_preguntas
         data={
+            'estado':1,
             'preguntas':preguntas
         }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
@@ -39,6 +45,7 @@ def eliminar_pregunta(request):
         preguntas=encuesta.render_preguntas
 
         data={
+            'estado':1,
             'preguntas':preguntas
         }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
@@ -72,6 +79,7 @@ def agregar_pregunta(request):
 
         preguntas=Encuesta.objects.get(id=int(request.POST['encuesta_id'])).render_preguntas
         data={
+            'estado':1,
             'preguntas':preguntas
         }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
@@ -90,6 +98,7 @@ def agregar_encuesta(request):
 
         preguntas=encuesta.render_preguntas
         data={
+            'estado':1,
             'id':encuesta.id,
             'preguntas':preguntas
         }
@@ -97,3 +106,72 @@ def agregar_encuesta(request):
 
     data = {'estado': 0}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+@csrf_exempt
+def agregar_nivel(request):
+    if request.method == "POST":
+        nivel=request.POST['nombre']
+        encuesta=request.POST['encuesta']
+
+        nivel=Grupo(nombre=nivel)
+        nivel.save()
+
+        if int(encuesta)!=-1:
+            encuesta=Encuesta.objects.get(id=int(encuesta))
+            preguntas=encuesta.render_preguntas
+            data={
+                'estado':1,
+                'preguntas':preguntas
+            }
+        else:
+            data={
+                'estado':2
+            }
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+    data = {'estado': 0}
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+
+@csrf_exempt
+def update(request):
+    if request.method == "POST":
+        tipo=int(request.POST['tipo'])
+        id=int(request.POST['id'])
+        nombre=request.POST['nombre']
+        encuesta=request.POST['encuesta']
+
+        if tipo==1:
+            temp=Encuesta.objects.get(id=id)
+        elif tipo==2:
+            temp=Grupo.objects.get(id=id)
+        elif tipo==3:
+            temp=Pregunta.objects.get(id=id)
+        elif tipo==4:
+            temp=Respuesta.objects.get(id=id)
+        temp.nombre=nombre
+        temp.save()
+
+        if int(encuesta)!=-1:
+            encuesta=Encuesta.objects.get(id=int(encuesta))
+            preguntas=encuesta.render_preguntas
+            data={
+                'estado':1,
+                'preguntas':preguntas,
+                'tipo':tipo,
+                'nombre':nombre,
+                'id':id
+            }
+        else:
+            data={
+                'estado':2,
+                'tipo':tipo,
+                'nombre':nombre,
+                'id':id
+            }
+
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+    data = {'estado': 0}
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
