@@ -70,6 +70,46 @@
                     });
         };
 
+        function agregar_nivel(){
+            $.post( '/encuestas/agregar_nivel/',
+                    {
+                        'nombre':$('#nivel_nombre').val(),
+                        'encuesta':$('#encuesta_seleccionada').html()
+                    },
+                    function(respuesta){
+                        alert("trayendo preguntas ve");
+                        respuesta=eval(respuesta);
+
+                        $('#tabla_niveles > tbody:first').append('<tr><td>'+$('#nivel_nombre').val()+'</td></tr>');
+                        preguntas=respuesta.preguntas;
+                        $('#preguntas').html(preguntas);
+                        alert("preguntas puestas alla abajo");
+                    });
+        };
+
+        function update(id_objeto,tipo){
+            $.post( '/encuestas/update/',
+                    {
+                        'id':id_objeto,
+                        'tipo':tipo,
+                        'nombre':$('#update_'+id_objeto).val(),
+                        'encuesta':$('#encuesta_seleccionada').html()
+                    },
+                    function(respuesta){
+
+                        respuesta=eval(respuesta);
+
+                        if (respuesta.estado==1){
+                            alert("trayendo preguntas ve");
+                            preguntas=respuesta.preguntas;
+                            $('#preguntas').html(preguntas);
+                            alert("preguntas puestas alla abajo");
+                        }
+
+
+                    });
+        };
+
     </script>
 </head>
 <body>
@@ -85,7 +125,7 @@
         <tbody>
         {% for i in encuestas %}
             <tr>
-                <td>{{ i.nombre }}</td>
+                <td><input id="update_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"></td>
                 <td>{{ i.numero_de_preguntas }}</td>
                 <td><div onclick="ver_preguntas({{ i.id }})">ver preguntas</div></td>
             </tr>
@@ -97,8 +137,29 @@
         </tr>
         </tbody>
     </table>
-<div id="preguntas">
 
+    <table id="tabla_niveles" border="1">
+        <thead>
+        <tr>
+            <th>nombre</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in niveles %}
+            <tr>
+                <td>{{ i.nombre }}</td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td><input id="nivel_nombre" type="text"></td>
+            <td><input type="button" id="agregar_nivel" onclick="agregar_nivel()"></td>
+        </tr>
+        </tbody>
+    </table>
+<div id="preguntas">
+    <div id="encuesta_seleccionada">-1</div>
 </div>
 </body>
 </html>
