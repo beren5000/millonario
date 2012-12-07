@@ -218,6 +218,7 @@ def update_selects(request):
 
 @csrf_exempt
 def xmlencuestas(request):
+
     encuestas = Encuesta.objects.all()
     results="<encuestas>"
     for encuesta in encuestas:
