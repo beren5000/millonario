@@ -32,11 +32,9 @@
                         'correcta':$('#id_correcta_new option:selected').val()
                     },
                     function(respuesta){
-                        alert("trayendo preguntas ve");
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         $('#preguntas').html(preguntas);
-                        alert("preguntas puestas alla abajo");
                     });
         };
 
@@ -46,11 +44,9 @@
                         'pregunta_id':pregunta
                     },
                     function(respuesta){
-                        alert("trayendo preguntas ve");
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         $('#preguntas').html(preguntas);
-                        alert("preguntas puestas alla abajo");
                     });
         };
 
@@ -60,13 +56,11 @@
                         'nombre':$('#encuesta_nombre').val()
                     },
                     function(respuesta){
-                        alert("trayendo preguntas ve");
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         idencuesta=respuesta.id
                         $('#tabla_encuestas > tbody:first').append('<tr><td>'+$('#encuesta_nombre').val()+'</td><td>0</td><td><div onclick="ver_preguntas('+idencuesta+')">ver preguntas</div></td></tr>');
                         $('#preguntas').html(preguntas);
-                        alert("preguntas puestas alla abajo");
                     });
         };
 
@@ -122,10 +116,8 @@
                         respuesta=eval(respuesta);
 
                         if (respuesta.estado==1){
-                            alert("trayendo preguntas ve");
                             preguntas=respuesta.preguntas;
                             $('#preguntas').html(preguntas);
-                            alert("preguntas puestas alla abajo");
                         }
 
                     });
