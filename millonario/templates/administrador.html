@@ -11,11 +11,11 @@
                         'encuesta_id':encuesta
                     },
                     function(respuesta){
-                        alert("trayendo preguntas ve");
+                        //alert("trayendo preguntas ve");
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         $('#preguntas').html(preguntas);
-                        alert("preguntas puestas alla abajo");
+                        //alert("preguntas puestas alla abajo");
                     });
         };
 
@@ -24,12 +24,12 @@
                     {
                         'encuesta_id':encuesta,
                         'nombre':$('#nombre_pregunta').val(),
-                        'grupo':$('#grupo_id option:selected').val(),
+                        'grupo':$('#grupo_id_new option:selected').val(),
                         'res1':$('#resp1').val(),
                         'res2':$('#resp2').val(),
                         'res3':$('#resp3').val(),
                         'res4':$('#resp4').val(),
-                        'correcta':$('#id_correcta option:selected').val()
+                        'correcta':$('#id_correcta_new option:selected').val()
                     },
                     function(respuesta){
                         alert("trayendo preguntas ve");
@@ -70,7 +70,7 @@
                     });
         };
 
-        function agregar_nivel(){
+        /*function agregar_nivel(){
             $.post( '/encuestas/agregar_nivel/',
                     {
                         'nombre':$('#nivel_nombre').val(),
@@ -85,15 +85,37 @@
                         $('#preguntas').html(preguntas);
                         alert("preguntas puestas alla abajo");
                     });
-        };
+        };*/
 
         function update(id_objeto,tipo){
             $.post( '/encuestas/update/',
                     {
                         'id':id_objeto,
                         'tipo':tipo,
-                        'nombre':$('#update_'+id_objeto).val(),
+                        'nombre':$('#update_'+tipo+'_'+id_objeto).val(),
                         'encuesta':$('#encuesta_seleccionada').html()
+                    },
+                    function(respuesta){
+
+                        respuesta=eval(respuesta);
+
+                        if (respuesta.estado==1){
+                            preguntas=respuesta.preguntas;
+                            $('#preguntas').html(preguntas);
+                        }
+
+
+                    });
+        };
+
+        function update_selects(id_objeto,tipo){
+            $.post( '/encuestas/update_selects/',
+                    {
+                        'id':id_objeto,
+                        'tipo':tipo,
+                        'id_cambio':$('#updates_'+tipo+'_'+id_objeto).find('option:selected').attr("id_cambio"),
+                        'encuesta':$('#encuesta_seleccionada').html()
+
                     },
                     function(respuesta){
 
@@ -105,7 +127,6 @@
                             $('#preguntas').html(preguntas);
                             alert("preguntas puestas alla abajo");
                         }
-
 
                     });
         };
@@ -125,7 +146,7 @@
         <tbody>
         {% for i in encuestas %}
             <tr>
-                <td><input id="update_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"></td>
+                <td><input id="update_1_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"></td>
                 <td>{{ i.numero_de_preguntas }}</td>
                 <td><div onclick="ver_preguntas({{ i.id }})">ver preguntas</div></td>
             </tr>
@@ -138,7 +159,7 @@
         </tbody>
     </table>
 
-    <table id="tabla_niveles" border="1">
+    <!--<table id="tabla_niveles" border="1">
         <thead>
         <tr>
             <th>nombre</th>
@@ -157,7 +178,7 @@
             <td><input type="button" id="agregar_nivel" onclick="agregar_nivel()"></td>
         </tr>
         </tbody>
-    </table>
+    </table>-->
 <div id="preguntas">
     <div id="encuesta_seleccionada">-1</div>
 </div>

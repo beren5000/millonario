@@ -175,3 +175,43 @@ def update(request):
     data = {'estado': 0}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
+@csrf_exempt
+def update_selects(request):
+    if request.method == "POST":
+        tipo=int(request.POST['tipo'])
+        id=int(request.POST['id'])
+        id_cambio=request.POST['id_cambio']
+        encuesta=request.POST['encuesta']
+
+        temp=Pregunta.objects.get(id=id)
+        if tipo==1:
+            temp.grupo.id=id_cambio
+        elif tipo==2:
+            temp.respuestas.get(es_correcta=True).es_correcta=False
+            temp.respuestas.get(id=id_cambio).es_correcta=True
+        temp.save()
+
+        if int(encuesta)!=-1:
+            encuesta=Encuesta.objects.get(id=int(encuesta))
+            preguntas=encuesta.render_preguntas
+            data={
+                'estado':1,
+                'preguntas':preguntas,
+                'tipo':tipo,
+                'id_cambio':id_cambio,
+                'id':id
+            }
+        else:
+            data={
+                'estado':2,
+                'preguntas':"<div></div>",
+                'tipo':tipo,
+                'id_cambio':id_cambio,
+                'id':id
+            }
+
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+    data = {'estado': 0}
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+

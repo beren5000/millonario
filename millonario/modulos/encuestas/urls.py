@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^ver_preguntas/$', ver_preguntas, name='ver_preguntas'),
     url(r'^agregar_encuesta/$', agregar_encuesta, name='agregar_encuesta'),
     url(r'^agregar_nivel/$', agregar_nivel, name='agregar_nivel'),
+    url(r'^update/$', update, name='update'),
+    url(r'^update_selects/$', update_selects, name='update_selects'),
 
 #===============================================================================
 # 
