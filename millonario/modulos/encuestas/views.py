@@ -180,16 +180,23 @@ def update_selects(request):
     if request.method == "POST":
         tipo=int(request.POST['tipo'])
         id=int(request.POST['id'])
-        id_cambio=request.POST['id_cambio']
+        id_cambio=int(request.POST['id_cambio'])
         encuesta=request.POST['encuesta']
 
         temp=Pregunta.objects.get(id=id)
+
         if tipo==1:
-            temp.grupo.id=id_cambio
+            temp.grupo=Grupo.objects.get(id=id_cambio)
+            temp.save()
         elif tipo==2:
-            temp.respuestas.get(es_correcta=True).es_correcta=False
-            temp.respuestas.get(id=id_cambio).es_correcta=True
-        temp.save()
+
+            temp2=temp.respuestas.get(es_correcta=True)
+            temp2.es_correcta=False
+            temp2.save()
+            temp2=temp.respuestas.get(id=id_cambio)
+            temp2.es_correcta=True
+            temp2.save()
+
 
         if int(encuesta)!=-1:
             encuesta=Encuesta.objects.get(id=int(encuesta))
