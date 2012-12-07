@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^agregar_nivel/$', agregar_nivel, name='agregar_nivel'),
     url(r'^update/$', update, name='update'),
     url(r'^update_selects/$', update_selects, name='update_selects'),
+    url(r'^xmlencuestas/$', xmlencuestas, name='xmlencuestas'),
+
 
 #===============================================================================
 # 
