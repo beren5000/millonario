@@ -215,3 +215,14 @@ def update_selects(request):
     data = {'estado': 0}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
+
+@csrf_exempt
+def xmlencuestas(request):
+    encuestas = Encuesta.objects.all()
+    results="<encuestas>"
+    for encuesta in encuestas:
+        results+="<encuesta id='"+str(encuesta.id)+"'>"+str(encuesta.nombre)+"</encuesta>"
+
+    results += "</encuestas>"
+    return HttpResponse(results, mimetype='text/xml')
+
