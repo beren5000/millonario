@@ -30,8 +30,8 @@ class Encuesta(Maestra):
 
     @property
     def render_preguntas(self):
-        preguntas=Pregunta.objects.filter(encuesta__id=self.id)
-        grupos=Grupo.objects.all()
+        preguntas=Pregunta.objects.filter(encuesta__id=self.id).order_by('grupo','id')
+        grupos=Grupo.objects.all().order_by('id')
         data={
             'preguntas':preguntas,
             'grupos':grupos,
@@ -46,7 +46,8 @@ class Pregunta(Maestra):
 
     @property
     def respuestas(self):
-        return Respuesta.objects.filter(pregunta__id=self.id)
+        return Respuesta.objects.filter(pregunta__id=self.id).order_by('id')
+
 
 
 class Respuesta(models.Model):

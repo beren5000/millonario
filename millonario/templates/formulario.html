@@ -24,32 +24,39 @@ agregar pregunta al grupo: {{ encuesta.nombre }}
         {% for i in preguntas %}
         <tr>
             <td>
-                {{ i.nombre }}
+                <input id="update_3_{{ i.id }}" onchange="update({{ i.id }},3)" value="{{ i.nombre }}">
             </td>
             <td>
-                {{ i.grupo.nombre }}
+                <select id='updates_1_{{ i.id }}' name="grupo" onchange="update_selects({{ i.id }},1)">
+                    {% for h in grupos %}
+                        <option id_cambio="{{ h.id }}" value="{{ h.id }}" {% if h.id == i.grupo.id %} selected="selected" {% endif %}>{{ h.nombre }}</option>
+                    {% endfor %}
+                </select>
             </td>
             {% for j in i.respuestas %}
                 <td {% if j.es_correcta %}bgcolor="yellow" {% endif %}>
-                    {{ j.nombre }}
+                    <input id="update_4_{{ j.id }}" onchange="update({{ j.id }},4)" value="{{ j.nombre }}">
                 </td>
             {% endfor %}
+
             <td>
-            {% for j in i.respuestas %}
-                {% if j.es_correcta %}
-                    {{ j.nombre }}
-                {% endif %}
-            {% endfor %}
+                <select id='updates_2_{{ i.id }}' name="correcta" onchange="update_selects({{ i.id }},2)" >
+                    {% for j in i.respuestas %}
+                        <option id_cambio="{{ j.id }}" value="{{ forloop.counter0 }}" {% if j.es_correcta %} selected="selected" {% endif %} >respuesta {{ forloop.counter }}</option>
+                    {% endfor %}
+                </select>
             </td>
             <td>
                 <input type="submit" value="eliminar" onclick="eliminar_pregunta({{ i.id }})">
             </td>
         </tr>
         {% endfor %}
+
+<!--AQUI VA LO DE LA PREGUNTA NUEVA-->
         <tr>
             <td><input id="nombre_pregunta" type="text" name="nombre"></td>
             <td>
-                <select id='grupo_id' name="grupo">
+                <select id='grupo_id_new' name="grupo">
                     {% for i in grupos %}
                         <option value="{{ i.id }}">{{ i.nombre }}</option>
                     {% endfor %}
@@ -60,7 +67,7 @@ agregar pregunta al grupo: {{ encuesta.nombre }}
             <td><input id='resp3' type="text" name="res3"></td>
             <td><input id='resp4' type="text" name="res4"></td>
             <td>
-                <select id='id_correcta' name="correcta">
+                <select id='id_correcta_new' name="correcta">
                     <option value="0">respuesta 1</option>
                     <option value="1">respuesta 2</option>
                     <option value="2">respuesta 3</option>
