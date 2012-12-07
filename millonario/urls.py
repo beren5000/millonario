@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
+from millonario.settings import MEDIA_ROOT
 
 admin.autodiscover()
 
@@ -18,4 +19,6 @@ urlpatterns = patterns('',
     url(r'^$', direct_to_template,
         {'template': 'index.html'},
         name='home'),
+    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': MEDIA_ROOT})
 )
