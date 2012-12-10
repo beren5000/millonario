@@ -140,3 +140,43 @@ body{
 		cursor:pointer;
 		position:absolute; right:14%; top:300px; width:254px; height:217px; background:url(../img/bot_iniciar.png) no-repeat center;
 	}
+#userlog{
+	width: 100%;
+	position: fixed;
+	height: 100%;
+	background:url(../img/bg-overlay.png);
+	top: 0;
+	left: 0;
+	z-index:1000;
+	display:none;
+}
+#userlog #form{
+	width: 240px;
+	background: red;
+	padding: 20px;
+	left: 50%;
+	position: absolute;
+	margin-left: -140px;
+	top: 30%;
+	color:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#userlog #form #cedula{
+	clear:both;
+	width: 230px !important;
+	background: #fff !important;
+	padding: 10px 5px !important;
+	color:#000 !important;	
+	font-size:15px;
+}
+#userlog #form input{
+	clear:both;
+	width: 50px;
+	background: #fff;
+	padding: 5px;
+	border:none;
+	background-color:#39C;
+	color:#fff;	
+	float:right;	
+	font-size:12px;
+}
