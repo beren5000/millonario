@@ -12,12 +12,27 @@
         function alertando(){
             alert('alertando');
 
-        }
+        };
+
+
+
+        function userauth(){
+            cedula= $('#cedula').val()
+            alert(cedula)
+            $.post( '{% url userlog %}',
+                    {
+                        'cedula':cedula
+                    },
+                    function(respuesta){
+                        respuesta=eval(respuesta);
+                        if (respuesta.estado==1){
+                            html=respuesta.html;
+                            $('#userlog').html(html);
+                        }
+                    });
+        };
+
         $(document).ready(function() {
-            $.get("{% url xmlencuestas %}",
-                function (data) {
-                    alert('cargando')
-                });
         });
     </script>
 
@@ -109,6 +124,12 @@
     </div>
     <div class="bg-nombre stardar">
         <div class="nombre"></div>
+    </div>
+    <div id="userlog">
+        <div id="form">
+            Cedula: <input id="cedula" type="text" name="cedula" />
+            <input type="button" name="submit" value="Enviar" onclick="userauth()" />
+        </div>
     </div>
     </body>
 {% endblock %}

@@ -240,3 +240,40 @@ def concursar(request):
     template = "concursar.html"
     return render_to_response(template, data, context_instance=RequestContext(request))
 
+@csrf_exempt
+def renderuserlog(request):
+    html="""
+
+        """
+    data={
+        'estado':1,
+        'html':html,
+    }
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+@csrf_exempt
+def userlog(request):
+    if request.method == "POST":
+        cedula=request.POST['cedula']
+        try:
+            perfil=Perfil.objects.get(cedula=cedula)
+            data={
+                'estado':1,
+                'perfil_id':perfil.id,
+                'nombre':perfil.nombre,
+                'html':"",
+
+            }
+        except:
+            html="""
+            """
+            data={
+                'estado':0,
+                'perfil_id':-1,
+                'nombre':"No Existe el Usuario",
+                'html':html,
+            }
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+    data = {'estado': 0}
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')

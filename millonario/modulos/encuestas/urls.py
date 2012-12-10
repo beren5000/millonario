@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^update/$', update, name='update'),
     url(r'^update_selects/$', update_selects, name='update_selects'),
     url(r'^xmlencuestas/$', xmlencuestas, name='xmlencuestas'),
-
+    url(r'^userlog/$', userlog, name='userlog'),
 
 #===============================================================================
 # 
