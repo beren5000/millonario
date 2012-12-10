@@ -105,11 +105,11 @@ urlpatterns = patterns('',
         name="password_reset_complete"),
 
     url(r'^entrar/$', 'django.contrib.auth.views.login',
-        {'template_name': 'modulos/userprofile/account/login.html'},
+        {'template_name': 'login.html'},
         name='login'),
 
     url(r'^salir/$', 'django.contrib.auth.views.logout',
-        {'template_name': 'modulos/userprofile/account/logout.html'},
+        {'template_name': 'logout.html'},
         name='logout'),
 
     # Registration
