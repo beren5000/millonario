@@ -9,38 +9,41 @@
 {% block jss %}{% endblock %}
 
 {% block contenido %}
-    <div id="contenedor">
-    
-   		<div id="cabeza_web">
-            <div class=" fright">
-                <div class="m-top10 alpha_echo font30 uppercased txt_rojo">Iniciar Sesión</div>
+    <div class="spacer menu_line m-top50" ></div>
+    <div class="standar">
+        <div class="contenido">
+            <div id="escoger">
+                <div class="tit-modulos">
+                    <div class="font-pq" style="color:#006633;">Iniciar Sesión</div>
+                    <div class="font-gd">Log In</div>
                 
-                <div id="caja_login">	
-                <form action="{% if next %}?next={{ next }}{% else %}{% url inicio %}{% endif %}" method="post" accept-charset="utf-8">{% csrf_token %}
-                    <div style="margin-top:30px;">
-                        <div class="chunkfive nombre_caja blanco">Cedula</div>
-                        <div><input style=" border:none; padding:10px;" name="username" type="text" class="input_login bg-blanco radius10" id="id_username" maxlength="100" /></div>
+   					<div class="spacer m-top50"></div>
+                    <div id="caja_login">	
+                    <form action="{% if next %}?next={{ next }}{% else %}{% url inicio %}{% endif %}" method="post" accept-charset="utf-8">{% csrf_token %}
+                        <div style="margin-top:30px;">
+                            <div class="">Usuario</div>
+                            <div><input style=" border:none; padding:10px; width:200px" name="username" type="text" class="input_login bg-blanco radius10" id="id_username" maxlength="100" /></div>
+                        </div>
+                        
+                        {% if form.username.errors %}
+                            <span class="error">{{ form.username.html_error_list }}</span>
+                        {% endif %}
+                        
+                        <div style="margin-top:20px;">
+                            <div class="chunkfive nombre_caja blanco">Contrase&ntilde;a</div>
+                            <div><input name="password" type="password" class="input_login bg-blanco radius10" style=" border:none; padding:10px; width:200px" id="id_password" /></div>
+                        </div>
+                        
+                        {% if form.password.errors %}
+                            <span class="quiet red">{{ form.password.html_error_list }}</span>
+                        {% endif %}
+        
+                        <div id="ingresar" class="fleft">
+                        <input type="submit" value="Ingresar" name="ingresar" class=" radius bot_verde pointer fleft" style="padding:10px; width:120px; margin-top:20px" />
+                        </div>
+                        
+                    </form>
                     </div>
-                    
-                    {% if form.username.errors %}
-                        <span class="error">{{ form.username.html_error_list }}</span>
-                    {% endif %}
-                    
-                    <div style="margin-top:20px;">
-                        <div class="chunkfive nombre_caja blanco">Contrase&ntilde;a</div>
-                        <div><input name="password" type="password" class="input_login bg-blanco radius10" id="id_password" /></div>
-                    </div>
-                    
-                    {% if form.password.errors %}
-                        <span class="quiet red">{{ form.password.html_error_list }}</span>
-                    {% endif %}
-
-                    <div id="ingresar" class="fright">
-                	<input type="submit" value="Ingresar" name="ingresar" class="bot-submit pointer" />
-                    </div>
-                    
-                </form>
-                </div>
                 </div>
                 
             </div>
