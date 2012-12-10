@@ -161,3 +161,7 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+millonario/media/swf/juego_backUp.fla
+
+millonario/modulos/kernel/userprofile/locale/zh_TW/LC_MESSAGES/django - copia.po
