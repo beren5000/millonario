@@ -136,9 +136,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'millonario.modulos.encuestas',
-#    'millonario.modulos.kernel.perfil',
-#    'millonario.modulos.kernel.userprofile',
-#    'millonario.modulos.segmentacion',
+    'millonario.modulos.kernel.perfil',
+    'millonario.modulos.kernel.userprofile',
+    'millonario.modulos.segmentacion',
 #    'millonario.modulos.empresas',
 #    'millonario.modulos.negocios',
 #    'millonario.modulos.recursos',
