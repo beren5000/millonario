@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^$', direct_to_template,
         {'template': 'index.html'},
         name='home'),
+
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': MEDIA_ROOT})
 )

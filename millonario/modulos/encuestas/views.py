@@ -234,3 +234,9 @@ def xmlencuestas(request):
     results += "</encuestas>"
     return HttpResponse(results, mimetype='text/xml')
 
+def concursar(request):
+    encuestas=Encuesta.objects.all()
+    data = {'encuestas': encuestas}
+    template = "concursar.html"
+    return render_to_response(template, data, context_instance=RequestContext(request))
+

@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db847ba3-63e0-4728-95da-a01c299fc777" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/database.db" afterPath="$PROJECT_DIR$/millonario/database.db" />
+    <list default="true" id="db847ba3-63e0-4728-95da-a01c299fc777" name="Default" comment="mediaurl">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/database.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-cuadros.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-menu_line.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-menu_line.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-modulos.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-nombre_juego.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-page-.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-page.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-page" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-puntos_gd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg-verde.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg_sweepstakes_section1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bg_sweepstakes_step1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/bot_iniciar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/btn_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/icon_data.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/logo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/nombre_juego.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/img/tit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/__.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/acabo.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/apertura.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/aplausos.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/click.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/correcto.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/espera_old.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/fin_publico.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/inicio.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/llamada/Conformed Files/llamada_inicio 48000 1.pkf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/llamada/Conformed Files/llamada_inicio 48000 1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/llamada/Conformed Files/llamada_inicio 48000 2.pkf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/llamada/Conformed Files/llamada_inicio 48000 2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/llamada_inicio.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/magica.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pedo.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pista/Sesión sin título 1/Conformed Files/pregunta_publico 48000 1.pkf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pista/Sesión sin título 1/Conformed Files/pregunta_publico 48000 1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pollo.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pregunta.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pregunta_publico.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/respuesta.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/risas.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/risas2.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/streamsound 0.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/streamsound 1.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/streamsound 5.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/streamsound 7.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/streamsound 8.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/suspenso.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/tetrix.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/tiro.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/swf/juego.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/css/font.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/css/fonts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/js/jquery-ui.1.8.20.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/js/jquery.mousewheel.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/js/swfobject_modified.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/llamada/llamada.sesx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/media/sonidos/pista/Sesión sin título 1/Sesión sin título 1.sesx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/millonario/templates/concursar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/modulos/encuestas/urls.py" afterPath="$PROJECT_DIR$/millonario/modulos/encuestas/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/modulos/encuestas/views.py" afterPath="$PROJECT_DIR$/millonario/modulos/encuestas/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/templates/administrador.html" afterPath="$PROJECT_DIR$/millonario/templates/administrador.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/templates/base.html" afterPath="$PROJECT_DIR$/millonario/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/templates/index.html" afterPath="$PROJECT_DIR$/millonario/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/millonario/urls.py" afterPath="$PROJECT_DIR$/millonario/urls.py" />
     </list>
     <ignored path="millonario.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +93,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="26" selection-start="6558" selection-end="6558" vertical-scroll-proportion="0.5405405">
+            <state line="238" column="34" selection-start="7057" selection-end="7057" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#30#77#0" expanded="true" />
               </folding>
@@ -41,8 +107,19 @@
       <file leaf-file-name="administrador.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/millonario/templates/administrador.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="24" selection-start="4398" selection-end="4398" vertical-scroll-proportion="5.1372547">
+            <state line="138" column="14" selection-start="5192" selection-end="5195" vertical-scroll-proportion="-3.372549">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/millonario/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="0" selection-start="769" selection-end="769" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,16 +127,25 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="40" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0">
+            <state line="10" column="35" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formulario.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/millonario/templates/formulario.html">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/millonario/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="35" selection-start="1432" selection-end="1432" vertical-scroll-proportion="-7.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/millonario/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="27" selection-start="187" selection-end="187" vertical-scroll-proportion="-4.576923">
               <folding />
             </state>
           </provider>
@@ -68,20 +154,40 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/millonario/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="-13.730769">
+            <state line="10" column="82" selection-start="300" selection-end="300" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/models.py">
+      <file leaf-file-name="concursar.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/millonario/templates/concursar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="76" selection-start="1497" selection-end="1497" vertical-scroll-proportion="-12.16">
+            <state line="221" column="110" selection-start="6641" selection-end="6641" vertical-scroll-proportion="0.49709865">
               <folding>
-                <marker date="1354832340734" expanded="true" signature="1299:1497" placeholder="..." />
-                <marker date="1354832340734" expanded="true" signature="1420:1497" placeholder="..." />
+                <element signature="e#6017#6039#0" expanded="true" />
+                <element signature="e#6169#6224#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/millonario/modulos/kernel/userprofile/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/millonario/modulos/kernel/perfil/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,7 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/millonario/modulos/empresas/admin.py" />
         <option value="$PROJECT_DIR$/millonario/modulos/negocios/admin.py" />
         <option value="$PROJECT_DIR$/millonario/modulos/recursos/admin.py" />
         <option value="$PROJECT_DIR$/millonario/modulos/recursos/models.py" />
@@ -108,14 +213,15 @@
         <option value="$PROJECT_DIR$/millonario/settings.py" />
         <option value="$PROJECT_DIR$/millonario/modulos/encuestas/admin.py" />
         <option value="$PROJECT_DIR$/millonario/templates/grupos.html" />
-        <option value="$PROJECT_DIR$/millonario/urls.py" />
-        <option value="$PROJECT_DIR$/millonario/templates/index.html" />
-        <option value="$PROJECT_DIR$/millonario/templates/base.html" />
         <option value="$PROJECT_DIR$/millonario/modulos/encuestas/models.py" />
         <option value="$PROJECT_DIR$/millonario/templates/formulario.html" />
         <option value="$PROJECT_DIR$/millonario/templates/administrador.html" />
+        <option value="$PROJECT_DIR$/millonario/templates/base.html" />
+        <option value="$PROJECT_DIR$/millonario/urls.py" />
         <option value="$PROJECT_DIR$/millonario/modulos/encuestas/urls.py" />
         <option value="$PROJECT_DIR$/millonario/modulos/encuestas/views.py" />
+        <option value="$PROJECT_DIR$/millonario/templates/index.html" />
+        <option value="$PROJECT_DIR$/millonario/templates/concursar.html" />
       </list>
     </option>
   </component>
@@ -219,6 +325,120 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modulos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="segmentacion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modulos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modulos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="userprofile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modulos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="perfil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="millonario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -238,7 +458,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../clickmillonario/juego" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../eldiad/juego" />
     <property name="DefaultHtmlFileTemplate" value="Html" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -404,19 +624,22 @@
       <created>1354840761914</created>
       <updated>1354840761914</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="mediaurl">
+      <created>1354853115668</created>
+      <updated>1354853115668</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="786" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1296" height="786" extended-state="1" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21717991" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24068071" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32747602" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -427,6 +650,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328594" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -467,7 +691,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml encuestas" />
+    <option name="LAST_COMMIT_MESSAGE" value="mediaurl" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -483,6 +707,7 @@
     <MESSAGE value="base y otros" />
     <MESSAGE value="nuevos cambios" />
     <MESSAGE value="xml encuestas" />
+    <MESSAGE value="mediaurl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -490,38 +715,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/millonario/templates/administrador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="66" selection-start="4595" selection-end="4595" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/modulos/kernel/perfil/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="36" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.9440789" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/modulos/negocios/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/modulos/recursos/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://E:/Users/camilo/Documents/mead/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="55" selection-start="401" selection-end="452" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://E:/Users/camilo/Documents/mead/modulos/recursos/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -532,61 +725,109 @@
         <state line="17" column="0" selection-start="812" selection-end="864" vertical-scroll-proportion="-4.8527274" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/millonario/templates/formulario.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="18" selection-start="178" selection-end="178" vertical-scroll-proportion="0.21174377" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="18" selection-start="722" selection-end="722" vertical-scroll-proportion="0.4808652">
+        <state line="42" column="35" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="76" selection-start="1497" selection-end="1497" vertical-scroll-proportion="-12.16">
+        <state line="48" column="1" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="769" selection-end="769" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1354832340734" expanded="true" signature="1299:1497" placeholder="..." />
-            <marker date="1354832340734" expanded="true" signature="1420:1497" placeholder="..." />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="238" column="34" selection-start="7057" selection-end="7057" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#30#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="35" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="267" column="7" selection-start="4880" selection-end="8414" vertical-scroll-proportion="0.7490775">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/millonario/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="-13.730769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/templates/formulario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="35" selection-start="1432" selection-end="1432" vertical-scroll-proportion="-7.0">
+        <state line="10" column="82" selection-start="300" selection-end="300" vertical-scroll-proportion="-6.5384617">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/millonario/templates/administrador.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="24" selection-start="4398" selection-end="4398" vertical-scroll-proportion="5.1372547">
+        <state line="138" column="14" selection-start="5192" selection-end="5195" vertical-scroll-proportion="-3.372549">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/urls.py">
+    <entry file="file://$PROJECT_DIR$/millonario/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="40" selection-start="959" selection-end="959" vertical-scroll-proportion="0.0">
+        <state line="7" column="27" selection-start="187" selection-end="187" vertical-scroll-proportion="-4.576923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/millonario/modulos/encuestas/views.py">
+    <entry file="file://$PROJECT_DIR$/millonario/modulos/kernel/perfil/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="26" selection-start="6558" selection-end="6558" vertical-scroll-proportion="0.5405405">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/modulos/kernel/userprofile/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#30#77#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/modulos/kernel/perfil/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/millonario/templates/concursar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="221" column="110" selection-start="6641" selection-end="6641" vertical-scroll-proportion="0.49709865">
+          <folding>
+            <element signature="e#6017#6039#0" expanded="true" />
+            <element signature="e#6169#6224#0" expanded="true" />
           </folding>
         </state>
       </provider>
