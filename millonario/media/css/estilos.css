@@ -94,6 +94,7 @@ body{
 		line-height:70px;
 		cursor:pointer;
 		font-size:18px;
+		text-transform:capitalize;
 	}		
 		.data_moludos li .font-pq{
 			font-size:15px;

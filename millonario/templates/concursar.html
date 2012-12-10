@@ -22,16 +22,16 @@
     </script>
 
     <script src="{{ MEDIA_URL }}js/swfobject_modified.js" type="text/javascript"></script>
-    <script>
+    <!--<script>
         $().ready(function() {
             $('.data_moludos li').hover(function(){
                 if($(this).attr('class')=='s_0')
-                    $(this).fadeTo('fast', 0.5);
+                $(this).fadeTo('fast', 0.5);
             },function(){
                 if($(this).attr('class')=='s_0')
-                    $(this).fadeTo(100, 1);
+                $(this).fadeTo(100, 1);
             })
-            $('.data_moludos li').click(function(){
+            $('.data_moludos li').click(function(){	
                 if($(this).attr('class')=='s_0'){
                     $(this).fadeTo(100, 1);
                     $(this).attr('class','s_1');
@@ -41,7 +41,7 @@
                 }
             })
             $('#bot_iniciar').click(function(){
-                $('#preguntas').slideUp(function(){
+                $('#preguntas').slideUp(function(){				
                     $('#juego_swf').slideDown(500,function(){
                         $('.bg-nombre').css('display','block')
                         $('#juego_swf .object').slideDown()
@@ -49,10 +49,10 @@
                 });
                 $('.spacer').animate({
                     'height':0
-                });
+                });	
             })
         });
-    </script>
+    </script>-->
 {% endblock %}
 
 {% block contenido %}
