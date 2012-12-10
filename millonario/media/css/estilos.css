@@ -155,6 +155,16 @@ body{
 	z-index:1000;
 	display:none;
 }
+#userreg{
+	width: 100%;
+	position: fixed;
+	height: 100%;
+	background:url(../img/bg-overlay.png);
+	top: 0;
+	left: 0;
+	z-index:2000;
+	display:none;
+}
 #userlog #form{
 	width: 240px;
 	background: red;
@@ -231,4 +241,12 @@ body{
 }
 #preguntas th{
 	font-size:12px;
+}
+#caja_login{
+	font-size:18px;
+	color:#000;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-style:italic;
+	font-weight:normal;
+	text-transform:capitalize;
 }
