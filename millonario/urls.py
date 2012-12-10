@@ -20,6 +20,8 @@ urlpatterns = patterns('',
         {'template': 'index.html'},
         name='home'),
 
+    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, name='login'),
+
     (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': MEDIA_ROOT})
 )
