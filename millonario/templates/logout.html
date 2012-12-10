@@ -1,0 +1,28 @@
+{% extends "100marcas/cuenta/login.php" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+{% block robots %}noindex,nofollow{% endblock %}
+{% block menu_principal%} 
+		{% include "templates_game/menus_portal/menu_cabecera.html" %}
+{% endblock %}
+
+{% block content %}
+   <script>
+		$('.tit-titulos').html('Sesión');
+		$('.hr-inicio').css('width','510px');
+		$('#titulos').css('float','left');
+		$('#titulos').css('height','450px');
+    </script>
+    
+	<div class="success derecho-int futura" style="color:#fff; margin-top:10px;">
+<div class="notice">
+	<span class="uppercased font18 futurab">{% trans "Logged out" %}</span><br />
+	{% trans "You've been logged out" %}. <a href="{% url login %}" class="error futura uppercased font18" style="text-decoration:none;">( {% trans 'Log in again' %})</a>
+</div>
+</div>
+{% endblock %}
+
+{% block menu_pie %} 
+		{% include "templates_game/menus_portal/menu_pie.html" %}
+{% endblock %}
