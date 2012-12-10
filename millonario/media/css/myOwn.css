@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Fuente*/
+body{
+	margin:0;
+	padding:0;
+}
+img{
+	border:none;
+}
+
+
+@font-face {
+    font-family: 'FuturaWebfontRegular';
+    src: url('../fonts/futura/futuramc-webfont.eot');
+    src: url('../fonts/futura/futuramc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futura/futuramc-webfont.woff') format('woff'),
+         url('../fonts/futura/futuramc-webfont.ttf') format('truetype'),
+         url('../fonts/futura/futuramc-webfont.svg#WebfontRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face{font-family:'FuturaMdBTMedium';src:url('../fonts/futura/tt0142m_-webfont.eot');src:url('../fonts/futura/tt0142m_-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/futura/tt0142m_-webfont.woff') format('woff'),url('../fonts/futura/tt0142m_-webfont.ttf') format('truetype'),url('../fonts/futura/tt0142m_-webfont.svg#FuturaMdBTMedium') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'FuturaLtBTLight';src:url('../fonts/futura/futura_light_bt-webfont.eot');src:url('../fonts/futura/futura_light_bt-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/futura/futura_light_bt-webfont.woff') format('woff'),url('../fonts/futura/futura_light_bt-webfont.ttf') format('truetype'),url('../fonts/futura/futura_light_bt-webfont.svg#FuturaLtBTLight') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'OCRAExtendedRegular';src:url('../fonts/ocr/ocr-webfont.eot');src:url('../fonts/ocr/ocr-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/ocr/ocr-webfont.woff') format('woff'),url('../fonts/ocr/ocr-webfont.ttf') format('truetype'),url('../fonts/ocr/ocr-webfont.svg#OCRABTRegular') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'OCRAStdRegular';src:url('../fonts/ocr-std/ocrastd-webfont.eot');src:url('../fonts/ocr-std/ocrastd-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/ocr-std/ocrastd-webfont.woff') format('woff'),url('../fonts/ocr-std/ocrastd-webfont.ttf') format('truetype'),url('../fonts/ocr-std/ocrastd-webfont.svg#OCRAStdRegular') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'OCRABTRegular';src:url('../fonts/ocr-bt/ocr-a___-webfont.eot');src:url('../fonts/ocr-bt/ocr-a___-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/ocr-bt/ocr-a___-webfont.woff') format('woff'),url('../fonts/ocr-bt/ocr-a___-webfont.ttf') format('truetype'),url('../fonts/ocr-bt/ocr-a___-webfont.svg#OCRABTRegular') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'DSDigitalNormal';src:url('../fonts/ds-digit/ds-digit-webfont.eot');src:url('../fonts/ds-digit/ds-digit-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/ds-digit/ds-digit-webfont.woff') format('woff'),url('../fonts/ds-digit/ds-digit-webfont.ttf') format('truetype'),url('../fonts/ds-digit/ds-digit-webfont.svg#DSDigitalNormal') format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'ChunkFiveRoman';src:url('../fonts/chunkfive/chunkfive-webfont.eot');src:url('../fonts/chunkfive/chunkfive-webfont.eot?#iefix') format('embedded-opentype'),url('../fonts/chunkfive/chunkfive-webfont.woff') format('woff'),url('../fonts/chunkfive/chunkfive-webfont.ttf') format('truetype'),url('../fonts/chunkfive/chunkfive-webfont.svg#ChunkFiveRoman') format('svg');font-weight:normal;font-style:normal;}
+.futura-condensed{
+	font-family: 'FuturaWebfontRegular', verdana;
+}
+
+.futura{
+	font-family: 'FuturaLtBTLight',Verdana;
+}
+.futurab{
+	font-family: 'FuturaMdBTMedium',Verdana;
+}
+.OCR{
+	font-family: 'OCRAStdRegular';	
+}
+.verdana{
+	font-family:Verdana, Geneva, sans-serif;	
+}
+.whited{
+	color:#fff;
+	text-decoration:none;
+}
+.blacked{
+	color:#000;
+	text-decoration:none;
+}
+
+/*end Fuente*/
+
+/*end Mouse*/
+.pointer{
+	cursor:pointer;
+}
+.fnone{
+	float:none;
+	margin:10px 0;
+}
+/*end Mouse*/
+.m-top-10{	
+	margin-top:10px;
+}
+.fnone{
+	float:none;
+}
+.fleft{
+	float:left;
+}
+.fright{
+	float:right;
+}
+standar{
+	width:100%;
+}
+.clear{
+	clear:both;
+}
+.radius{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.radius3{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.radius10{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.uppercased{
+	text-transform:uppercase;
+}
+.none{
+	display:none;
+}
+.b{
+	font-weight:bold;
+}

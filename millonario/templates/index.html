@@ -1,13 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Quien la tiene Clara{% endblock %}
+
+{% block contenido %}
+    <div class="spacer menu_line m-top50"></div>
+    <div class="standar">
+        <div class="contenido">
 <a href="{% url administrar %}">Administrar</a>
 <a href="{% url concursar %}">concursar</a>
 <a href="{% url login %}">login</a>
-
-</body>
-</html>
+		</div>
+	</div>
+    
+{% endblock %}

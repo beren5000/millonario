@@ -1,9 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title>Administrar</title>
-    <script src="{{ MEDIA_URL }}/js/jquery.min.js"></script>
+{% extends "base.html" %}
+
+{% block title %}Quien la tiene Clara{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block scripts %}
     <script type="text/javascript">
         function ver_preguntas(encuesta){
             $.post( '/encuestas/ver_preguntas/',
@@ -14,7 +17,8 @@
                         //alert("trayendo preguntas ve");
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
-                        $('#preguntas').html(preguntas);
+                        $('#preguntas').html(preguntas).fadeIn();
+						$('.data_moludos').slideUp();
                         //alert("preguntas puestas alla abajo");
                     });
         };
@@ -122,12 +126,53 @@
 
                     });
         };
-
+		$(document).ready(function() {
+			$(".contenido").on('focus', '.cambiador', function(event){
+				$(this).css('background-color','#fff');
+			});
+			$(".contenido").on('focusout', '.cambiador', function(event){
+				console.log($(this))
+				$(this).removeAttr('style');
+			});	
+			
+        });
+		
+		function ocultar_preguntas(){			
+			$('#preguntas').slideUp();
+			$('.data_moludos').slideDown()
+		}
     </script>
-</head>
-<body>
+{% endblock %}
 
-    <table id="tabla_encuestas" border="1">
+{% block contenido %}
+    <div class="spacer menu_line m-top50"></div>
+    <div class="standar">
+        <div class="contenido">
+            <div id="escoger">
+                <div class="tit-modulos">
+                    <div class="font-pq" style="color:#006633;">Seleccionar y/o Agregar Modulos de preguntas</div>
+                    <div class="font-gd">Módulo de Preguntas</div>
+                    <!--<div style="float:right;"><span>Seleccionar todo</span> <span>Deseleccionar</span></div>-->
+                    
+                </div>
+                <ul class="data_moludos">
+                    {% for i in encuestas %}
+                         <li class="s_0">
+                         	<div class="icon_data">
+                                <input class="cambiador fleft" id="update_1_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"> 
+                                <div class="fright"><span class="font-pq fleft">{{ i.numero_de_preguntas }} Preguntas</span>
+                                <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div></div>
+                            </div>
+                         
+                         </li>
+                    {% endfor %}
+                        
+                </ul>
+            </div>
+       	</div>
+    </div>
+    
+    <!--<table id="tabla_encuestas" border="1">
         <thead>
             <tr>
                 <th>nombre</th>
@@ -171,8 +216,11 @@
         </tr>
         </tbody>
     </table>-->
-<div id="preguntas">
-    <div id="encuesta_seleccionada">-1</div>
-</div>
-</body>
-</html>
+    <div class="standar">
+        <div class="contenido">
+            <div id="preguntas">
+                <div id="encuesta_seleccionada">-1</div>
+            </div>
+    	</div>
+    </div>
+{% endblock %}

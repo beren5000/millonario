@@ -9,40 +9,11 @@
     {% endblock %}
     <link href='{{ MEDIA_URL }}css/fonts.css' rel='stylesheet' type='text/css'>
     <link href='{{ MEDIA_URL }}css/estilos.css' rel='stylesheet' type='text/css'>
+    <link href='{{ MEDIA_URL }}css/myOwn.css' rel='stylesheet' type='text/css'>
 
     <script src="{{ MEDIA_URL }}js/jquery.min.js" type="text/javascript"></script>
 	<script src="{{ MEDIA_URL }}js/swfobject_modified.js" type="text/javascript"></script>
-	<script>
-        $().ready(function() {
-            $('.data_moludos li').hover(function(){
-                if($(this).attr('class')=='s_0')
-                $(this).fadeTo('fast', 0.5);
-            },function(){
-                if($(this).attr('class')=='s_0')
-                $(this).fadeTo(100, 1);
-            })
-            $('.data_moludos li').click(function(){	
-                if($(this).attr('class')=='s_0'){
-                    $(this).fadeTo(100, 1);
-                    $(this).attr('class','s_1');
-                }else{
-                    $(this).fadeTo(100, 0.5);
-                    $(this).attr('class','s_0');
-                }
-            })
-            $('#bot_iniciar').click(function(){
-                $('#preguntas').slideUp(function(){				
-                    $('#juego_swf').slideDown(500,function(){
-                        $('.bg-nombre').css('display','block')
-                        $('#juego_swf .object').slideDown()
-                    })
-                });
-                $('.spacer').animate({
-                    'height':0
-                });	
-            })
-        });
-    </script>
+	
     {% block jss %}
     {% endblock %}
 
@@ -60,7 +31,7 @@
 
 {% block contenido %}
 <div class="spacer menu_line m-top50"></div>
-<div id="preguntas" class="standar">
+<div id="pregunta" class="standar">
 	<div class="contenido">
     	<div id="bot_iniciar"></div>
         <div id="escoger">
