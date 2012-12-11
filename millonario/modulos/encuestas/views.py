@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from millonario.settings import MEDIA_ROOT
 
 from millonario.modulos.encuestas.models import *
 from millonario.modulos.segmentacion.models import Sexo
@@ -323,14 +324,15 @@ def userreg(request):
 @csrf_exempt
 def xmlcedula(request):
     if request.method == "POST":
-        perfil_id=request.POST['perfil_id']
-        perfil=Perfil.objects.get(id=perfil_id)
+        cedula=request.POST['cedula']
+        perfil=Perfil.objects.get(cedula=cedula)
 
-        xml="<xml><data_cedula>"
-        xml+="<idded>"+str(perfil_id)+"</idded>"
+        xml="<?xml version='1.0' encoding='UTF-8'?><xml><data_cedula>"
+        xml+="<idded>"+str(perfil.id)+"</idded>"
         xml+="<named>"+str(perfil.nombre) +"</named>"
         xml+="</data_cedula></xml>"
-
+        myfile = open(MEDIA_ROOT+'/xml/xmlcedula.xml','w')
+        myfile.write(xml)
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
@@ -346,21 +348,22 @@ def xmljuego(request):
         #perfil=Perfil.objects.get(id=perfil_id)
         encuestas=Encuesta.objects.filter(id__in=encuestas)
 
-        xml="<xml>"
+        xml="<?xml version='1.0' encoding='UTF-8'?><xml>"
         grupos=Grupo.objects.all()
         for g in grupos:
-            xml+="<nivel nivel="+str(g.id)+">"
+            xml+="<nivel nivel='"+str(g.id)+"'>"
             for e in encuestas:
                 preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
                 for p in preguntas:
-                    xml+="<preguntas correcta="+str(p.respuesta_correcta.id)+">"
-                    xml+="<pregunta id="+str(p.id)+">"+str(p.nombre)+"</pregunta>"
+                    xml+="<preguntas correcta='"+str(p.respuesta_correcta.id)+"'>"
+                    xml+="<pregunta id='"+str(p.id)+"'>"+str(p.nombre)+"</pregunta>"
                     for r in p.respuestas:
-                        xml+="<item id="+str(r.id)+">"+str(r.nombre)+"</item>"
+                        xml+="<item id='"+str(r.id)+"'>"+str(r.nombre)+"</item>"
                     xml+="</preguntas>"
             xml+="</nivel>"
         xml+="</xml>"
-
+        myfile = open(MEDIA_ROOT+'/xml/xmlencuesta.xml','w')
+        myfile.write(xml)
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
