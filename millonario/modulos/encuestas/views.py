@@ -321,18 +321,32 @@ def userreg(request):
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
 @csrf_exempt
-def xmljuego(request):
+def xmlcedula(request):
     if request.method == "POST":
         perfil_id=request.POST['perfil_id']
+        perfil=Perfil.objects.get(id=perfil_id)
+
+        xml="<xml><data_cedula>"
+        xml+="<idded>"+str(perfil_id)+"</idded>"
+        xml+="<named>"+str(perfil.nombre) +"</named>"
+        xml+="</data_cedula></xml>"
+
+        return HttpResponse(xml, mimetype='text/xml')
+    xml="<estado>0</estado>"
+    return HttpResponse(xml, mimetype='text/xml')
+
+@csrf_exempt
+def xmljuego(request):
+    if request.method == "POST":
+        #perfil_id=request.POST['perfil_id']
         encuestas=request.POST.getlist('encuestas[]')
 
         encuestas=map(lambda x: int(x[5:]), encuestas)
 
-        perfil=Perfil.objects.get(id=perfil_id)
+        #perfil=Perfil.objects.get(id=perfil_id)
         encuestas=Encuesta.objects.filter(id__in=encuestas)
-        xml="<xml>"
-        xml+="<usuario id="+perfil_id+">"+perfil.nombre +"</usuario>"
 
+        xml="<xml>"
         grupos=Grupo.objects.all()
         for g in grupos:
             xml+="<nivel nivel="+str(g.id)+">"

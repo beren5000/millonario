@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^userlog/$', userlog, name='userlog'),
     url(r'^userreg/$', userreg, name='userreg'),
     url(r'^xmljuego/$', xmljuego, name='xmljuego'),
+    url(r'^xmlcedula/$', xmlcedula, name='xmlcedula'),
 #===============================================================================
 # 
 #    url(r'^profile/edit/location/$', location, name='profile_edit_location'),
