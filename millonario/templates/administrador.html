@@ -57,7 +57,9 @@
         };
 
         function agregar_encuesta(){
+            $("#addencu").show()
             $.post( '/quien_la_tiene_clara/agregar_encuesta/',
+
                     {
                         'nombre':$('#encuesta_nombre').val()
                     },
@@ -65,7 +67,10 @@
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         idencuesta=respuesta.id
-                        $('#tabla_encuestas > tbody:first').append('<tr><td>'+$('#encuesta_nombre').val()+'</td><td>0</td><td><div onclick="ver_preguntas('+idencuesta+')">ver preguntas</div></td></tr>');
+                        alert("aqui va");
+                        $('.data_moludos').prepend("<li class='s_0'><div class='icon_data'><input class='cambiador fleft' id='update_1_"+idencuesta+"' onchange='update("+idencuesta+",1)' value='"+$('#encuesta_nombre').val()+"'><div class='fright'><span class='font-pq fleft'><div id='npre_"+idencuesta+"'>0 Preguntas</div></span><div onclick='ver_preguntas("+idencuesta+")' class='fleft bot_verde ver_modulos radius'>Ver</div></div></div></li>");
+                        alert("aqui pego")
+                        $('#addencu').hide()
                         $('#preguntas').html(preguntas);
                     });
         };
@@ -93,7 +98,7 @@
                         'id':id_objeto,
                         'tipo':tipo,
                         'nombre':$('#update_'+tipo+'_'+id_objeto).val(),
-                        'encuesta':$('#encuesta_seleccionada').html()
+                        'encuesta':$('#encuesta_seleccionada').attr('title')
                     },
                     function(respuesta){
 
@@ -114,7 +119,7 @@
                         'id':id_objeto,
                         'tipo':tipo,
                         'id_cambio':$('#updates_'+tipo+'_'+id_objeto).find('option:selected').attr("id_cambio"),
-                        'encuesta':$('#encuesta_seleccionada').html()
+                        'encuesta':$('#encuesta_seleccionada').attr('title')
 
                     },
                     function(respuesta){
@@ -157,7 +162,10 @@
                     <!--<div style="float:right;"><span>Seleccionar todo</span> <span>Deseleccionar</span></div>-->
                     
                 </div>
+
+
                 <ul class="data_moludos">
+                    <div onclick="$('#addencu').show()" class="fleft bot_verde ver_modulos radius">Agregar Encuesta</div>
                     {% for i in encuestas %}
                          <li class="s_0">
                          	<div class="icon_data">
@@ -165,7 +173,6 @@
                                 <div class="fright"><span class="font-pq fleft"><div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }} Preguntas</div></span>
                                 <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div></div>
                             </div>
-                         
                          </li>
                     {% endfor %}
                         
@@ -218,11 +225,18 @@
         </tr>
         </tbody>
     </table>-->
+
+    <div id="addencu" style="display: none;">
+        Nombre: <input type="text" id="encuesta_nombre" />
+        <input type="button" value="Aceptar" onclick="agregar_encuesta()">
+        <input type="button" value="Cancelar" onclick="$('#addencu').hide()" >
+    </div>
     <div class="standar">
         <div class="contenido">
             <div id="preguntas">
-                <div id="encuesta_seleccionada"></div>
+                <div id="encuesta_seleccionada" title="-1"></div>
             </div>
     	</div>
     </div>
 {% endblock %}
+

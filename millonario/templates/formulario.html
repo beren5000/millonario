@@ -1,16 +1,24 @@
 <script type="text/javascript">
+    function confirmar_eliminar(id_pregunta){
+        $('#idconfelim').attr('title',id_pregunta);
+        $('#confelim').show();
 
+    };
 </script>
-<div id="encuesta_seleccionada" title="{{ encuesta.id }}" style="display: none;">{{ encuesta.id }}</div>
+<div id="encuesta_seleccionada" style="display: none;" title="{{ encuesta.id }}">{{ encuesta.id }}</div>
 <br>
 <br>
 Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verde ver_modulos radius">Volver</div></div>
 <br>
 <br>
-<ul>
-	<li>ola
-    </li>
-</ul>
+
+<div id="confelim" style="display: none;">
+    Seguro que desea Eliminar
+    <div id="idconfelim" title="-1" style="display: none;"></div>
+    <input type="button" value="Aceptar" onclick="eliminar_pregunta($('#idconfelim').attr('title'))">
+    <input type="button" value="Cancelar" onclick="$('#confelim').hide()" >
+</div>
+
 <table border="1" bgcolor="#FFFFFF">
     <thead>
         <tr>
@@ -51,7 +59,7 @@ Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verd
                 </select>
             </td>
             <td>
-                <input type="submit" value="eliminar" onclick="eliminar_pregunta({{ i.id }})">
+                <input type="submit" value="eliminar" title="5" onclick="confirmar_eliminar({{ i.id }})">
             </td>
         </tr>
         {% endfor %}
