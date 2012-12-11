@@ -11,7 +11,7 @@ from millonario.modulos.encuestas.models import *
 from millonario.modulos.segmentacion.models import Sexo
 
 def administrar(request):
-    encuestas=Encuesta.objects.all()
+    encuestas=Encuesta.objects.filter(activo=True)
     niveles=Grupo.objects.all()
     template = "administrador.html"
     data = {
@@ -31,6 +31,19 @@ def ver_preguntas(request):
         }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
     return HttpResponse(simplejson.dumps({'estado':0}),mimetype='application/json')
+
+
+@csrf_exempt
+def desactivar_encuesta(request):
+    if request.POST:
+        encuesta=request.POST['encuesta']
+        encuesta=Encuesta.objects.get(id=int(encuesta))
+        encuesta.activo=False
+        encuesta.save()
+        data={'estado':1}
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+    return HttpResponse(simplejson.dumps({'estado':0}),mimetype='application/json')
+
 
 @csrf_exempt
 def eliminar_pregunta(request):
@@ -230,7 +243,7 @@ def update_selects(request):
 @csrf_exempt
 def xmlencuestas(request):
 
-    encuestas = Encuesta.objects.all()
+    encuestas = Encuesta.objects.filter(activo=True)
     results="<encuestas>"
     for encuesta in encuestas:
         results+="<encuesta id='"+str(encuesta.id)+"'>"+str(encuesta.nombre)+"</encuesta>"
@@ -239,7 +252,7 @@ def xmlencuestas(request):
     return HttpResponse(results, mimetype='text/xml')
 
 def concursar(request):
-    encuestas=Encuesta.objects.all()
+    encuestas=Encuesta.objects.filter(activo=True)
     data = {'encuestas': encuestas}
     template = "concursar.html"
     return render_to_response(template, data, context_instance=RequestContext(request))
@@ -259,7 +272,6 @@ def renderuserlog(request):
 def userlog(request):
     if request.method == "POST":
         cedula=request.POST['cedula']
-        usuario=User()
         try:
             perfil=Perfil.objects.get(cedula=cedula)
             data={
@@ -309,18 +321,32 @@ def userreg(request):
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
 @csrf_exempt
-def xmljuego(request):
+def xmlcedula(request):
     if request.method == "POST":
         perfil_id=request.POST['perfil_id']
+        perfil=Perfil.objects.get(id=perfil_id)
+
+        xml="<xml><data_cedula>"
+        xml+="<idded>"+str(perfil_id)+"</idded>"
+        xml+="<named>"+str(perfil.nombre) +"</named>"
+        xml+="</data_cedula></xml>"
+
+        return HttpResponse(xml, mimetype='text/xml')
+    xml="<estado>0</estado>"
+    return HttpResponse(xml, mimetype='text/xml')
+
+@csrf_exempt
+def xmljuego(request):
+    if request.method == "POST":
+        #perfil_id=request.POST['perfil_id']
         encuestas=request.POST.getlist('encuestas[]')
 
         encuestas=map(lambda x: int(x[5:]), encuestas)
 
-        perfil=Perfil.objects.get(id=perfil_id)
+        #perfil=Perfil.objects.get(id=perfil_id)
         encuestas=Encuesta.objects.filter(id__in=encuestas)
-        xml="<xml>"
-        xml+="<usuario id="+perfil_id+">"+perfil.nombre +"</usuario>"
 
+        xml="<xml>"
         grupos=Grupo.objects.all()
         for g in grupos:
             xml+="<nivel nivel="+str(g.id)+">"
