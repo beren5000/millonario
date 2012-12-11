@@ -38,6 +38,7 @@
                     function(respuesta){
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
+                        $("#npre_"+$("#encuesta_seleccionada").attr('title')).html(respuesta.numero_preguntas+" Preguntas")
                         $('#preguntas').html(preguntas);
                     });
         };
@@ -50,6 +51,7 @@
                     function(respuesta){
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
+                        $("#npre_"+$("#encuesta_seleccionada").attr('title')).html(respuesta.numero_preguntas+" Preguntas");
                         $('#preguntas').html(preguntas);
                     });
         };
@@ -160,7 +162,7 @@
                          <li class="s_0">
                          	<div class="icon_data">
                                 <input class="cambiador fleft" id="update_1_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"> 
-                                <div class="fright"><span class="font-pq fleft"><div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }}</div> Preguntas</span>
+                                <div class="fright"><span class="font-pq fleft"><div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }} Preguntas</div></span>
                                 <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div></div>
                             </div>
                          

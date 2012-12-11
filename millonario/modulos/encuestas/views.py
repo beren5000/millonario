@@ -48,6 +48,7 @@ def eliminar_pregunta(request):
 
         data={
             'estado':1,
+            'numero_preguntas':encuesta.numero_de_preguntas,
             'preguntas':preguntas
         }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
@@ -82,6 +83,7 @@ def agregar_pregunta(request):
         preguntas=Encuesta.objects.get(id=int(request.POST['encuesta_id'])).render_preguntas
         data={
             'estado':1,
+            'numero_preguntas':encuesta.numero_de_preguntas,
             'preguntas':preguntas
         }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
