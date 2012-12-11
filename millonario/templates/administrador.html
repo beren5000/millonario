@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript">
+    <script type="text/javascript">		
         function confirmar_eliminar_encuesta(id_encuesta){
             $('#idconfelimencuesta').attr('title',id_encuesta);
             $('#confelimencuesta').show();
@@ -40,6 +40,7 @@
                         $('#preguntas').html(preguntas).fadeIn();
 						$('.data_moludos').slideUp();
                         //alert("preguntas puestas alla abajo");
+						$('.volver_modulos').css('display','inline');
                     });
         };
 
@@ -87,7 +88,7 @@
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         idencuesta=respuesta.id
-                        $('.data_moludos').prepend("<li class='s_0'><div class='icon_data'><input class='cambiador fleft' id='update_1_"+idencuesta+"' onchange='update("+idencuesta+",1)' value='"+$('#encuesta_nombre').val()+"'><div class='fright'><span class='font-pq fleft'><div id='npre_"+idencuesta+"'>0 Preguntas</div></span><div onclick='ver_preguntas("+idencuesta+")' class='fleft bot_verde ver_modulos radius'>Ver</div></div></div></li>");
+                        $('.data_moludos').prepend("<li class='s_0'><div class='icon_data'><input class='cambiador fleft' id='update_1_"+idencuesta+"' onchange='update("+idencuesta+",1)' value='"+$('#encuesta_nombre').val()+"'><div class='fright'><span class='font-pq fleft'><div id='npre_"+idencuesta+"'>0 Preguntas</div></span><div onclick='ver_preguntas("+idencuesta+")' class='fleft bot_verde ver_modulos radius'>Ver</div><div onclick='confirmar_eliminar_encuesta("+idencuesta+")' class='fleft bot_rojo ver_modulos radius'>Eliminar</div></div></div></li>");
                         $('#addencu').hide()
                         $('#preguntas').html(preguntas);
                     });
@@ -182,8 +183,8 @@
                 </div>
 
 
+                <div onclick="$('#addencu').show()" class="fleft bot_verde ver_modulos radius">Agregar Encuesta</div>
                 <ul class="data_moludos">
-                    <div onclick="$('#addencu').show()" class="fleft bot_verde ver_modulos radius">Agregar Encuesta</div>
                     {% for i in encuestas %}
                          <li id="encuestali_{{ i.id }}" class="s_0">
                          	<div class="icon_data">
@@ -193,7 +194,7 @@
                                         <div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }} Preguntas</div>
                                     </span>
                                     <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div>
-                                    <div onclick="confirmar_eliminar_encuesta({{ i.id }})" class="fleft bot_verde ver_modulos radius">Eliminar</div>
+                                    <div onclick="confirmar_eliminar_encuesta({{ i.id }})" class="fleft bot_rojo ver_modulos radius">Eliminar</div>
                                 </div>
 
                             </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="iso-8859-1"?>
 <xml>
 	<preguntas correcta="D">
 		<pregunta>Cual de las siguientes se creo primero</pregunta>
@@ -22,9 +22,9 @@
 		<item>El Conejo</item>
 	</preguntas>
 	<preguntas correcta="D">
-		<pregunta>Cual de las siguientes no es una especie en peligo de extincion?</pregunta>
+		<pregunta>Cual de las siguientes no es una especie en peligo de extinción?</pregunta>
 		<item>El Coala</item>
-		<item>El Gueparto</item>
+		<item>El Guéparto</item>
 		<item>El Gorila</item>
 		<item>El Antilope</item>
 	</preguntas>
@@ -32,7 +32,7 @@
 		<pregunta>Las ranas pertenecen al grupo de...</pregunta>
 		<item>Anfibios</item>
 		<item>Reptiles</item>
-		<item>Mamiferos</item>
+		<item>Mamíferos</item>
 		<item>Peces</item>
 	</preguntas>
 	<preguntas correcta="C">
