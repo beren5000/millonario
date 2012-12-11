@@ -13,7 +13,7 @@
             alert('alertando');
         };
 
-        function xmlencuesta(perfil_id){
+        function xmlencuesta(){
 			
 			var encuestas=new Array();
 			
@@ -22,7 +22,6 @@
 			})
             $.post( '{% url xmljuego %}',
 				{
-					'perfil_id':perfil_id,
 					'encuestas[]':encuestas
 				},
 				function(respuesta){
@@ -36,7 +35,8 @@
 		}
 		
 		function concurin(){ //Inicio del Consurso
-			$('#userlog').hide();
+
+            $('#userlog').hide();
 			$('#form_cedula').show();	
 			$('#nombre_encontrado').hide();	
 			
@@ -44,13 +44,21 @@
 		function concurout(){
 			$('#form_cedula').show();	
 			$('#nombre_encontrado').hide();	
-		}
+		};
 		function formin(){
             $('#userreg').show();		
-		}
+		};
 		function formout(){
             $('#userreg').hide();		
-		}
+		};
+
+        function crearxmlcedula(cedula){
+            $.post( '{% url xmlcedula %}',{'cedula':cedula},
+                    function(respuesta){
+                        respuesta=eval(respuesta);
+                        if (respuesta.estado==1){alert("xml creado");}
+                    });
+        };
 
         function userauth(){
             cedula= $('#cedula').val();
@@ -66,6 +74,7 @@
                             html=respuesta.html;
                            	$('#form_cedula').hide();
                             $('#nombre_encontrado').show().find('#poner_nombre').html(respuesta.nombre);
+                            crearxmlcedula(cedula);
                             //$('#userlog').hide();
                         }
                         else
@@ -136,7 +145,7 @@
                 }
             })
             $('#bot_iniciar').click(function(){
-				xmlencuesta('3');
+				xmlencuesta();
                 $('#userlog').show()
                 $('#preguntas').slideUp(function(){				
                     $('#juego_swf').slideDown(500,function(){
@@ -242,11 +251,11 @@
                 </li>
                 <li>
                 <label>Cargo:</label> 
-                <input class="font_input" id="apellidoreg" type="text" name="apellidos" />
+                <input class="font_input" id="cargoreg" type="text" name="cargo" />
                 </li>
                 <li>
                 <label>Dependecia:</label> 
-                <input class="font_input" id="apellidoreg" type="text" name="apellidos" />
+                <input class="font_input" id="dependenciareg" type="text" name="dependencias" />
                 </li>
                 <div class="clear"></div>
                 <hr />
