@@ -310,7 +310,9 @@ def userreg(request):
 def xmljuego(request):
     if request.method == "POST":
         perfil_id=request.POST['perfil_id']
-        encuestas=request.POST['encuestas']
+        encuestas=request.POST.getlist('encuestas[]')
+
+        encuestas=map(lambda x: int(x[5:]), encuestas)
 
         perfil=Perfil.objects.get(id=perfil_id)
         encuestas=Encuesta.objects.filter(id__in=encuestas)
@@ -319,14 +321,14 @@ def xmljuego(request):
 
         grupos=Grupo.objects.all()
         for g in grupos:
-            xml+="<nivel nivel="+g.id+">"
+            xml+="<nivel nivel="+str(g.id)+">"
             for e in encuestas:
                 preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
                 for p in preguntas:
-                    xml+="<preguntas correcta="+p.respuesta_correcta.id+">"
-                    xml+="<pregunta id="+p.id+">"+p.nombre+"</pregunta>"
+                    xml+="<preguntas correcta="+str(p.respuesta_correcta.id)+">"
+                    xml+="<pregunta id="+str(p.id)+">"+str(p.nombre)+"</pregunta>"
                     for r in p.respuestas:
-                        xml+="<item id="+r.id+">"+r.nombre+"</item>"
+                        xml+="<item id="+str(r.id)+">"+str(r.nombre)+"</item>"
                     xml+="</preguntas>"
             xml+="</nivel>"
         xml+="</xml>"

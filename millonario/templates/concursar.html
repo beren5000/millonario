@@ -15,19 +15,16 @@
         };
 
         function xmlencuesta(perfil_id){
-			//var obj = $('.s_1');
-    		//var encuestas = $.makeArray(obj.attr('id'));
 			
 			var encuestas=new Array();
 			
 			$('.s_1').each(function(){
-				encuestas.push($(this).attr('id'))
+                encuestas.push($(this).attr('id'))
 			})
-			console.log(encuestas);
             $.post( '{% url xmljuego %}',
 				{
 					'perfil_id':perfil_id,
-					'encuestas':encuestas
+					'encuestas[]':encuestas
 				},
 				function(respuesta){
 					console.log(respuesta)
