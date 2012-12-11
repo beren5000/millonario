@@ -9,7 +9,7 @@
 {% block scripts %}
     <script type="text/javascript">
         function ver_preguntas(encuesta){
-            $.post( '/encuestas/ver_preguntas/',
+            $.post( '/quien_la_tiene_clara/ver_preguntas/',
                     {
                         'encuesta_id':encuesta
                     },
@@ -24,7 +24,7 @@
         };
 
         function agregar_pregunta(encuesta){
-            $.post( '/encuestas/agregar_pregunta/',
+            $.post( '/quien_la_tiene_clara/agregar_pregunta/',
                     {
                         'encuesta_id':encuesta,
                         'nombre':$('#nombre_pregunta').val(),
@@ -43,7 +43,7 @@
         };
 
         function eliminar_pregunta(pregunta){
-            $.post( '/encuestas/eliminar_pregunta/',
+            $.post( '/quien_la_tiene_clara/eliminar_pregunta/',
                     {
                         'pregunta_id':pregunta
                     },
@@ -55,7 +55,7 @@
         };
 
         function agregar_encuesta(){
-            $.post( '/encuestas/agregar_encuesta/',
+            $.post( '/quien_la_tiene_clara/agregar_encuesta/',
                     {
                         'nombre':$('#encuesta_nombre').val()
                     },
@@ -69,7 +69,7 @@
         };
 
         /*function agregar_nivel(){
-            $.post( '/encuestas/agregar_nivel/',
+            $.post( '/quien_la_tiene_clara/agregar_nivel/',
                     {
                         'nombre':$('#nivel_nombre').val(),
                         'encuesta':$('#encuesta_seleccionada').html()
@@ -86,7 +86,7 @@
         };*/
 
         function update(id_objeto,tipo){
-            $.post( '/encuestas/update/',
+            $.post( '/quien_la_tiene_clara/update/',
                     {
                         'id':id_objeto,
                         'tipo':tipo,
@@ -107,7 +107,7 @@
         };
 
         function update_selects(id_objeto,tipo){
-            $.post( '/encuestas/update_selects/',
+            $.post( '/quien_la_tiene_clara/update_selects/',
                     {
                         'id':id_objeto,
                         'tipo':tipo,
@@ -160,7 +160,7 @@
                          <li class="s_0">
                          	<div class="icon_data">
                                 <input class="cambiador fleft" id="update_1_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"> 
-                                <div class="fright"><span class="font-pq fleft">{{ i.numero_de_preguntas }} Preguntas</span>
+                                <div class="fright"><span class="font-pq fleft"><div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }}</div> Preguntas</span>
                                 <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div></div>
                             </div>
                          

@@ -14,10 +14,19 @@
 
         };
 
-
+        function xmlencuesta(perfil_id,encuestas){
+            $.post( '{% url xmljuego %}',
+                    {
+                        'perfil_id':perfil_id,
+                        'encuestas':encuestas
+                    },
+                    function(respuesta){
+                        console.log(respuesta)
+                    });
+        };
 
         function userauth(){
-            cedula= $('#cedula').val()
+            cedula= $('#cedula').val();
             $.post( '{% url userlog %}',
                     {
                         'cedula':cedula
@@ -27,6 +36,39 @@
                         if (respuesta.estado==1){
                             html=respuesta.html;
                             $('#userlog').hide();
+                        }
+                        else
+                        {
+                            $('#userlog').hide();
+                            $('#userreg').show();
+
+                        }
+                    });
+        };
+
+        function userreg(){
+            cedula= $('#cedulareg').val();
+            nombre= $('#nombrereg').val();
+            apellidos= $('#apellidoreg').val();
+            sexo= $('#sexoreg option:selected').val();
+            $.post( '{% url userreg %}',
+                    {
+                        'cedula':cedula,
+                        'nombre':nombre,
+                        'apellidos':apellidos,
+                        'sexo':sexo
+                    },
+                    function(respuesta){
+                        respuesta=eval(respuesta);
+                        if (respuesta.estado==1){
+                            html=respuesta.html;
+                            $('#userlog').hide();
+                        }
+                        else
+                        {
+                            $('#userlog').hide();
+                            $('#userreg').show();
+
                         }
                     });
         };
@@ -132,6 +174,18 @@
         </div>
     </div>
 
+    <div id="userreg">
+        <div id="formreg">
+            Cedula: <input id="cedulareg" type="text" name="cedula" />
+            Nombre: <input id="nombrereg" type="text" name="nombre" />
+            Apellidos: <input id="apellidoreg" type="text" name="apellidos" />
+            Sexo: <select name="sexo" id="sexoreg">
+                    <option value="1">Hombre</option>
+                    <option value="2">Mujer</option>
+                </select>
+            <input type="button" name="submit" value="Enviar" onclick="userreg()" />
+        </div>
+    </div>
 
 
     </body>

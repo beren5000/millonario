@@ -195,6 +195,39 @@ body{
 	float:right;	
 	font-size:12px;
 }
+
+
+#userreg #formreg{
+    width: 240px;
+    background: red;
+    padding: 20px;
+    left: 50%;
+    position: absolute;
+    margin-left: -140px;
+    top: 30%;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#userlog #formreg #cedulareg{
+    clear:both;
+    width: 230px !important;
+    background: #fff !important;
+    padding: 10px 5px !important;
+    color:#000 !important;
+    font-size:15px;
+}
+#userlog #formreg input{
+    clear:both;
+    width: 50px;
+    background: #fff;
+    padding: 5px;
+    border:none;
+    background-color:#39C;
+    color:#fff;
+    float:right;
+    font-size:12px;
+}
+
 .cambiador{
 	width:300px;
 	background:none;

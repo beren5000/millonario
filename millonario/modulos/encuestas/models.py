@@ -48,6 +48,12 @@ class Pregunta(Maestra):
     def respuestas(self):
         return Respuesta.objects.filter(pregunta__id=self.id).order_by('id')
 
+    @property
+    def respuesta_correcta(self):
+        return Respuesta.objects.filter(pregunta__id=self.id, es_correcta=True)[0]
+
+
+
 
 
 class Respuesta(models.Model):

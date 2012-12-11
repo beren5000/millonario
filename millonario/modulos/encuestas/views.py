@@ -5,8 +5,10 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 
 from millonario.modulos.encuestas.models import *
+from millonario.modulos.segmentacion.models import Sexo
 
 def administrar(request):
     encuestas=Encuesta.objects.all()
@@ -255,6 +257,7 @@ def renderuserlog(request):
 def userlog(request):
     if request.method == "POST":
         cedula=request.POST['cedula']
+        usuario=User()
         try:
             perfil=Perfil.objects.get(cedula=cedula)
             data={
@@ -277,3 +280,57 @@ def userlog(request):
 
     data = {'estado': 0}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+@csrf_exempt
+def userreg(request):
+    if request.method == "POST":
+        cedula=request.POST['cedula']
+        nombre=request.POST['nombre']
+        apellido=request.POST['apellidos']
+        sexo=request.POST['sexo']
+
+        sexo=Sexo.objects.get(id=int(sexo))
+        new_user = User.objects.create_user(username=cedula,email=None, password=cedula)
+        new_user.save()
+        perfil=Perfil.objects.create(user=new_user, nombre=nombre, apellidos=apellido, sexo=sexo, cedula=int(cedula))
+        perfil.save()
+
+        data={
+            'estado':1,
+            'perfil_id':perfil.id,
+            'nombre':perfil.nombre,
+            'html':"",
+            }
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+    data = {'estado': 0}
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+@csrf_exempt
+def xmljuego(request):
+    if request.method == "POST":
+        perfil_id=request.POST['perfil_id']
+        encuestas=request.POST['encuestas']
+
+        perfil=Perfil.objects.get(id=perfil_id)
+        encuestas=Encuesta.objects.filter(id__in=encuestas)
+        xml="<xml>"
+        xml+="<usuario id="+perfil_id+">"+perfil.nombre +"</usuario>"
+
+        grupos=Grupo.objects.all()
+        for g in grupos:
+            xml+="<nivel nivel="+g.id+">"
+            for e in encuestas:
+                preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
+                for p in preguntas:
+                    xml+="<preguntas correcta="+p.respuesta_correcta.id+">"
+                    xml+="<pregunta id="+p.id+">"+p.nombre+"</pregunta>"
+                    for r in p.respuestas:
+                        xml+="<item id="+r.id+">"+r.nombre+"</item>"
+                    xml+="</preguntas>"
+            xml+="</nivel>"
+        xml+="</xml>"
+
+        return HttpResponse(xml, mimetype='text/xml')
+    xml="<estado>0</estado>"
+    return HttpResponse(xml, mimetype='text/xml')
