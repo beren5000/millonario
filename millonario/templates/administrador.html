@@ -8,6 +8,26 @@
 
 {% block scripts %}
     <script type="text/javascript">
+        function confirmar_eliminar_encuesta(id_encuesta){
+            $('#idconfelimencuesta').attr('title',id_encuesta);
+            $('#confelimencuesta').show();
+
+        };
+
+        function desactivar_encuesta(id_encuesta){
+            $.post( '{% url desactivar_encuesta %}',
+                    {
+                        'encuesta':id_encuesta
+                    },
+                    function(respuesta){
+                        respuesta=eval(respuesta);
+                        if(respuesta.estado==1){
+                            $("#encuestali_"+id_encuesta).remove()
+                            $('#confelimencuesta').hide();
+                        }
+                    });
+        };
+
         function ver_preguntas(encuesta){
             $.post( '/quien_la_tiene_clara/ver_preguntas/',
                     {
@@ -67,9 +87,7 @@
                         respuesta=eval(respuesta);
                         preguntas=respuesta.preguntas;
                         idencuesta=respuesta.id
-                        alert("aqui va");
                         $('.data_moludos').prepend("<li class='s_0'><div class='icon_data'><input class='cambiador fleft' id='update_1_"+idencuesta+"' onchange='update("+idencuesta+",1)' value='"+$('#encuesta_nombre').val()+"'><div class='fright'><span class='font-pq fleft'><div id='npre_"+idencuesta+"'>0 Preguntas</div></span><div onclick='ver_preguntas("+idencuesta+")' class='fleft bot_verde ver_modulos radius'>Ver</div></div></div></li>");
-                        alert("aqui pego")
                         $('#addencu').hide()
                         $('#preguntas').html(preguntas);
                     });
@@ -167,11 +185,17 @@
                 <ul class="data_moludos">
                     <div onclick="$('#addencu').show()" class="fleft bot_verde ver_modulos radius">Agregar Encuesta</div>
                     {% for i in encuestas %}
-                         <li class="s_0">
+                         <li id="encuestali_{{ i.id }}" class="s_0">
                          	<div class="icon_data">
                                 <input class="cambiador fleft" id="update_1_{{ i.id }}" onchange="update({{ i.id }},1)" value="{{ i.nombre }}"> 
-                                <div class="fright"><span class="font-pq fleft"><div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }} Preguntas</div></span>
-                                <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div></div>
+                                <div class="fright">
+                                    <span class="font-pq fleft">
+                                        <div id="npre_{{ i.id }}">{{ i.numero_de_preguntas }} Preguntas</div>
+                                    </span>
+                                    <div onclick="ver_preguntas({{ i.id }})" class="fleft bot_verde ver_modulos radius">Ver</div>
+                                    <div onclick="confirmar_eliminar_encuesta({{ i.id }})" class="fleft bot_verde ver_modulos radius">Eliminar</div>
+                                </div>
+
                             </div>
                          </li>
                     {% endfor %}
@@ -231,6 +255,14 @@
         <input type="button" value="Aceptar" onclick="agregar_encuesta()">
         <input type="button" value="Cancelar" onclick="$('#addencu').hide()" >
     </div>
+
+    <div id="confelimencuesta" style="display: none;">
+        Seguro que desea Eliminar la encuesta?
+        <div id="idconfelimencuesta" title="-1" style="display: none;"></div>
+        <input type="button" value="Aceptar" onclick="desactivar_encuesta($('#idconfelimencuesta').attr('title'))">
+        <input type="button" value="Cancelar" onclick="$('#confelimencuesta').hide()" >
+    </div>
+
     <div class="standar">
         <div class="contenido">
             <div id="preguntas">
