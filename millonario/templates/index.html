@@ -3,11 +3,23 @@
 {% block title %}Quien la tiene Clara{% endblock %}
 
 {% block contenido %}
+<div class="spacer menu_line m-top50"></div>
+    <div id="pregunta" class="standar">
+        <div class="contenido">
+            <div id="escoger">
+                <div class="tit-modulos">
+                    <div class="font-pq" style="color:#006633;">Seleccionar una acción</div>
+                    <div class="font-gd">Concursar y/o Administrar</div>
+                    <!--<div style="float:right;"><span>Seleccionar todo</span> <span>Deseleccionar</span></div>-->
+                </div>
+            </div>
+        </div>
+    </div
     <div class="spacer menu_line m-top50"></div>
     <div class="standar">
         <div class="contenido">
-        <a href="{% url administrar %}">Administrar</a>
-        <a href="{% url concursar %}">concursar</a>
+            <a href="{% url concursar %}"><img src="{{ MEDIA_URL }}img/bot_concurso.png" /></a>
+            <a href="{% url administrar %}"><img src="{{ MEDIA_URL }}img/bot_administrar.png" /></a>
 		</div>
 	</div>
     

@@ -14,15 +14,24 @@
 
         };
 
-        function xmlencuesta(perfil_id,encuestas){
+        function xmlencuesta(perfil_id){
+			//var obj = $('.s_1');
+    		//var encuestas = $.makeArray(obj.attr('id'));
+			
+			var encuestas=new Array();
+			
+			$('.s_1').each(function(){
+				encuestas.push($(this).attr('id'))
+			})
+			console.log(encuestas);
             $.post( '{% url xmljuego %}',
-                    {
-                        'perfil_id':perfil_id,
-                        'encuestas':encuestas
-                    },
-                    function(respuesta){
-                        console.log(respuesta)
-                    });
+				{
+					'perfil_id':perfil_id,
+					'encuestas':encuestas
+				},
+				function(respuesta){
+					console.log(respuesta)
+				});
         };
 
         function userauth(){
@@ -97,6 +106,7 @@
                 }
             })
             $('#bot_iniciar').click(function(){
+				xmlencuesta('3');
                 $('#userlog').show()
                 $('#preguntas').slideUp(function(){				
                     $('#juego_swf').slideDown(500,function(){
