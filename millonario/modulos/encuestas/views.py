@@ -10,6 +10,7 @@ from millonario.settings import MEDIA_ROOT
 
 from millonario.modulos.encuestas.models import *
 from millonario.modulos.segmentacion.models import Sexo
+from millonario.modulos.recursos.models import *
 
 def administrar(request):
     encuestas=Encuesta.objects.filter(activo=True)
@@ -274,11 +275,12 @@ def userlog(request):
     if request.method == "POST":
         cedula=request.POST['cedula']
         try:
-            perfil=Perfil.objects.get(cedula=cedula)
+            persona=Personas.objects.get(cedula=cedula)
+            persona.nombre_completo
             data={
                 'estado':1,
-                'perfil_id':perfil.id,
-                'nombre':perfil.nombre,
+                'persona_id':persona.id,
+                'nombre':persona.nombre_completo,
                 'html':"",
 
             }
@@ -287,7 +289,7 @@ def userlog(request):
             """
             data={
                 'estado':0,
-                'perfil_id':-1,
+                'persona_id':-1,
                 'nombre':"No Existe el Usuario",
                 'html':html,
             }
@@ -305,15 +307,24 @@ def userreg(request):
         sexo=request.POST['sexo']
 
         sexo=Sexo.objects.get(id=int(sexo))
-        new_user = User.objects.create_user(username=cedula,email=None, password=cedula)
+        new_user = User()
+        new_user.username=str(cedula)
+        new_user.email="spam@spam.com"
+        new_user.set_password(cedula)
         new_user.save()
-        perfil=Perfil.objects.create(user=new_user, nombre=nombre, apellidos=apellido, sexo=sexo, cedula=int(cedula))
-        perfil.save()
+
+        persona=Personas()
+        persona.user=new_user
+        persona.nombre=nombre
+        persona.apellidos=apellido
+        persona.sexo=sexo
+        persona.cedula=str(cedula)
+        persona.save()
 
         data={
             'estado':1,
-            'perfil_id':perfil.id,
-            'nombre':perfil.nombre,
+            'persona_id':persona.id,
+            'nombre':persona.nombre,
             'html':"",
             }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
@@ -324,14 +335,15 @@ def userreg(request):
 @csrf_exempt
 def xmlcedula(request):
     if request.method == "POST":
+        aleatorio=request.POST['aleatorio']
         cedula=request.POST['cedula']
-        perfil=Perfil.objects.get(cedula=cedula)
+        persona=Personas.objects.get(cedula=cedula)
 
         xml="<?xml version='1.0' encoding='UTF-8'?><xml><data_cedula>"
-        xml+="<idded>"+str(perfil.id)+"</idded>"
-        xml+="<named>"+str(perfil.nombre) +"</named>"
+        xml+="<idded>"+str(persona.id)+"</idded>"
+        xml+="<named>"+str(persona.nombre_completo) +"</named>"
         xml+="</data_cedula></xml>"
-        myfile = open(MEDIA_ROOT+'/xml/xmlcedula.xml','w')
+        myfile = open(MEDIA_ROOT+'/xml/xmlcedula'+aleatorio+'.xml','w')
         myfile.write(xml)
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
@@ -340,12 +352,13 @@ def xmlcedula(request):
 @csrf_exempt
 def xmljuego(request):
     if request.method == "POST":
-        #perfil_id=request.POST['perfil_id']
+        #persona_id=request.POST['persona_id']
+        aleatorio=request.POST['aleatorio']
         encuestas=request.POST.getlist('encuestas[]')
 
         encuestas=map(lambda x: int(x[5:]), encuestas)
 
-        #perfil=Perfil.objects.get(id=perfil_id)
+        #persona=Personas.objects.get(id=persona_id)
         encuestas=Encuesta.objects.filter(id__in=encuestas)
 
         xml="<?xml version='1.0' encoding='UTF-8'?><xml>"
@@ -362,7 +375,7 @@ def xmljuego(request):
                     xml+="</preguntas>"
             xml+="</nivel>"
         xml+="</xml>"
-        myfile = open(MEDIA_ROOT+'/xml/xmlencuesta.xml','w')
+        myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
         myfile.write(xml)
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"

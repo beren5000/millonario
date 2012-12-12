@@ -50,24 +50,24 @@ class Personas(models.Model):
     direccion = models.CharField(max_length=250, blank=True)
     telefono = models.CharField(null=True,max_length=250, blank=True)
     descripcion = models.TextField(blank=True,null=True)
-    efectividad=models.DateTimeField()
+    efectividad=models.DateTimeField(blank=True,null=True)
 
     sexo= models.CharField(max_length=1, db_index=True,blank=False,null=False,choices=SEXO)
     creado=models.DateTimeField(auto_now_add=True)
     modificado=models.DateTimeField(auto_now=True)
 
 
-    ciudad=models.ForeignKey(Ciudades,blank=False,null=False)
+    ciudad=models.ForeignKey(Ciudades,blank=True,null=True)
     barrio=models.ForeignKey(Barrios,blank=True,null=True)
 
-    uen=models.ForeignKey(Uens,blank=False,null=False)
-    cargo=models.ForeignKey(Cargos,blank=False,null=False)
+    uen=models.ForeignKey(Uens,blank=True,null=True)
+    cargo=models.ForeignKey(Cargos,blank=True,null=True)
     proceso=models.ForeignKey(Procesos,blank=True,null=True)
 
 
 
     jefe=models.ForeignKey('self',editable=False,limit_choices_to = {'es_jefe': True,'activo':True},blank=True,null=True) # los cargos pueden tener un arbol
-    tipo_de_persona=models.ForeignKey('recursos.TipoDePersona',blank=False,null=False,limit_choices_to = {'activo':True}) # los cargos pueden tener un arbol
+    tipo_de_persona=models.ForeignKey('recursos.TipoDePersona',blank=True,null=True ,limit_choices_to = {'activo':True}) # los cargos pueden tener un arbol
     es_jefe=models.BooleanField(db_index=False,default=False)
     activo=models.BooleanField(db_index=True,default=True)
 

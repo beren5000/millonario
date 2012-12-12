@@ -9,6 +9,7 @@
 {% block scripts %}
 
     <script language="javascript">
+        var session=Math.random() ;
         function alertando(){
             alert('alertando');
         };
@@ -22,6 +23,7 @@
 			})
             $.post( '{% url xmljuego %}',
 				{
+                    'aleatorio':session,
 					'encuestas[]':encuestas
 				},
 				function(respuesta){
@@ -53,7 +55,11 @@
 		};
 
         function crearxmlcedula(cedula){
-            $.post( '{% url xmlcedula %}',{'cedula':cedula},
+            $.post( '{% url xmlcedula %}',
+                    {
+                        'aleatorio':session,
+                        'cedula':cedula
+                    },
                     function(respuesta){
                         respuesta=eval(respuesta);
                         if (respuesta.estado==1){alert("xml creado");}
@@ -108,7 +114,7 @@
                         respuesta=eval(respuesta);
                         if (respuesta.estado==1){
                             html=respuesta.html;
-                            $('#userlog').hide();
+                            $('#userreg').hide();
                         }
                         else
                         {
