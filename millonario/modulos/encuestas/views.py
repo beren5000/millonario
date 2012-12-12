@@ -364,7 +364,7 @@ def xmljuego(request):
         xml="<?xml version='1.0' encoding='UTF-8'?><xml>"
         grupos=Grupo.objects.all()
         for g in grupos:
-            xml+="<nivel nivel='"+str(g.id)+"'>"
+            xml+="<nivel'"+str(g.id)+">"
             for e in encuestas:
                 preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
                 for p in preguntas:
@@ -373,7 +373,7 @@ def xmljuego(request):
                     for r in p.respuestas:
                         xml+="<item id='"+str(r.id)+"'>"+str(r.nombre)+"</item>"
                     xml+="</preguntas>"
-            xml+="</nivel>"
+            xml+="</nivel'"+str(g.id)+">"
         xml+="</xml>"
         myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
         myfile.write(xml)
