@@ -41,6 +41,15 @@
             $('#userlog').hide();
 			$('#form_cedula').show();	
 			$('#nombre_encontrado').hide();	
+			$('#preguntas').slideUp(function(){				
+				$('#juego_swf').slideDown(500,function(){
+					$('.bg-nombre').css('display','block')
+					$('#juego_swf .object').slideDown()
+				})
+			});
+			$('.spacer').animate({
+				'height':0
+			});	
 			
 		}
 		function concurout(){
@@ -153,15 +162,6 @@
             $('#bot_iniciar').click(function(){
 				xmlencuesta();
                 $('#userlog').show()
-                $('#preguntas').slideUp(function(){				
-                    $('#juego_swf').slideDown(500,function(){
-                        $('.bg-nombre').css('display','block')
-                        $('#juego_swf .object').slideDown()
-                    })
-                });
-                $('.spacer').animate({
-                    'height':0
-                });	
             })
         });
     </script>
