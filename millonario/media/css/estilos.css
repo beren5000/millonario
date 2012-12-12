@@ -295,9 +295,11 @@ body{
   	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#62c462', endColorstr='#51a351', GradientType=0);
   	filter: progid:dximagetransform.microsoft.gradient(enabled=false);	
 	color:#fff;
-	padding:10px 15px;
-	text-transform:uppercase; text-align:center; margin:0;
+	padding:10px 15px; text-align:center; margin:0;
 	cursor:pointer;
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
 }
 
 .bot_azul{
@@ -314,9 +316,11 @@ body{
   	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#53cdfc', endColorstr='#29a4d4', GradientType=0);
   	filter: progid:dximagetransform.microsoft.gradient(enabled=false);	
 	color:#fff;
-	padding:10px 15px;
-	text-transform:uppercase; text-align:center; margin:0;
+	padding:10px 15px; text-align:center; margin:0;
 	cursor:pointer;
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
 }
 .bot_rojo{
   	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -332,9 +336,11 @@ body{
   	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#bd362f', GradientType=0);
   	filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 	color:#fff;
-	padding:10px 15px;
-	text-transform:uppercase; text-align:center; margin:0;
+	padding:10px 15px; text-align:center; margin:0;
 	cursor:pointer;
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
 }
 .bot_blanco{
   	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -353,6 +359,9 @@ body{
 	padding:10px 15px;
 	text-transform:uppercase; text-align:center; margin:0;
 	cursor:pointer;
+	font-family:arial;
+	font-size:12px;
+	font-weight:normal;
 }
 .ver_modulos{
 	height:20px;
@@ -360,6 +369,9 @@ body{
 	float:none;
 	margin:20px 0 0 10px;
 	font-size:13px;
+}
+.volver_modulos{
+	display:none;
 }
 #preguntas{
 	font-size:18px;
