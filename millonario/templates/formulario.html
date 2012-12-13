@@ -4,6 +4,9 @@
         $('#confelim').show();
 
     };
+    $(document).ready(function() {
+        $('#tablapregunas').dataTable();
+    } );
 </script>
 <div id="encuesta_seleccionada" style="display: none;" title="{{ encuesta.id }}">{{ encuesta.id }}</div>
 <br>
@@ -19,7 +22,7 @@ Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verd
     <input type="button" value="Cancelar" onclick="$('#confelim').hide()" >
 </div>
 
-<table border="1" bgcolor="#FFFFFF">
+<table id="tablapregunas" border="1" bgcolor="#FFFFFF">
     <thead>
         <tr>
             <th>Pregunta</th>
