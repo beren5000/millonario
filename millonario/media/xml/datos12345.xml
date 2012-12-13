@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xml>
+	<nivel1>
+		<preguntas correcta="1234">
+			<pregunta  id="123">Cual de las siguientes se creo primero</pregunta>
+			<item id="1231">El Disco Compacto</item>
+			<item id="1232">El Laser</item>
+			<item id="1233">El Helicoptero</item>
+			<item id="1234">La Dinamita</item>
+		</preguntas>
+		<preguntas correcta="2232">
+			<pregunta id="223">Cual es el planeta mas cercano al sol</pregunta>
+			<item id="2231">la tierra</item>
+			<item id="2232">Mercurio</item>
+			<item id="2233">Venus</item>
+			<item id="2234">urano</item>
+		</preguntas>
+		<preguntas correcta="3233">
+			<pregunta id="323">Cual de los siguientes animales no es un mamifero</pregunta>
+			<item id="3231">El Chimpance</item>
+			<item id="3232">La Ballena</item>
+			<item id="3233">El Avestruz</item>
+			<item id="3234">El Conejo</item>
+		</preguntas>
+		<preguntas correcta="4234">
+			<pregunta id="423">Cual de las siguientes no es una especie en peligo de extinción?</pregunta>
+			<item id="4231">El Coala</item>
+			<item id="4232">El Guéparto</item>
+			<item id="4233">El Gorila</item>
+			<item id="4234">El Antilope</item>
+		</preguntas>
+		<preguntas correcta="5231">
+			<pregunta id="523">Las ranas pertenecen al grupo de...</pregunta>
+			<item id="5231">Anfibios</item>
+			<item id="5232">Reptiles</item>
+			<item id="5233">Mamíferos</item>
+			<item id="5234">Peces</item>
+		</preguntas>
+		<preguntas correcta="6234">
+			<pregunta id="623">Una docena es un conjunto de cuantos unidades?</pregunta>
+			<item id="6231">Cincuenta Unidades</item>
+			<item id="6232">Una Unidad</item>
+			<item id="6233">Doce Unidades</item>
+			<item id="6234">Cinco Unidades</item>
+		</preguntas>
+		<preguntas correcta="7232">
+			<pregunta id="723">Ojos q no ven, corazon q no...</pregunta>
+			<item id="7231">Duele</item>
+			<item id="7232">Siente</item>
+			<item id="7233">Suda</item>
+			<item id="7234">Piensa</item>
+		</preguntas>
+	</nivel1>
+</xml>

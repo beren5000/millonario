@@ -9,7 +9,7 @@
 {% block scripts %}
 
     <script language="javascript">
-        var session=Math.random() ;
+        var session=Math.random();
         function alertando(){
             alert('alertando');
         };
@@ -41,6 +41,15 @@
             $('#userlog').hide();
 			$('#form_cedula').show();	
 			$('#nombre_encontrado').hide();	
+			$('#preguntas').slideUp(function(){				
+				$('#juego_swf').slideDown(500,function(){
+					$('.bg-nombre').css('display','block')
+					$('#juego_swf .object').slideDown()
+				})
+			});
+			$('.spacer').animate({
+				'height':0
+			});	
 			
 		}
 		function concurout(){
@@ -64,6 +73,7 @@
                         respuesta=eval(respuesta);
                         if (respuesta.estado==1){alert("xml creado");}
                     });
+					alert(session)
         };
 
         function userauth(){
@@ -81,6 +91,10 @@
                            	$('#form_cedula').hide();
                             $('#nombre_encontrado').show().find('#poner_nombre').html(respuesta.nombre);
                             crearxmlcedula(cedula);
+							$('#flashvar').attr('value','id='+session+'&nombre='+respuesta.nombre);
+							$('#embed_flashvar').attr('Flashvars','id='+session+'&nombre='+respuesta.nombre);
+							
+							alert($('#flashvar').attr('value')+' sesion  '+session	+''+$('#embed_flashvar').attr('Flashvars'));
                             //$('#userlog').hide();
                         }
                         else
@@ -125,8 +139,6 @@
                     });
         };
 
-        $(document).ready(function() {
-        });
     </script>
 
     <script src="{{ MEDIA_URL }}js/swfobject_modified.js" type="text/javascript"></script>
@@ -134,6 +146,7 @@
 		
 		
         $().ready(function() {
+			//$('#flashvar').attr('value','id='+session+',&nombre='+respuesta.nombre)
             $('.data_moludos li').hover(function(){
                 if($(this).attr('class')=='s_0')
                 $(this).fadeTo('fast', 0.5);
@@ -153,15 +166,6 @@
             $('#bot_iniciar').click(function(){
 				xmlencuesta();
                 $('#userlog').show()
-                $('#preguntas').slideUp(function(){				
-                    $('#juego_swf').slideDown(500,function(){
-                        $('.bg-nombre').css('display','block')
-                        $('#juego_swf .object').slideDown()
-                    })
-                });
-                $('.spacer').animate({
-                    'height':0
-                });	
             })
         });
     </script>
@@ -196,8 +200,8 @@
                         <param name="quality" value="high" />
                         <param name="wmode" value="transparent" />
                         <param name="swfversion" value="15.0.0.0" />
-                        <param id="flashvar" name="FlashVars" value="id=12345&nombre=Cristian Molsalve Mosquera" />
-                        <embed src="{{ MEDIA_URL }}swf/quien_la_tiene_clara.swf" width="100%" height="500" FlashVars="id=12345&nombre=Cristian Molsalve Mosquera" />
+                        <param id="flashvar" name="FlashVars" value="" />
+                        <embed id="embed_flashvar" src="{{ MEDIA_URL }}swf/quien_la_tiene_clara.swf" width="100%" height="500" FlashVars="" />
                     </object>
                 </div>
             </div>

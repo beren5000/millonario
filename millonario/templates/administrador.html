@@ -78,6 +78,7 @@
         };
 
         function agregar_encuesta(){
+			if($('#encuesta_nombre').val()!=""){
             $("#addencu").show()
             $.post( '/quien_la_tiene_clara/agregar_encuesta/',
 
@@ -92,6 +93,9 @@
                         $('#addencu').hide()
                         $('#preguntas').html(preguntas);
                     });
+			}else{
+				$('#modulo_error').html('Ingresar un nombre para la encuesta').fadeIn();
+			}
         };
 
         /*function agregar_nivel(){
@@ -178,12 +182,10 @@
                 <div class="tit-modulos">
                     <div class="font-pq" style="color:#006633;">Seleccionar y/o Agregar Modulos de preguntas</div>
                     <div class="font-gd">Módulo de Preguntas</div>
-                    <!--<div style="float:right;"><span>Seleccionar todo</span> <span>Deseleccionar</span></div>-->
                     
-                </div>
+               		<div onclick="$('#addencu').show()" class="fleft bot_verde ver_modulos radius" style="margin:0;">Agregar Modulo</div>
+                </div>	
 
-
-                <div onclick="$('#addencu').show()" class="fleft bot_verde ver_modulos radius">Agregar Encuesta</div>
                 <ul class="data_moludos">
                     {% for i in encuestas %}
                          <li id="encuestali_{{ i.id }}" class="s_0">
@@ -252,16 +254,25 @@
     </table>-->
 
     <div id="addencu" style="display: none;">
-        Nombre: <input type="text" id="encuesta_nombre" />
-        <input type="button" value="Aceptar" onclick="agregar_encuesta()">
-        <input type="button" value="Cancelar" onclick="$('#addencu').hide()" >
+    	<div class="cont_agregar">
+        	<h1>Agregar Nuevo Modulos</h1>
+            <h2>Modulos de preguntas</h2>
+            <label>Nombre:</label> 
+            <input class="font_input" type="text" id="encuesta_nombre" />
+           	<p id="modulo_error" class="error">Porfavor Ingresar una cedula valida</p>
+            <hr />
+            <input class="bot_verde radius fright"  type="button" value="Aceptar" onclick="agregar_encuesta()" />
+            <input class="bot_rojo radius fright" style="margin-right:10px;" type="button" value="Cancelar" onclick="$('#addencu').hide()" />
+        </div>
     </div>
 
-    <div id="confelimencuesta" style="display: none;">
-        Seguro que desea Eliminar la encuesta?
-        <div id="idconfelimencuesta" title="-1" style="display: none;"></div>
-        <input type="button" value="Aceptar" onclick="desactivar_encuesta($('#idconfelimencuesta').attr('title'))">
-        <input type="button" value="Cancelar" onclick="$('#confelimencuesta').hide()" >
+    <div id="confelimencuesta">
+    	<div class="cont_eliminar">
+        	<h2 style="color:#000;">Seguro que desea Eliminar El Modulo?</h2>
+            <div id="idconfelimencuesta" title="-1" style="display: none;"></div>
+            <input class="bot_verde radius fright" type="button" value="Aceptar" onclick="desactivar_encuesta($('#idconfelimencuesta').attr('title'))">
+            <input class="bot_rojo radius fright" style="margin-right:10px;" type="button" value="Cancelar" onclick="$('#confelimencuesta').hide()" >
+        </div>
     </div>
 
     <div class="standar">
