@@ -315,7 +315,7 @@ def userreg(request):
 
         persona=Personas()
         persona.user=new_user
-        persona.nombre=nombre
+        persona.nombres=nombre
         persona.apellidos=apellido
         persona.sexo=sexo
         persona.cedula=str(cedula)
@@ -341,7 +341,7 @@ def xmlcedula(request):
 
         xml="<?xml version='1.0' encoding='UTF-8'?><xml><data_cedula>"
         xml+="<idded>"+str(persona.id)+"</idded>"
-        xml+="<named>"+str(persona.nombre_completo) +"</named>"
+        xml+="<named>"+str(persona.full_name) +"</named>"
         xml+="</data_cedula></xml>"
         myfile = open(MEDIA_ROOT+'/xml/xmlcedula'+aleatorio+'.xml','w')
         myfile.write(xml)
@@ -354,6 +354,37 @@ def xmljuego(request):
     if request.method == "POST":
         #persona_id=request.POST['persona_id']
         aleatorio=request.POST['aleatorio']
+        encuestas=request.POST.getlist('encuestas[]')
+
+        encuestas=map(lambda x: int(x[5:]), encuestas)
+
+        #persona=Personas.objects.get(id=persona_id)
+        encuestas=Encuesta.objects.filter(id__in=encuestas)
+
+        xml="<?xml version='1.0' encoding='UTF-8'?><xml>"
+        grupos=Grupo.objects.all()
+        for g in grupos:
+            xml+="<nivel'"+str(g.id)+">"
+            for e in encuestas:
+                preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
+                for p in preguntas:
+                    xml+="<preguntas correcta='"+str(p.respuesta_correcta.id)+"'>"
+                    xml+="<pregunta id='"+str(p.id)+"'>"+str(p.nombre)+"</pregunta>"
+                    for r in p.respuestas:
+                        xml+="<item id='"+str(r.id)+"'>"+str(r.nombre)+"</item>"
+                    xml+="</preguntas>"
+            xml+="</nivel'"+str(g.id)+">"
+        xml+="</xml>"
+        myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
+        myfile.write(xml)
+        return HttpResponse(xml, mimetype='text/xml')
+    xml="<estado>0</estado>"
+    return HttpResponse(xml, mimetype='text/xml')
+
+@csrf_exempt
+def respuesta(request):
+    if request.method == "POST":
+        persona_id=request.POST['persona_id']
         encuestas=request.POST.getlist('encuestas[]')
 
         encuestas=map(lambda x: int(x[5:]), encuestas)
