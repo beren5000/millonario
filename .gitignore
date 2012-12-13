@@ -175,3 +175,7 @@ millonario/media/bg_over.png
 *.xml
 
 *.zip
+
+*.db
+
+*.fla
