@@ -1,54 +1,135 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <xml>
 	<nivel1>
-		<preguntas correcta="1234">
-			<pregunta  id="123">Cual de las siguientes se creo primero</pregunta>
-			<item id="1231">El Disco Compacto</item>
-			<item id="1232">El Laser</item>
-			<item id="1233">El Helicoptero</item>
-			<item id="1234">La Dinamita</item>
+		<preguntas correcta="11234">
+			<pregunta  id="1123">Cual de las siguientes se creo primero</pregunta>
+			<item id="11231">El Disco Compacto</item>
+			<item id="11232">El Laser</item>
+			<item id="11233">El Helicoptero</item>
+			<item id="11234">La Dinamita</item>
 		</preguntas>
-		<preguntas correcta="2232">
-			<pregunta id="223">Cual es el planeta mas cercano al sol</pregunta>
-			<item id="2231">la tierra</item>
-			<item id="2232">Mercurio</item>
-			<item id="2233">Venus</item>
-			<item id="2234">urano</item>
+		<preguntas correcta="12232">
+			<pregunta id="1223">Cual es el planeta mas cercano al sol</pregunta>
+			<item id="12231">la tierra</item>
+			<item id="12232">Mercurio</item>
+			<item id="12233">Venus</item>
+			<item id="12234">urano</item>
 		</preguntas>
-		<preguntas correcta="3233">
-			<pregunta id="323">Cual de los siguientes animales no es un mamifero</pregunta>
-			<item id="3231">El Chimpance</item>
-			<item id="3232">La Ballena</item>
-			<item id="3233">El Avestruz</item>
-			<item id="3234">El Conejo</item>
+		<preguntas correcta="13233">
+			<pregunta id="1323">Cual de los siguientes animales no es un mamifero</pregunta>
+			<item id="13231">El Chimpance</item>
+			<item id="13232">La Ballena</item>
+			<item id="13233">El Avestruz</item>
+			<item id="13234">El Conejo</item>
 		</preguntas>
-		<preguntas correcta="4234">
-			<pregunta id="423">Cual de las siguientes no es una especie en peligo de extinción?</pregunta>
-			<item id="4231">El Coala</item>
-			<item id="4232">El Guéparto</item>
-			<item id="4233">El Gorila</item>
-			<item id="4234">El Antilope</item>
+		<preguntas correcta="14234">
+			<pregunta id="1423">Cual de las siguientes no es una especie en peligo de extinción?</pregunta>
+			<item id="14231">El Coala</item>
+			<item id="14232">El Guéparto</item>
+			<item id="14233">El Gorila</item>
+			<item id="14234">El Antilope</item>
 		</preguntas>
-		<preguntas correcta="5231">
-			<pregunta id="523">Las ranas pertenecen al grupo de...</pregunta>
-			<item id="5231">Anfibios</item>
-			<item id="5232">Reptiles</item>
-			<item id="5233">Mamíferos</item>
-			<item id="5234">Peces</item>
+		<preguntas correcta="15231">
+			<pregunta id="1523">Las ranas pertenecen al grupo de...</pregunta>
+			<item id="15231">Anfibios</item>
+			<item id="15232">Reptiles</item>
+			<item id="15233">Mamíferos</item>
+			<item id="15234">Peces</item>
 		</preguntas>
-		<preguntas correcta="6234">
-			<pregunta id="623">Una docena es un conjunto de cuantos unidades?</pregunta>
-			<item id="6231">Cincuenta Unidades</item>
-			<item id="6232">Una Unidad</item>
-			<item id="6233">Doce Unidades</item>
-			<item id="6234">Cinco Unidades</item>
+		<preguntas correcta="16233">
+			<pregunta id="1623">Una docena es un conjunto de cuantos unidades?</pregunta>
+			<item id="16231">Cincuenta Unidades</item>
+			<item id="16232">Una Unidad</item>
+			<item id="16233">Doce Unidades</item>
+			<item id="16234">Cinco Unidades</item>
 		</preguntas>
-		<preguntas correcta="7232">
-			<pregunta id="723">Ojos q no ven, corazon q no...</pregunta>
-			<item id="7231">Duele</item>
-			<item id="7232">Siente</item>
-			<item id="7233">Suda</item>
-			<item id="7234">Piensa</item>
+		<preguntas correcta="17232">
+			<pregunta id="1723">Ojos q no ven, corazon q no...</pregunta>
+			<item id="17231">Duele</item>
+			<item id="17232">Siente</item>
+			<item id="17233">Suda</item>
+			<item id="17234">Piensa</item>
 		</preguntas>
 	</nivel1>
+	<nivel2>
+		<preguntas correcta="21234">
+			<pregunta  id="2123">2 Cual de las siguientes se creo primero</pregunta>
+			<item id="21231">2 El Disco Compacto</item>
+			<item id="21232">2 El Laser</item>
+			<item id="21233">2 El Helicoptero</item>
+			<item id="21234">2 La Dinamita</item>
+		</preguntas>
+		<preguntas correcta="22232">
+			<pregunta id="2223">2 Cual es el planeta mas cercano al sol</pregunta>
+			<item id="22231">2 la tierra</item>
+			<item id="22232">2 Mercurio</item>
+			<item id="22233">2 Venus</item>
+			<item id="22234">2 urano</item>
+		</preguntas>
+		<preguntas correcta="23233">
+			<pregunta id="2323">2 Cual de los siguientes animales no es un mamifero</pregunta>
+			<item id="23231">2 El Chimpance</item>
+			<item id="23232">2 La Ballena</item>
+			<item id="23233">2 El Avestruz</item>
+			<item id="23234">2 El Conejo</item>
+		</preguntas>
+		<preguntas correcta="24234">
+			<pregunta id="2423">2 Cual de las siguientes no es una especie en peligo de extinción?</pregunta>
+			<item id="24231">2 El Coala</item>
+			<item id="24232">2 El Guéparto</item>
+			<item id="24233">2 El Gorila</item>
+			<item id="24234">2 El Antilope</item>
+		</preguntas>
+		<preguntas correcta="25231">
+			<pregunta id="2523">2 Las ranas pertenecen al grupo de...</pregunta>
+			<item id="25231">2 Anfibios</item>
+			<item id="25232">2 Reptiles</item>
+			<item id="25233">2 Mamíferos</item>
+			<item id="25234">2 Peces</item>
+		</preguntas>
+		<preguntas correcta="26233">
+			<pregunta id="2623">2 Una docena es un conjunto de cuantos unidades?</pregunta>
+			<item id="26231">2 Cincuenta Unidades</item>
+			<item id="26232">2 Una Unidad</item>
+			<item id="26233">2 Doce Unidades</item>
+			<item id="26234">2 Cinco Unidades</item>
+		</preguntas>
+	</nivel2>
+	<nivel3>
+		<preguntas correcta="31234">
+			<pregunta  id="3123">3 Cual de las siguientes se creo primero</pregunta>
+			<item id="31231">3 El Disco Compacto</item>
+			<item id="31232">3 El Laser</item>
+			<item id="31233">3 El Helicoptero</item>
+			<item id="31234">3 La Dinamita</item>
+		</preguntas>
+		<preguntas correcta="32232">
+			<pregunta id="3223">3 Cual es el planeta mas cercano al sol</pregunta>
+			<item id="32231">3 la tierra</item>
+			<item id="32232">3 Mercurio</item>
+			<item id="32233">3 Venus</item>
+			<item id="32234">3 urano</item>
+		</preguntas>
+		<preguntas correcta="33233">
+			<pregunta id="3323">3 Cual de los siguientes animales no es un mamifero</pregunta>
+			<item id="33231">3 El Chimpance</item>
+			<item id="33232">3 La Ballena</item>
+			<item id="33233">3 El Avestruz</item>
+			<item id="33234">3 El Conejo</item>
+		</preguntas>
+		<preguntas correcta="34234">
+			<pregunta id="3423">3 Cual de las siguientes no es una especie en peligo de extinción?</pregunta>
+			<item id="34231">3 El Coala</item>
+			<item id="34232">3 El Guéparto</item>
+			<item id="34233">3 El Gorila</item>
+			<item id="34234">3 El Antilope</item>
+		</preguntas>
+		<preguntas correcta="35231">
+			<pregunta id="3523">3 Las ranas pertenecen al grupo de...</pregunta>
+			<item id="35231">3 Anfibios</item>
+			<item id="35232">3 Reptiles</item>
+			<item id="35233">3 Mamíferos</item>
+			<item id="35234">3 Peces</item>
+		</preguntas>
+	</nivel3>
 </xml>
