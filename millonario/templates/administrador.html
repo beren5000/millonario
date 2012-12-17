@@ -3,7 +3,12 @@
 {% block title %}Quien la tiene Clara{% endblock %}
 
 {% block css %}
+    <link href='{{ MEDIA_URL }}js/plugins/datatables-1.9.4/media/css/jquery.dataTables.css' rel='stylesheet' type='text/css'>
+{% endblock %}
 
+{% block jss %}
+
+    <script src="{{ MEDIA_URL }}js/plugins/DataTables-1.9.4/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
 {% endblock %}
 
 {% block scripts %}
@@ -171,6 +176,8 @@
 			$('#preguntas').slideUp();
 			$('.data_moludos').slideDown()
 		}
+
+
     </script>
 {% endblock %}
 
