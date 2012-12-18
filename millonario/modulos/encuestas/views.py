@@ -305,9 +305,13 @@ def userreg(request):
         nombre=request.POST['nombre']
         apellido=request.POST['apellidos']
         sexo=request.POST['sexo']
-
         sexo=Sexo.objects.get(id=int(sexo))
-        print User.objects.filter(username=str(cedula)),"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#        try:
+#
+#            new_user, created = User.objects.get_or_create(str(cedula),"spam@spam.com",cedula)
+#        except:
+#            pass
+
         new_user = User()
         new_user.username=str(cedula)
         new_user.email="spam@spam.com"
@@ -383,30 +387,18 @@ def xmljuego(request):
     return HttpResponse(xml, mimetype='text/xml')
 
 @csrf_exempt
-def respuesta(request):
+def enviar_datos(request):
     if request.method == "POST":
-        persona_id=request.POST['persona_id']
-        encuestas=request.POST.getlist('encuestas[]')
 
-        encuestas=map(lambda x: int(x[5:]), encuestas)
+        persona_id=int(request.POST.getlist('datos')[0].split(',')[1])
+        print persona_id,"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        preguntas=request.POST.getlist('datos')[1].split(',')
+        print preguntas,"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 
-        #persona=Personas.objects.get(id=persona_id)
-        encuestas=Encuesta.objects.filter(id__in=encuestas)
 
-        xml="<?xml version='1.0' encoding='UTF-8'?><xml>"
-        grupos=Grupo.objects.all()
-        for g in grupos:
-            xml+="<nivel'"+str(g.id)+">"
-            for e in encuestas:
-                preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
-                for p in preguntas:
-                    xml+="<preguntas correcta='"+str(p.respuesta_correcta.id)+"'>"
-                    xml+="<pregunta id='"+str(p.id)+"'>"+str(p.nombre)+"</pregunta>"
-                    for r in p.respuestas:
-                        xml+="<item id='"+str(r.id)+"'>"+str(r.nombre)+"</item>"
-                    xml+="</preguntas>"
-            xml+="</nivel'"+str(g.id)+">"
-        xml+="</xml>"
+
+        xml="<?xml version='1.0' encoding='UTF-8'?><xml><estado>1</estado></xml>"
+
         myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
         myfile.write(xml)
         return HttpResponse(xml, mimetype='text/xml')
