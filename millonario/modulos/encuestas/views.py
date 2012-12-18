@@ -276,11 +276,11 @@ def userlog(request):
         cedula=request.POST['cedula']
         try:
             persona=Personas.objects.get(cedula=cedula)
-            persona.nombre_completo
+            persona.full_name
             data={
                 'estado':1,
                 'persona_id':persona.id,
-                'nombre':persona.nombre_completo,
+                'nombre':persona.full_name,
                 'html':"",
 
             }
@@ -307,6 +307,7 @@ def userreg(request):
         sexo=request.POST['sexo']
 
         sexo=Sexo.objects.get(id=int(sexo))
+        print User.objects.filter(username=str(cedula)),"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
         new_user = User()
         new_user.username=str(cedula)
         new_user.email="spam@spam.com"
@@ -324,7 +325,7 @@ def userreg(request):
         data={
             'estado':1,
             'persona_id':persona.id,
-            'nombre':persona.nombre,
+            'nombre':persona.nombres,
             'html':"",
             }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
