@@ -94,7 +94,7 @@
 							$('#flashvar').attr('value','id='+session+'&nombre='+respuesta.nombre);
 							$('#embed_flashvar').attr('Flashvars','id='+session+'&nombre='+respuesta.nombre);
 							
-							console.log($('#flashvar').attr('value')+' sesion  '+session	+''+$('#embed_flashvar').attr('Flashvars'));
+							console.log($('#flashvar').attr('value')+' sesion  '+ session +''+$('#embed_flashvar').attr('Flashvars'));
                             //$('#userlog').hide();
                         }
                         else
@@ -201,7 +201,7 @@
                         <param name="wmode" value="transparent" />
                         <param name="swfversion" value="15.0.0.0" />
                         <param id="flashvar" name="FlashVars" value="" />
-                        <embed id="embed_flashvar" src="{{ MEDIA_URL }}swf/quien_la_tiene_clara.swf" width="100%" height="500" FlashVars="" />
+                        <embed src="{{ MEDIA_URL }}swf/quien_la_tiene_clara.swf" width="100%"  id="embed_flashvar" height="500" FlashVars="" wmode="transparent" />
                     </object>
                 </div>
             </div>

@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}Quien la tiene Clara{% endblock %}
+
+{% block jss %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/highcharts.js"></script>
+    <!-- Este archivo es para darle un estilo (Este archivo es Opcional) -->
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/themes/grid.js"></script>
+    <!-- Este archivo es para poder exportar losd atos que obtengamos -->
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/modules/exporting.js"></script>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+		
+		var chart;
+		$(document).ready(function() {
+    
+        var colors = Highcharts.getOptions().colors,
+            categories = ['Errados', 'Finalistas'],
+            name = 'Jugadores',
+            data = [{
+                    y: 55.11,
+                    color: colors[0],
+                    drilldown: {
+                        name: 'Errados',
+                        categories: ['Hombres', 'Mujeres'],
+                        data: [40, 60]
+                    }
+                }, {
+                    y: 44.99,
+                    color: colors[1],
+                    drilldown: {
+                        name: 'Finalistas',
+                        categories: ['Hombres', 'Mujeres'],
+                        data: [40, 60],
+                        color: colors[1]
+                    }
+                
+                }];
+    
+    
+        // Build the data arrays
+        var browserData = [];
+        var versionsData = [];
+        for (var i = 0; i < data.length; i++) {
+    
+            // add browser data
+            browserData.push({
+                name: categories[i],
+                y: data[i].y,
+                color: data[i].color
+            });
+    
+            // add version data
+            for (var j = 0; j < data[i].drilldown.data.length; j++) {
+                var brightness = 0.2 - (j / data[i].drilldown.data.length) / 5 ;
+                versionsData.push({
+                    name: data[i].drilldown.categories[j],
+                    y: data[i].drilldown.data[j],
+                    color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                });
+            }
+        }
+    
+        // Create the chart
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'pie'
+            },
+            title: {
+                text: 'Jugadores, Abril 3, 2012'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    shadow: false
+                }
+            },
+            tooltip: {
+        	    valueSuffix: '%'
+            },
+            series: [{
+                name: 'Browsers',
+                data: browserData,
+                size: '60%',
+                dataLabels: {
+                    formatter: function() {
+                        return this.y > 5 ? this.point.name : null;
+                    },
+                    color: 'white',
+                    distance: -30
+                }
+            }, {
+                name: 'Versions',
+                data: versionsData,
+                innerSize: '60%',
+                dataLabels: {
+                    formatter: function() {
+						console.log(this.point);
+                        // display only if larger than 1
+                        return this.y > 1 ? '<b> '+this.point.name +':</b> '+ this.y +'%'  : null;
+                    }
+                }
+            }]
+        });
+    });
+	</script>
+{% endblock %}
+{% block css %}
+	<style type="text/css">
+	   	h4{ font-family:Arial, Helvetica, sans-serif; color:#630;}
+	   	.cabecera{
+			background: #4A3C31;
+			border-bottom: 5px solid #69AD3C;
+			margin:-8px 0 0 -8px;
+			width: 100%;
+		}
+	   .cabecera img{ 
+			margin:40px 0 0 30px;
+		}
+
+	</style>
+{% endblock %}
+
+{% block contenido %}
+<div class="spacer menu_line m-top50"></div>
+    <div id="pregunta" class="standar">
+        <div class="contenido">
+            <div id="escoger">
+                <div class="tit-modulos">
+                    <div class="font-pq" style="color:#006633;">Seleccionar una acción</div>
+                    <div class="font-gd">Reportes Genales / por participarnte</div>
+                    <!--<div style="float:right;"><span>Seleccionar todo</span> <span>Deseleccionar</span></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contenido"><ul><li><label>Cedula</label><input class="radius border-none verdana" type="text" name="" id=""  style="padding:8px; width:200px; border:none; margin-left:10px;"/> </li>
+    <li>
+    <table>
+    	<thead>
+    	<tr>
+        	<td><div class="rep_nombre">Nombre</div></td>
+        	<td><div class="rep_fecha">Fecha / Hora</div></td>
+        	<td><div class="rep_estado">Estado</div></td>
+        	<td><div class="rep_depen">Dependencia</div></td>
+        	<td><div class="rep_cargo">Cargo</div></td>
+        </tr>
+        </thead>
+        <tbody>
+    	<tr>
+        	<td>Cristian vaca</td>
+        	<td>Abril 03 2012</td>
+        	<td>Gano</td>
+        	<td>Banco</td>
+        	<td>Seguridad de Informatica</td>
+        </tr>
+        </tbody>
+    </table>
+    </li></ul></div>
+    <div class="spacer menu_line m-top50"></div>
+    <div class="standar">
+        <div class="contenido">
+			<div id="container" class="fleft" style="width: 500px; height: 400px;"></div>
+		</div>
+	</div>
+    
+{% endblock %}
