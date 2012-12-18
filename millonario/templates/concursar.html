@@ -71,9 +71,9 @@
                     },
                     function(respuesta){
                         respuesta=eval(respuesta);
-                        if (respuesta.estado==1){alert("xml creado");}
+                        if (respuesta.estado==1){console.log("xml creado");}
                     });
-					alert(session)
+					console.log(session)
         };
 
         function userauth(){
@@ -94,7 +94,7 @@
 							$('#flashvar').attr('value','id='+session+'&nombre='+respuesta.nombre);
 							$('#embed_flashvar').attr('Flashvars','id='+session+'&nombre='+respuesta.nombre);
 							
-							alert($('#flashvar').attr('value')+' sesion  '+session	+''+$('#embed_flashvar').attr('Flashvars'));
+							console.log($('#flashvar').attr('value')+' sesion  '+session	+''+$('#embed_flashvar').attr('Flashvars'));
                             //$('#userlog').hide();
                         }
                         else
