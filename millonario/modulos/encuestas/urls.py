@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 	
 	url(r'^administrar/editar-nivel/(?P<encuesta_id>\d+)/(?P<nivel_id>\d+)/$', editar_nivel, name='administrar_editar_nivel'),
 	
-    url(r'^reportes/$', direct_to_template, {'template': 'reportes.html'}, name='reportes'),
+    url(r'^reportes/$', reportes,  name='reportes'),
     url(r'^concursar/$', concursar,name='concursar'),
     url(r'^agregar_pregunta/$', agregar_pregunta, name='agregar_pregunta'),
     url(r'^eliminar_pregunta/$', eliminar_pregunta, name='eliminar_pregunta'),
