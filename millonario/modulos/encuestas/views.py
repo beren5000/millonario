@@ -369,7 +369,7 @@ def xmljuego(request):
         xml="<?xml version='1.0' encoding='UTF-8'?><xml>"
         grupos=Grupo.objects.all()
         for g in grupos:
-            xml+="<nivel'"+str(g.id)+">"
+            xml+="<nivel"+str(g.id)+">"
             for e in encuestas:
                 preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
                 for p in preguntas:
