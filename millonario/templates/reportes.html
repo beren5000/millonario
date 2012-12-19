@@ -12,6 +12,26 @@
 {% endblock %}
 {% block scripts %}
     <script type="text/javascript">
+
+        function consultar_cedula(){
+            cedula= $('#cedula').val();
+            $.post( '{% url consultarcedula %}',
+                    {
+                        'cedula':cedula
+
+                    },
+                    function(respuesta){
+                        respuesta=eval(respuesta);
+                        if (respuesta.estado==1){
+                            html=respuesta.html;
+                            $("#tablebody").html(html)
+                        }
+                        else
+                        {
+                            alert("la cedula no existe")
+                        }
+                    });
+        };
 		
     var chart;
     $(document).ready(function()
@@ -149,7 +169,7 @@
     <div class="contenido">
     <ul>
     	<li>
-        <label>Cedula</label><input class="radius border-none verdana" type="text" name="" id=""  style="padding:8px; width:200px; border:none; margin-left:10px;"/><input onclick="" class="bot_verde radius filtro_grupo" id_grupo='1-{{ encuesta.id }}' type="button" name="submit" value="Buscar"  style="margin-left:10px;"/></li>
+        <label>Cedula</label><input class="radius border-none verdana" type="text" name="" id="cedula"  style="padding:8px; width:200px; border:none; margin-left:10px;"/><input onclick="" class="bot_verde radius filtro_grupo" id_grupo='1-{{ encuesta.id }}' type="button" name="submit" value="Buscar"  style="margin-left:10px;"/></li>
     <table>
     	<thead>
     	<tr>
@@ -160,7 +180,7 @@
         	<td><div class="rep_cargo">Cargo</div></td>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tablebody">
     	<tr>
         	<td>Cristian vaca</td>
         	<td>Abril 03 2012</td>
@@ -168,18 +188,7 @@
         	<td>Banco</td>
         	<td>Seguridad de Informatica</td>
         </tr>
-    	<tr>
-        	<td colspan="5"><hr /></td>
-        </tr>
-    	<tr>
-        	<td colspan="4">Pregunta</td>
-        	<td>Nivel</td>
-        </tr>
-    	<tr>
-        	<td colspan="4">Pacho es...??</td>
-        	<td>Nivel 1</td>
-        </tr>
-        </tbody>
+
     </table>
     </li></ul></div>
     <div class="spacer menu_line m-top50"></div>
