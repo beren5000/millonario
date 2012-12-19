@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <title>{% block title %}{% endblock %}</title>
@@ -25,8 +25,12 @@
 	<div class="fleft">
     	<div class="logo">
         	<img src="{{ MEDIA_URL }}img/logo.gif">
+
         </div>
     </div>
+    {% if user.is_authenticated %}
+    <a href="{% url logout %}"><input class="bot_rojo radius fright" type="button" name="submit" value="Salir" style="margin:5px;" /></a>
+    {% endif %}
 </div>
 
 {% block contenido %}

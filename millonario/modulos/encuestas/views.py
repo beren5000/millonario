@@ -8,10 +8,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from millonario.settings import MEDIA_ROOT
 
+from django.contrib.auth.decorators import login_required
+
 from millonario.modulos.encuestas.models import *
 from millonario.modulos.segmentacion.models import Sexo
 from millonario.modulos.recursos.models import *
 
+@login_required
 def administrar(request):
     encuestas=Encuesta.objects.filter(activo=True)
     niveles=Grupo.objects.all()
@@ -264,9 +267,11 @@ def xmlencuestas(request):
     results += "</encuestas>"
     return HttpResponse(results, mimetype='text/xml')
 
+@login_required
 def concursar(request):
     encuestas=Encuesta.objects.filter(activo=True)
-    data = {'encuestas': encuestas}
+    cargos=Cargos.objects.all()
+    data = {'encuestas': encuestas,'cargos':cargos}
     template = "concursar.html"
     return render_to_response(template, data, context_instance=RequestContext(request))
 
@@ -389,7 +394,7 @@ def xmljuego(request):
                     for r in p.respuestas:
                         xml+="<item id='"+str(r.id)+"'>"+str(r.nombre)+"</item>"
                     xml+="</preguntas>"
-            xml+="</nivel'"+str(g.id)+">"
+            xml+="</nivel"+str(g.id)+">"
         xml+="</xml>"
         myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
         myfile.write(xml)
@@ -407,13 +412,17 @@ def enviar_datos(request):
         print preguntas,"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 
         persona=Personas.objects.get(id=persona_id)
-        for p in preguntas:
-            solucion=Soluciones()
-            solucion.persona=persona
+        print persona
 
-
-
-
+        for index in range(len(preguntas)):
+            if index%2!=0:
+                if preguntas[index]!="nada":
+                    solucion=Soluciones()
+                    solucion.persona=persona
+                    res=Respuesta.objects.get(id=int(preguntas[index]))
+                    solucion.respuesta=res
+                    solucion.save()
+                    print "salve"
 
         xml="<?xml version='1.0' encoding='UTF-8'?><xml><estado>1</estado></xml>"
         return HttpResponse(xml, mimetype='text/xml')
