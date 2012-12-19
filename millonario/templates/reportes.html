@@ -40,20 +40,20 @@
             categories = ['Errados', 'Finalistas'],
             name = 'Jugadores',
             data = [{
-                    y: 55.11,
+                    y: {{ ganadores }},
                     color: colors[0],
                     drilldown: {
                         name: 'Errados',
                         categories: ['Hombres', 'Mujeres'],
-                        data: [40, 60]
+                        data: [{{ hombres_ganadores }}, {{ mujeres_ganadoras }}]
                     }
                 }, {
-                    y: 44.99,
+                    y: {{ perdedores }},
                     color: colors[1],
                     drilldown: {
                         name: 'Finalistas',
                         categories: ['Hombres', 'Mujeres'],
-                        data: [40, 60],
+                        data: [{{ hombres_perdedores }}, {{ mujeres_perdedoras }}],
                         color: colors[1]
                     }
                 
@@ -165,27 +165,10 @@
     <div class="contenido">
     <ul>
     	<li>
-        <label>Cedula</label><input class="radius border-none verdana" type="text" name="" id="cedula"  style="padding:8px; width:200px; border:none; margin-left:10px;"/><input onclick="" class="bot_verde radius filtro_grupo" id_grupo='1-{{ encuesta.id }}' type="button" name="submit" value="Buscar"  style="margin-left:10px;"/></li>
-    <table>
-    	<thead>
-    	<tr>
-        	<td><div class="rep_nombre">Nombre</div></td>
-        	<td><div class="rep_fecha">Fecha / Hora</div></td>
-        	<td><div class="rep_estado">Estado</div></td>
-        	<td><div class="rep_depen">Dependencia</div></td>
-        	<td><div class="rep_cargo">Cargo</div></td>
-        </tr>
-        </thead>
-        <tbody id="tablebody">
-    	<tr>
-        	<td>Cristian vaca</td>
-        	<td>Abril 03 2012</td> 
-        	<td>Gano</td>
-        	<td>Banco</td>
-        	<td>Seguridad de Informatica</td>
-        </tr>
+        <label>Cedula</label><input class="radius border-none verdana" type="text" name="" id="cedula"  style="padding:8px; width:200px; border:none; margin-left:10px;"/><input onclick="consultar_cedula()" class="bot_verde radius filtro_grupo" id_grupo='1' type="button" name="submit" value="Buscar"  style="margin-left:10px;"/></li>
+    <div id="tablebody">
 
-    </table>
+    </div>
     </li></ul></div>
     <div class="spacer menu_line m-top50"></div>
     <div class="standar">

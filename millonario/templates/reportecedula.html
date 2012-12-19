@@ -1,8 +1,26 @@
+<table>
+    <thead>
+    <tr>
+        <td><div class="rep_nombre">Nombre</div></td>
+        <td><div class="rep_fecha">Fecha / Hora</div></td>
+        <td><div class="rep_estado">Estado</div></td>
+        <td><div class="rep_depen">Dependencia</div></td>
+        <td><div class="rep_cargo">Cargo</div></td>
+        <td><div class="rep_cargo">Pregunta</div></td>
+        <td><div class="rep_cargo">Respuesta</div></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for s in soluciones %}
+        <tr>
+            <td>{{ s.persona.full_name }}</td>
+            <td>{{ s.creado }}</td>
+            <td>{{ s.contexto.nombre }}</td>
+            <td>{{ s.cargo.nombre }}</td>
+            <td>{{ s.departamento.nombre }}</td>
+            <td>{{ s.respuesta.pregunta.nombre }}</td>
+            <td>{{ s.respuesta.nombre }}</td>
+        </tr>
+    {% endfor %}
 
-<tr>
-    <td>Cristian vaca</td>
-    <td>Abril 03 2012</td>
-    <td>Gano</td>
-    <td>Banco</td>
-    <td>Seguridad de Informatica</td>
-</tr>
+</table>

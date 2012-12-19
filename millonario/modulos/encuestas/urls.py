@@ -12,6 +12,8 @@ urlpatterns = patterns('',
 	url(r'^administrar/editar-nivel/(?P<encuesta_id>\d+)/(?P<nivel_id>\d+)/$', editar_nivel, name='administrar_editar_nivel'),
 	
     url(r'^reportes/$', reportes,  name='reportes'),
+    url(r'^consultarcedula/$', consultarcedula,  name='consultarcedula'),
+
     url(r'^concursar/$', concursar,name='concursar'),
     url(r'^agregar_pregunta/$', agregar_pregunta, name='agregar_pregunta'),
     url(r'^eliminar_pregunta/$', eliminar_pregunta, name='eliminar_pregunta'),

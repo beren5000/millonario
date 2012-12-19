@@ -91,7 +91,7 @@ class Personas(models.Model):
     @property
     def render_soluciones(self):
         Soluciones=get_model('encuestas','Soluciones')
-        soluciones=Soluciones.objects.filter(persona__cedula=self.cedula)
+        soluciones=Soluciones.objects.filter(persona__cedula=self.cedula).exclude(contexto__nombre="Continua")
         data={
             'soluciones':soluciones,
             'persona':self,

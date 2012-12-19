@@ -483,18 +483,15 @@ def reportes(request):
 def consultarcedula(request):
     if request.POST:
         cedula=request.POST['cedula']
-        gano=ContextoSoluciones.objects.get(nombre="Gana")
-        perdio=ContextoSoluciones.objects.get(nombre="Pierde")
-        soluciones=Soluciones.objects.filter(persona__cedula=cedula)
-
-
-        template = "reportes.html"
+        persona=Personas.objects.get(cedula=cedula)
+        html=persona.render_soluciones
         data = {
-            'hombres_ganadores':hombres_ganadores.count() ,
-            'mujeres_ganadoras':mujeres_ganadoras.count(),
-            'ganadores':ganadores.count(),
-            'hombres_perdedores':hombres_perdedores.count(),
-            'mujeres_perdedoras':mujeres_perdedoras.count(),
-            'perdedores':perdedores.count()
+            'estado':1,
+            'html':html,
         }
-    return render_to_response(template, data, context_instance=RequestContext(request))
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+    data = {
+        'estado':0,
+        'html':"La Cedula No Existe",
+        }
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
