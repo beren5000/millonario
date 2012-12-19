@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import get_model
+from django.template.loader import render_to_string
 from millonario.modulos.empresas.models import  Cargos,Procesos
 from millonario.modulos.localizaciones.models import  Barrios,Ciudades
 from millonario.modulos.negocios.models import Uens
@@ -85,6 +87,17 @@ class Personas(models.Model):
     @property
     def full_name(self):
         return u'%s %s ' % (self.nombres, self.apellidos)
+
+    @property
+    def render_soluciones(self):
+        Soluciones=get_model('encuestas','Soluciones')
+        soluciones=Soluciones.objects.filter(persona__cedula=self.cedula)
+        data={
+            'soluciones':soluciones,
+            'persona':self,
+        }
+        return render_to_string('reportecedula.html', data)
+
     def __unicode__(self):
         return u'%s' % (self.nombre_completo)
     class Meta:

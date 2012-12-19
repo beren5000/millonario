@@ -93,3 +93,5 @@ class Soluciones(models.Model):
     modificado=models.DateTimeField(auto_now=True)
     activo=models.BooleanField(db_index=True,default=True)
     contexto=models.ForeignKey(ContextoSoluciones)
+
+
