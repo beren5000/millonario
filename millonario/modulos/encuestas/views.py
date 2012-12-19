@@ -406,22 +406,44 @@ def xmljuego(request):
 @csrf_exempt
 def enviar_datos(request):
     if request.method == "POST":
-
+        print request.POST, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         persona_id=int(request.POST.getlist('datos')[0].split(',')[1])
+        contexto=request.POST.getlist('datos')[0].split(',')[0]
         print persona_id,"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        preguntas=request.POST.getlist('datos')[1].split(',')
+        preguntas=request.POST.getlist('datos')[1:]
+        p=""
+        for h in preguntas:
+            p+=h
+        preguntas=p.split(',')
         print preguntas,"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 
         persona=Personas.objects.get(id=persona_id)
         print persona
-
+        gano=ContextoSoluciones.objects.get(nombre="Gana")
+        perdio=ContextoSoluciones.objects.get(nombre="Pierde")
+        continua=ContextoSoluciones.objects.get(nombre="Continua")
         for index in range(len(preguntas)):
-            if index%2!=0:
+            if index != len(preguntas)-1:
+                if index%2!=0:
+                    if preguntas[index]!="nada":
+                        solucion=Soluciones()
+                        solucion.persona=persona
+                        res=Respuesta.objects.get(id=int(preguntas[index]))
+                        solucion.respuesta=res
+                        solucion.contexto=continua
+                        solucion.save()
+                        print "salve"
+
+            else:
                 if preguntas[index]!="nada":
                     solucion=Soluciones()
                     solucion.persona=persona
                     res=Respuesta.objects.get(id=int(preguntas[index]))
                     solucion.respuesta=res
+                    if contexto=="perdio":
+                        solucion.contexto=perdio
+                    else:
+                        solucion.contexto=gano
                     solucion.save()
                     print "salve"
 
@@ -429,3 +451,30 @@ def enviar_datos(request):
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
+
+
+@login_required
+def reportes(request):
+    gano=ContextoSoluciones.objects.get(nombre="Gana")
+    perdio=ContextoSoluciones.objects.get(nombre="Pierde")
+    ganadores=Soluciones.objects.filter(contexto=gano)
+    perdedores=Soluciones.objects.filter(contexto=perdio)
+
+    hombres_ganadores=ganadores.filter(persona__sexo='hombre')
+    mujeres_ganadoras=ganadores.filter(persona__sexo='mujer')
+
+    hombres_perdedores=perdedores.filter(persona__sexo='hombre')
+    mujeres_perdedoras=perdedores.filter(persona__sexo='mujer')
+
+    print hombres_ganadores,mujeres_ganadoras,hombres_perdedores,mujeres_perdedoras
+
+    template = "reportes.html"
+    data = {
+        'hombres_ganadores':hombres_ganadores.count() ,
+        'mujeres_ganadoras':mujeres_ganadoras.count(),
+        'ganadores':ganadores.count(),
+        'hombres_perdedores':hombres_perdedores.count(),
+        'mujeres_perdedoras':mujeres_perdedoras.count(),
+        'perdedores':perdedores.count()
+    }
+    return render_to_response(template, data, context_instance=RequestContext(request))

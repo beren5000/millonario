@@ -13,27 +13,30 @@
 {% block scripts %}
     <script type="text/javascript">
 		
-		var chart;
-		$(document).ready(function() {
-    
+    var chart;
+    $(document).ready(function()
+    {
+
         var colors = Highcharts.getOptions().colors,
             categories = ['Errados', 'Finalistas'],
             name = 'Jugadores',
-            data = [{
-                    y: 55.11,
+            data = [
+                {
+                    y: {{ perdedores }},
                     color: colors[0],
                     drilldown: {
                         name: 'Errados',
                         categories: ['Hombres', 'Mujeres'],
-                        data: [40, 60]
+                        data: [{{ hombres_perdedores }}, {{ mujeres_perdedoras }}]
                     }
-                }, {
-                    y: 44.99,
+                },
+                {
+                    y: {{ ganadores }},
                     color: colors[1],
                     drilldown: {
                         name: 'Finalistas',
                         categories: ['Hombres', 'Mujeres'],
-                        data: [40, 60],
+                        data: [{{ hombres_ganadores }}, {{ mujeres_ganadoras }}],
                         color: colors[1]
                     }
                 
@@ -43,7 +46,8 @@
         // Build the data arrays
         var browserData = [];
         var versionsData = [];
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++)
+        {
     
             // add browser data
             browserData.push({
