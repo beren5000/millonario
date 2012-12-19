@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
     # Create your views here.
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
@@ -362,10 +363,10 @@ def xmlcedula(request):
 
         xml="<?xml version='1.0' encoding='UTF-8'?><xml><data_cedula>"
         xml+="<idded>"+str(persona.id)+"</idded>"
-        xml+="<named>"+str(persona.full_name) +"</named>"
+        xml+="<named>"+persona.full_name +"</named>"
         xml+="</data_cedula></xml>"
         myfile = open(MEDIA_ROOT+'/xml/xmlcedula'+aleatorio+'.xml','w')
-        myfile.write(xml)
+        myfile.write(xml.encode('ascii', 'ignore'))
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
@@ -397,7 +398,7 @@ def xmljuego(request):
             xml+="</nivel"+str(g.id)+">"
         xml+="</xml>"
         myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
-        myfile.write(xml)
+        myfile.write(xml.encode('ascii', 'ignore'))
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
