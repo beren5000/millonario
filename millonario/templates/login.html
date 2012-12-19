@@ -9,17 +9,18 @@
 {% block jss %}{% endblock %}
 
 {% block contenido %}
+
     <div class="spacer menu_line m-top50" ></div>
     <div class="standar">
         <div class="contenido">
             <div id="escoger">
                 <div class="tit-modulos">
-                    <div class="font-pq" style="color:#006633;">Iniciar Sesión</div>
+                    <div class="font-pq" style="color:#006633;">Iniciar Sesión <p>aaa{{ user.id }}----</p></div>
                     <div class="font-gd">Log In</div>
                 
    					<div class="spacer m-top50"></div>
-                    <div id="caja_login">	
-                    <form action="{% if next %}?next={{ next }}{% else %}{% url inicio %}{% endif %}" method="post" accept-charset="utf-8">{% csrf_token %}
+                    <div id="caja_login">
+                        <form action="{% if next %}?next={{ next }}{% endif %}" method="post" accept-charset="utf-8">{% csrf_token %}
                         <div style="margin-top:30px;">
                             <div class="">Usuario</div>
                             <div><input style=" border:none; padding:10px; width:200px" name="username" type="text" class="input_login bg-blanco radius10" id="id_username" maxlength="100" /></div>
