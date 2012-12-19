@@ -31,6 +31,13 @@ class GrupoAdmin(admin.ModelAdmin):
     search_fields =  ['nombre']
     list_per_page=settings.ELEMENTOS_POR_PAGINA
 
+class ContextosAdmin(admin.ModelAdmin):
+    list_display = ['nombre']
+    #list_filter = ['agrupaciontipo','peso']
+    #readonly_fields=['idmapperfil']
+    search_fields =  ['nombre']
+    list_per_page=settings.ELEMENTOS_POR_PAGINA
+
 class SolucionesAdmin(admin.ModelAdmin):
     list_display = ['persona']
     search_fields =  ['persona']
@@ -41,6 +48,7 @@ admin.site.register(Pregunta,PreguntaAdmin)
 admin.site.register(Respuesta,RespuestaAdmin)
 admin.site.register(Grupo,GrupoAdmin)
 admin.site.register(Soluciones,SolucionesAdmin)
+admin.site.register(ContextoSoluciones,ContextosAdmin)
 
 
 

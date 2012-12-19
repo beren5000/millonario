@@ -82,9 +82,13 @@ class Respuesta(models.Model):
         return u'%s' % (self.nombre)
 
 
+class ContextoSoluciones(Maestra):
+    pass
+
 class Soluciones(models.Model):
     persona = models.ForeignKey(Personas)
     respuesta = models.ForeignKey(Respuesta)
     creado=models.DateTimeField(auto_now_add=True)
     modificado=models.DateTimeField(auto_now=True)
     activo=models.BooleanField(db_index=True,default=True)
+    contexto=models.ForeignKey(ContextoSoluciones)
