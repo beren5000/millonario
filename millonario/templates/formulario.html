@@ -6,7 +6,7 @@
     };
     $(document).ready(function() {
         $('#tablapregunas').dataTable();
-    } );
+		} );
 </script>
 <div id="encuesta_seleccionada" style="display: none;" title="{{ encuesta.id }}">{{ encuesta.id }}</div>
 <br>
@@ -14,9 +14,10 @@
 Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verde volver_modulos radius">Volver</div></div>
 <p></p>
 <ul>
-	<li><input class="bot_rojo radius fright" type="button" name="submit" value="Nivel 3" style="margin:10px;" /></li>
-	<li><input class="bot_rojo radius fright" type="button" name="submit" value="Nivel 2" style="margin:10px;" /></li>
-	<li><input class="bot_rojo radius fright" type="button" name="submit" value="Nivel 1" style="margin:10px;" /></li>
+	<li><input onclick="ver_preguntas_por_nivel(this)" class="bot_rojo radius fright filtro_grupo" id_grupo='3-{{ encuesta.id }}' type="button" name="submit" value="Nivel 3" style="margin:10px;" /></li>
+	<li><input onclick="ver_preguntas_por_nivel(this)" class="bot_rojo radius fright filtro_grupo" id_grupo='2-{{ encuesta.id }}' type="button" name="submit" value="Nivel 2" style="margin:10px;" /></li>
+	<li><input onclick="ver_preguntas_por_nivel(this)" class="bot_rojo radius fright filtro_grupo" id_grupo='1-{{ encuesta.id }}' type="button" name="submit" value="Nivel 1" style="margin:10px;" /></li>
+	<li><input onclick="ver_preguntas({{ encuesta.id }})" class="bot_azul radius fright filtro_grupo" id_grupo='1-{{ encuesta.id }}' type="button" name="submit" value="Todos" style="margin:10px;" /></li>
 </ul>
 <br /><br />
 <div id="confelim" style="display: none;">
@@ -25,6 +26,7 @@ Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verd
     <input type="button" value="Aceptar" onclick="eliminar_pregunta($('#idconfelim').attr('title'))">
     <input type="button" value="Cancelar" onclick="$('#confelim').hide()" >
 </div>
+
 
 <table id="tablapregunas" border="1" bgcolor="#FFFFFF">
     <thead>
@@ -99,6 +101,4 @@ Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verd
         </tr>
     </tbody>
 </table>
-
-
 

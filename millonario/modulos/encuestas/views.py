@@ -23,6 +23,17 @@ def administrar(request):
     }
     return render_to_response(template, data, context_instance=RequestContext(request))
 
+
+def editar_nivel(request,encuesta_id,nivel_id):
+    preguntas=Encuesta.objects.get(id=encuesta_id).render_preguntas_nivel(nivel_id)
+    data={
+            'estado':1,
+            'preguntas':preguntas
+        }
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+    #return HttpResponse(simplejson.dumps({'estado':0}),mimetype='application/json')
+	
+	
 @csrf_exempt
 def ver_preguntas(request):
     if request.POST:

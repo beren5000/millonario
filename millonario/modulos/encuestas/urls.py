@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 from millonario.modulos.encuestas.views import *
 urlpatterns = patterns('',
     url(r'^administrar/$', administrar, name='administrar'),
+	
+	url(r'^administrar/editar-nivel/(?P<encuesta_id>\d+)/(?P<nivel_id>\d+)/$', editar_nivel, name='administrar_editar_nivel'),
+	
     url(r'^reportes/$', direct_to_template, {'template': 'reportes.html'}, name='reportes'),
     url(r'^concursar/$', concursar,name='concursar'),
     url(r'^agregar_pregunta/$', agregar_pregunta, name='agregar_pregunta'),

@@ -176,8 +176,28 @@
 			$('#preguntas').slideUp();
 			$('.data_moludos').slideDown()
 		}
+	
+	
+	function ver_preguntas_por_nivel(obj)
+	{			
+		
+			var cadenas=$(obj).attr("id_grupo").split("-");
+			 
+			 $.get('/quien_la_tiene_clara/administrar/editar-nivel/'+cadenas[1]+'/'+cadenas[0]+'/', function(data)
+			{
+			  data=eval(data);
+			  $('#preguntas').html(data.preguntas);
+		
+			
+			});
 
+			 
+				
+	}
 
+ 
+	
+	
     </script>
 {% endblock %}
 
