@@ -31,7 +31,9 @@
 				});
         };
 		
-		function mostrar_reinicio(){			
+		function mostrar_reinicio(){
+			//$('body').removeClass('bg-juego')
+			$('#menu, .spacer').fadeIn();			
             $('#userlog').show()
 			$('#cedula').val('').focus();	
 		}
@@ -39,12 +41,15 @@
 		function concurin(){ //Inicio del Consurso
 
             $('#userlog').hide();
+			
 			$('#form_cedula').show();	
 			$('#nombre_encontrado').hide();	
-			$('#preguntas').slideUp(function(){				
-				$('#juego_swf').slideDown(500,function(){
-					$('.bg-nombre').css('display','block')
-					$('#juego_swf .object').slideDown()
+			$('#menu, .spacer').fadeOut()
+			$('#preguntas').slideUp(function(){			
+				$('body').addClass('bg-juego');	
+				$('#juego_swf').fadeIn(500,function(){
+					//$('.bg-nombre').css('display','block')
+					$('#juego_swf .object').fadeIn()
 				})
 			});
 			$('.spacer').animate({
@@ -164,8 +169,12 @@
                 }
             })
             $('#bot_iniciar').click(function(){
-				xmlencuesta();
-                $('#userlog').show()
+				if($('.s_1').size() > 0){
+					xmlencuesta();
+					$('#userlog').show()
+				}else{
+					alert('Debes seleccinar al menos un modulo')
+				}
             })
         });
     </script>

@@ -13,6 +13,7 @@ from django.core.exceptions import ValidationError
 SEXO= (('F', 'FEMENINO'), ('M','MASCULINO' ))
 
 
+
 class Maestra(models.Model):
     nombre=models.CharField(max_length=100,unique=True,blank=False,null=False)
     descripcion = models.TextField(blank=True,null=True)
