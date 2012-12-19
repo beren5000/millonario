@@ -3,6 +3,7 @@
 from django.contrib import admin
 from django.conf import settings
 from millonario.modulos.recursos.models import  *
+from django.contrib.auth.models import User
 
 
 
@@ -259,6 +260,12 @@ class EmpleadosAdmin(PersonasAdmin):
          qs = super(EmpleadosAdmin, self).queryset(request)
          return qs.exclude(tipo_de_persona__id__in=[3,2,1])
 
+
+class UsuariosSistemaAdminR(admin.ModelAdmin):
+     pass
+#    list_per_page=50
+#    list_display = 
+
 admin.site.register(TipoDePersona)
 admin.site.register(Personas,PersonasAdmin)
 admin.site.register(Gerentes,GerentesAdmin)
@@ -267,6 +274,4 @@ admin.site.register(Directivos,DirectivosAdmin)
 admin.site.register(Empleados,EmpleadosAdmin)
 
 
-
-#admin.site.register(FlatPage, PaginaEstaticaAdmin)
 
