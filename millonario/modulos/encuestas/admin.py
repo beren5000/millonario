@@ -31,11 +31,16 @@ class GrupoAdmin(admin.ModelAdmin):
     search_fields =  ['nombre']
     list_per_page=settings.ELEMENTOS_POR_PAGINA
 
+class SolucionesAdmin(admin.ModelAdmin):
+    list_display = ['persona']
+    search_fields =  ['persona']
+    list_per_page=settings.ELEMENTOS_POR_PAGINA
+
 admin.site.register(Encuesta,EncuestaAdmin)
 admin.site.register(Pregunta,PreguntaAdmin)
 admin.site.register(Respuesta,RespuestaAdmin)
 admin.site.register(Grupo,GrupoAdmin)
-
+admin.site.register(Soluciones,SolucionesAdmin)
 
 
 

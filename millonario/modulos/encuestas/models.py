@@ -2,12 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
-from millonario.modulos.kernel.perfil.models import Perfil
+from millonario.modulos.recursos.models import Personas
 
 # Create your models here.
 
 class Maestra(models.Model):
-    nombre=models.CharField(max_length=100,unique=True,blank=False,null=False)
+    nombre=models.CharField(max_length=100,null=False)
     descripcion = models.TextField(blank=True,null=True)
     creado=models.DateTimeField(auto_now_add=True)
     modificado=models.DateTimeField(auto_now=True)
@@ -32,6 +32,17 @@ class Encuesta(Maestra):
     def render_preguntas(self):
         preguntas=Pregunta.objects.filter(encuesta__id=self.id).order_by('grupo','id')
         grupos=Grupo.objects.all().order_by('id')
+        data={
+            'preguntas':preguntas,
+            'grupos':grupos,
+            'encuesta':self
+
+        }
+        return render_to_string('formulario.html', data)
+
+    def render_preguntas_nivel(self,nivel):
+        preguntas=Pregunta.objects.filter(encuesta__id=self.id).order_by('grupo','id')
+        grupos=Grupo.objects.get(id=nivel)
         data={
             'preguntas':preguntas,
             'grupos':grupos,
@@ -70,3 +81,10 @@ class Respuesta(models.Model):
     def __unicode__(self):
         return u'%s' % (self.nombre)
 
+
+class Soluciones(models.Model):
+    persona = models.ForeignKey(Personas)
+    respuesta = models.ForeignKey(Respuesta)
+    creado=models.DateTimeField(auto_now_add=True)
+    modificado=models.DateTimeField(auto_now=True)
+    activo=models.BooleanField(db_index=True,default=True)

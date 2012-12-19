@@ -395,12 +395,16 @@ def enviar_datos(request):
         preguntas=request.POST.getlist('datos')[1].split(',')
         print preguntas,"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 
+        persona=Personas.objects.get(id=persona_id)
+        for p in preguntas:
+            solucion=Soluciones()
+            solucion.persona=persona
+
+
+
 
 
         xml="<?xml version='1.0' encoding='UTF-8'?><xml><estado>1</estado></xml>"
-
-        myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
-        myfile.write(xml)
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
