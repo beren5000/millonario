@@ -41,8 +41,8 @@ class Encuesta(Maestra):
         return render_to_string('formulario.html', data)
 
     def render_preguntas_nivel(self,nivel):
-        preguntas=Pregunta.objects.filter(encuesta__id=self.id).order_by('grupo','id')
-        grupos=Grupo.objects.get(id=nivel)
+        preguntas=Pregunta.objects.filter(encuesta__id=self.id,grupo__id=nivel).order_by('grupo','id')
+        grupos=Grupo.objects.all().order_by('id')
         data={
             'preguntas':preguntas,
             'grupos':grupos,
