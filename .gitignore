@@ -184,4 +184,6 @@ millonario/database.db
 
 *.db
 
+*.xml
+
 millonario/database.db
