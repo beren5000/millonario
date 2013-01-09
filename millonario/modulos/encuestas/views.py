@@ -3,13 +3,14 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
-from django.template import RequestContext
+from django.template import RequestContext, loader, Context
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from millonario.settings import MEDIA_ROOT
 
 from django.contrib.auth.decorators import login_required
+from django.utils.encoding import smart_str, smart_unicode
 
 from millonario.modulos.encuestas.models import *
 from millonario.modulos.segmentacion.models import Sexo
@@ -272,7 +273,8 @@ def xmlencuestas(request):
 def concursar(request):
     encuestas=Encuesta.objects.filter(activo=True)
     cargos=Cargos.objects.all()
-    data = {'encuestas': encuestas,'cargos':cargos}
+    sexos=Sexo.objects.all()
+    data = {'encuestas': encuestas,'cargos':cargos,'sexos':sexos}
     template = "concursar.html"
     return render_to_response(template, data, context_instance=RequestContext(request))
 
@@ -361,12 +363,9 @@ def xmlcedula(request):
         cedula=request.POST['cedula']
         persona=Personas.objects.get(cedula=cedula)
 
-        xml="<?xml version='1.0' encoding='UTF-8'?><xml><data_cedula>"
-        xml+="<idded>"+str(persona.id)+"</idded>"
-        xml+="<named>"+persona.full_name +"</named>"
-        xml+="</data_cedula></xml>"
+        xml=persona.render_xmlcedula
         myfile = open(MEDIA_ROOT+'/xml/xmlcedula'+aleatorio+'.xml','w')
-        myfile.write(xml.encode('ascii', 'ignore'))
+        myfile.write(xml.encode('utf-8'))
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
@@ -406,15 +405,19 @@ def xmljuego(request):
 @csrf_exempt
 def enviar_datos(request):
     if request.method == "POST":
-        print request.POST, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        print request.POST, "REQUESTREQUESTREQUESTREQUESTREQUESTREQUESTREQUESTREQUEST"
         persona_id=int(request.POST.getlist('datos')[0].split(',')[1])
         contexto=request.POST.getlist('datos')[0].split(',')[0]
-        print persona_id,"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        print persona_id,"PERSONAIDPERSONAIDPERSONAIDPERSONAIDPERSONAIDPERSONAIDPERSONAID"
         preguntas=request.POST.getlist('datos')[1:]
-        p=""
-        for h in preguntas:
-            p+=h
-        preguntas=p.split(',')
+        print preguntas, "PREGUNTASPREGUNTASPREGUNTASPREGUNTASPREGUNTASPREGUNTASPREGUNTAS"
+        p=[]
+        for pregunta in preguntas:
+            pregunta=pregunta.split(',')
+            if pregunta[0]!="":
+                for id_pregunta in pregunta:
+                    p+=[id_pregunta]
+        preguntas=p
         print preguntas,"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
 
         persona=Personas.objects.get(id=persona_id)
@@ -460,11 +463,11 @@ def reportes(request):
     ganadores=Soluciones.objects.filter(contexto=gano)
     perdedores=Soluciones.objects.filter(contexto=perdio)
 
-    hombres_ganadores=ganadores.filter(persona__sexo='hombre')
-    mujeres_ganadoras=ganadores.filter(persona__sexo='mujer')
+    hombres_ganadores=ganadores.filter(persona__sexo='Hombre')
+    mujeres_ganadoras=ganadores.filter(persona__sexo='Mujer')
 
-    hombres_perdedores=perdedores.filter(persona__sexo='hombre')
-    mujeres_perdedoras=perdedores.filter(persona__sexo='mujer')
+    hombres_perdedores=perdedores.filter(persona__sexo='Hombre')
+    mujeres_perdedoras=perdedores.filter(persona__sexo='Mujer')
 
     print hombres_ganadores,mujeres_ganadoras,hombres_perdedores,mujeres_perdedoras
 
@@ -495,3 +498,30 @@ def consultarcedula(request):
         'html':"La Cedula No Existe",
         }
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
+
+def reportecsv(request):
+#    # Create the HttpResponse object with the appropriate CSV header.
+#    response = HttpResponse(mimetype='text/csv')
+#    response['Content-Disposition'] = 'attachment; filename="reportesoluciones.csv"'
+#
+#    # The data is hard-coded here, but you could load it from a database or
+#    # some other source.
+#
+#    soluciones=Soluciones.objects.all()
+#
+#    t = loader.get_template('reportecsv.csv')
+#    c = Context({
+#        'soluciones': soluciones,
+#        })
+#    response.write(t.render(c))
+#    return response
+    soluciones=Soluciones.objects.all().exclude(contexto__nombre='Continua')
+    lCsvFile = render_to_string('reportecsv.csv', {
+        "soluciones" : soluciones,
+        })
+
+    lResponse = HttpResponse(mimetype="text/csv")
+    lResponse['Content-Disposition'] = 'attachment; filename="reportesoluciones.csv"'
+    lResponse.write(lCsvFile)
+    return lResponse

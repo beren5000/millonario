@@ -29,8 +29,11 @@
         </div>
     </div>
     {% if user.is_authenticated %}
+    <div class="font-pq fleft" style="color:#006633;">Bienvenido {{ user.username }}</div>
     <a href="{% url logout %}"><input class="bot_rojo radius fright" type="button" name="submit" value="Salir" style="margin:5px;" /></a>
     {% endif %}
+    <a href="{% url inicio %}"><input class="bot_verde radius fright" type="button" name="submit" value="Inicio" style="margin:5px;" /></a>
+
 </div>
 
 {% block contenido %}

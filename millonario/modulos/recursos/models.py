@@ -8,6 +8,7 @@ from millonario.modulos.localizaciones.models import  Barrios,Ciudades
 from millonario.modulos.negocios.models import Uens
 from django.core.exceptions import ValidationError
 
+
 # Create your models here.
 
 SEXO= (('F', 'FEMENINO'), ('M','MASCULINO' ))
@@ -97,6 +98,14 @@ class Personas(models.Model):
             'persona':self,
         }
         return render_to_string('reportecedula.html', data)
+
+    @property
+    def render_xmlcedula(self):
+
+        data={
+            'persona':self,
+            }
+        return render_to_string('xmlcedula.xml', data)
 
     def __unicode__(self):
         return u'%s' % (self.nombre_completo)

@@ -72,8 +72,9 @@ Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verd
             </td>
         </tr>
         {% endfor %}
-
+    </tbody>
 <!--AQUI VA LO DE LA PREGUNTA NUEVA-->
+    <tfoot>
         <tr>
             <td><input id="nombre_pregunta" type="text" name="nombre"></td>
             <td>
@@ -99,6 +100,5 @@ Modulo: {{ encuesta.nombre }} <div onclick="ocultar_preguntas()" class="bot_verd
                 <input type="submit" value="guardar" onclick="agregar_pregunta({{ encuesta.id }})">
             </td>
         </tr>
-    </tbody>
+    </tfoot>
 </table>
-

@@ -1,0 +1,4 @@
+Nombre;Fecha / Hora;Estado;Dependencia;Cargo;Pregunta;Respuesta
+{% for s in soluciones %}
+{{s.persona.full_name}};{{s.creado}};{{ s.contexto.nombre }};{{ s.cargo.nombre }};{{ s.departamento.nombre }};{{ s.respuesta.pregunta.nombre }};{{ s.respuesta.nombre }}
+{% endfor %}

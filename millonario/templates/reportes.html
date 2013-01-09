@@ -37,13 +37,13 @@
 		$(document).ready(function() {
     
         var colors = Highcharts.getOptions().colors,
-            categories = ['Errados', 'Finalistas'],
+            categories = ['Ganadores', 'Errados'],
             name = 'Jugadores',
             data = [{
                     y: {{ ganadores }},
                     color: colors[0],
                     drilldown: {
-                        name: 'Errados',
+                        name: 'Ganadores',
                         categories: ['Hombres', 'Mujeres'],
                         data: [{{ hombres_ganadores }}, {{ mujeres_ganadoras }}]
                     }
@@ -51,7 +51,7 @@
                     y: {{ perdedores }},
                     color: colors[1],
                     drilldown: {
-                        name: 'Finalistas',
+                        name: 'Errados',
                         categories: ['Hombres', 'Mujeres'],
                         data: [{{ hombres_perdedores }}, {{ mujeres_perdedoras }}],
                         color: colors[1]

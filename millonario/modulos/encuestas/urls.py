@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^xmljuego/$', xmljuego, name='xmljuego'),
     url(r'^xmlcedula/$', xmlcedula, name='xmlcedula'),
     url(r'^enviar_datos/$', enviar_datos, name='enviar_datos'),
+    url(r'^reportecsv/$', reportecsv, name='reportecsv'),
 #===============================================================================
 # 
 #    url(r'^profile/edit/location/$', location, name='profile_edit_location'),
