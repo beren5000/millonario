@@ -137,11 +137,34 @@
                         }
                         else
                         {
+                            alert(respuesta.error);
                             $('#userlog').hide();
                             $('#userreg').show();
 
                         }
                     });
+        };
+        function loadcargos(){
+            uenid= $('#regionalreg option:selected').val();
+            if(uenid != '-1'){
+                $.post( '{% url loadcargos %}',
+                        {
+                            'uen':uenid
+                        },
+                        function(respuesta){
+                            respuesta=eval(respuesta);
+                            if (respuesta.estado==1){
+                                html=respuesta.html;
+                                $('#loadcargoreg').html(html).show();
+                            }
+                            else
+                            {
+                                alert(respuesta.error);
+                                $('#loadcargoreg').hide();
+
+                            }
+                        });
+            }
         };
 
     </script>
@@ -271,12 +294,17 @@
                 </select>
                 </li>
                 <li>
-                <label>Cargo:</label>
-                    <select name="cargoreg" id="cargoreg">
-                        {% for cargo in cargos %}
-                            <option value="{{ cargo.id }}">{{ cargo.nombre }}</option>
+                <label>Regional:</label>
+                    <select name="regionalreg" id="regionalreg" onchange="loadcargos()">
+                        <option value="-1">-----------------</option>
+                        {% for uen in uens %}
+                            <option value="{{ uen.id }}">{{ uen.nombre }}</option>
                         {% endfor %}
                     </select>
+                </li>
+                </li>
+                <li id="loadcargoreg" style="display: none;">
+
                 </li>
                 <div class="clear"></div>
                 <hr />

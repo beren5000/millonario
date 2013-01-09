@@ -272,9 +272,9 @@ def xmlencuestas(request):
 @login_required
 def concursar(request):
     encuestas=Encuesta.objects.filter(activo=True)
-    cargos=Cargos.objects.all()
+    uens=Uens.objects.all()
     sexos=Sexo.objects.all()
-    data = {'encuestas': encuestas,'cargos':cargos,'sexos':sexos}
+    data = {'encuestas': encuestas,'uens':uens,'sexos':sexos}
     template = "concursar.html"
     return render_to_response(template, data, context_instance=RequestContext(request))
 
@@ -330,30 +330,35 @@ def userreg(request):
 #            new_user, created = User.objects.get_or_create(str(cedula),"spam@spam.com",cedula)
 #        except:
 #            pass
+        try:
+            new_user = User()
+            new_user.username=str(cedula)
+            new_user.email="spam@spam.com"
+            new_user.set_password(cedula)
+            new_user.save()
 
-        new_user = User()
-        new_user.username=str(cedula)
-        new_user.email="spam@spam.com"
-        new_user.set_password(cedula)
-        new_user.save()
+            persona=Personas()
+            persona.user=new_user
+            persona.nombres=nombre
+            persona.apellidos=apellido
+            persona.sexo=sexo
+            persona.cedula=str(cedula)
+            persona.save()
 
-        persona=Personas()
-        persona.user=new_user
-        persona.nombres=nombre
-        persona.apellidos=apellido
-        persona.sexo=sexo
-        persona.cedula=str(cedula)
-        persona.save()
+            data={
+                'estado':1,
+                'persona_id':persona.id,
+                'nombre':persona.nombres,
+                'html':"",
+                }
 
-        data={
-            'estado':1,
-            'persona_id':persona.id,
-            'nombre':persona.nombres,
-            'html':"",
-            }
+        except:
+            data={
+                'estado':0,
+                'error':"cedula ya registrada",
+                }
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
-
-    data = {'estado': 0}
+    data = {'estado': 0, 'error':"ni lo intentes"}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
 @csrf_exempt
@@ -525,3 +530,20 @@ def reportecsv(request):
     lResponse['Content-Disposition'] = 'attachment; filename="reportesoluciones.csv"'
     lResponse.write(lCsvFile)
     return lResponse
+
+@csrf_exempt
+def loadcargos(request):
+    if request.POST:
+        uen_id=request.POST['uen']
+        uen=Uens.objects.get(id=uen_id)
+        html=uen.render_cargos
+        data = {
+            'estado':1,
+            'html':html,
+            }
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+    data = {
+        'estado':0,
+        'html':"la uen no existe",
+        }
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
