@@ -43,6 +43,10 @@ body{
 	#menu ul.fleft li, #menu ul.fright li{
 		float:left;
 	}
+	#menu .font-pq{
+		line-height:49px;
+		margin-left:10px;
+	}
 	#juego_swf{
 		display:none;
 		width:100%;
@@ -143,6 +147,10 @@ body{
 	.contenido{
 		width:90%;
 		margin:0 auto;
+	}
+	.contenido a img{
+		width:200px;
+		margin-top:20px;
 	}
 	#bot_iniciar{
 		cursor:pointer;
