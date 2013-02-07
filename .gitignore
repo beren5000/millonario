@@ -127,6 +127,13 @@ Thumbs.db
 Desktop.ini
 
 
+*.db
+
+millonario/*.xml
+
+millonario/database.db
+
+
 #############
 ## Python
 #############
@@ -184,6 +191,6 @@ millonario/database.db
 
 *.db
 
-*.xml
+millonario/*.xml
 
 millonario/database.db
