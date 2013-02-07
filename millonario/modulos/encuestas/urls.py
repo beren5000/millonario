@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 	
     url(r'^reportes/$', reportes,  name='reportes'),
     url(r'^consultarcedula/$', consultarcedula,  name='consultarcedula'),
-
+    url(r'^consultartodo/$', consultartodo,  name='consultartodo'),
     url(r'^concursar/$', concursar,name='concursar'),
     url(r'^agregar_pregunta/$', agregar_pregunta, name='agregar_pregunta'),
     url(r'^eliminar_pregunta/$', eliminar_pregunta, name='eliminar_pregunta'),

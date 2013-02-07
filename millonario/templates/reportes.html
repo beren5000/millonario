@@ -32,6 +32,25 @@
                         }
                     });
         };
+
+        function consultar_todo(){
+            $.post( '{% url consultartodo %}',
+                    {
+                        'estado':'enviando'
+                    },
+                    function(respuesta){
+                        respuesta=eval(respuesta);
+                        console.log(respuesta)
+                        if (respuesta.estado==1){
+                            html=respuesta.html;
+                            $("#tablebody").html(html)
+                        }
+                        else
+                        {
+                            alert("la cedula no existe")
+                        }
+                    });
+        };
 		
 		var chart;
 		$(document).ready(function() {
@@ -163,13 +182,18 @@
     </div>
     
     <div class="contenido">
-    <ul>
-    	<li>
-        <label>Cedula</label><input class="radius border-none verdana" type="text" name="" id="cedula"  style="padding:8px; width:200px; border:none; margin-left:10px;"/><input onclick="consultar_cedula()" class="bot_verde radius filtro_grupo" id_grupo='1' type="button" name="submit" value="Buscar"  style="margin-left:10px;"/></li>
-    <div id="tablebody">
+        <ul>
+            <li>
+                <label>Cedula</label><input class="radius border-none verdana" type="text" name="" id="cedula"  style="padding:8px; width:200px; border:none; margin-left:10px;"/>
+                <input onclick="consultar_cedula()" class="bot_verde radius filtro_grupo" id_grupo='1' type="button" name="submit" value="Buscar"  style="margin-left:10px;"/>
+                <input onclick="consultar_todo()" class="bot_verde radius filtro_grupo" id_grupo='1' type="button" name="submit" value="Ver Todo"  style="margin-left:10px;"/>
+                <a href="{% url reportecsv %}" class="bot_verde radius filtro_grupo" id_grupo='1' type="button" name="submit" value="Exportar Todo"  style="margin-left:10px;">Exportar Todo</a>
+            </li>
+            <div id="tablebody">
 
+            </div>
+        </ul>
     </div>
-    </li></ul></div>
     <div class="spacer menu_line m-top50"></div>
     <div class="standar">
         <div class="contenido">

@@ -504,6 +504,28 @@ def consultarcedula(request):
         }
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
+@csrf_exempt
+def consultartodo(request):
+    print request
+    if request.POST:
+
+        soluciones=Soluciones.objects.all().exclude(contexto__nombre="Continua")
+        data={
+            'estado':1,
+            'soluciones':soluciones,
+            }
+        html= render_to_string('reportecedula.html', data)
+        data = {
+            'estado':1,
+            'html':html,
+            }
+        return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+    data = {
+        'estado':0,
+        'html':"La Cedula No Existe",
+        }
+    return HttpResponse(simplejson.dumps(data),mimetype='application/json')
+
 
 def reportecsv(request):
 #    # Create the HttpResponse object with the appropriate CSV header.
