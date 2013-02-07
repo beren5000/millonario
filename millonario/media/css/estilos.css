@@ -487,3 +487,16 @@ hr {
 .rep_estado{}
 .rep_depen{}
 .rep_cargo{}
+
+#tablebody{
+	margin-top:20px;
+	font-size:12px;
+	color:#000;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+#tablebody tbody td{
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	padding:10px 5px;
+	background:#fff;
+}

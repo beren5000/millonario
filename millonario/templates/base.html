@@ -21,6 +21,8 @@
     {% endblock %}
 </head>
 <body>
+
+{% block menu %}
 <div id="menu">
 	<div class="fleft">
     	<div class="logo">
@@ -35,6 +37,8 @@
     <a href="{% url inicio %}"><input class="bot_verde radius fright" type="button" name="submit" value="Inicio" style="margin:5px;" /></a>
 
 </div>
+{% endblock %}
+
 
 {% block contenido %}
 <div class="spacer menu_line m-top50"></div>
