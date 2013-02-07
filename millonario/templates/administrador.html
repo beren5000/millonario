@@ -200,7 +200,23 @@
 	
     </script>
 {% endblock %}
+{% block menu %}
+<div id="menu">
+	<div class="fleft">
+    	<div class="logo">
+        	<img src="{{ MEDIA_URL }}img/logo.gif">
 
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="font-pq fleft" style="color:#006633;">Bienvenido {{ user.username }}</div>
+    <a href="{% url logout %}"><input class="bot_rojo radius fright" type="button" name="submit" value="Salir" style="margin:5px;" /></a>
+    <a href="/admin/"><input class="bot_verde radius fright" type="button" name="submit" value="Admin Avanzada" style="margin:5px;" /></a>
+    {% endif %}
+    <a href="{% url inicio %}"><input class="bot_verde radius fright" type="button" name="submit" value="Inicio" style="margin:5px;" /></a>
+
+</div>
+{% endblock %}
 {% block contenido %}
     <div class="spacer menu_line m-top50"></div>
     <div class="standar">
