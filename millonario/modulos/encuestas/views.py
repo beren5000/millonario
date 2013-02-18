@@ -325,11 +325,16 @@ def userreg(request):
         apellido=request.POST['apellidos']
         sexo=request.POST['sexo']
         sexo=Sexo.objects.get(id=int(sexo))
+
 #        try:
 #
 #            new_user, created = User.objects.get_or_create(str(cedula),"spam@spam.com",cedula)
 #        except:
 #            pass
+        print cedula,nombre,apellido,sexo
+
+
+
         try:
             new_user = User()
             new_user.username=str(cedula)

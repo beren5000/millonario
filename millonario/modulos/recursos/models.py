@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from millonario.modulos.empresas.models import  Cargos,Procesos
 from millonario.modulos.localizaciones.models import  Barrios,Ciudades
 from millonario.modulos.negocios.models import Uens
+from millonario.modulos.segmentacion.models import Sexo
 from django.core.exceptions import ValidationError
 
 
@@ -56,7 +57,7 @@ class Personas(models.Model):
     descripcion = models.TextField(blank=True,null=True)
     efectividad=models.DateTimeField(blank=True,null=True)
 
-    sexo= models.CharField(max_length=1, db_index=True,blank=False,null=False,choices=SEXO)
+    sexo= models.ForeignKey(Sexo,blank=True,null=True)
     creado=models.DateTimeField(auto_now_add=True)
     modificado=models.DateTimeField(auto_now=True)
 
