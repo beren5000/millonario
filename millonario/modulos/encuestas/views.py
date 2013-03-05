@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
     # Create your views here.
+from django.db import transaction
+import codecs
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -316,7 +318,8 @@ def userlog(request):
 
     data = {'estado': 0}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
-
+############## juan cambio aqui
+@transaction.commit_manually
 @csrf_exempt
 def userreg(request):
     if request.method == "POST":
@@ -325,28 +328,21 @@ def userreg(request):
         apellido=request.POST['apellidos']
         sexo=request.POST['sexo']
         sexo=Sexo.objects.get(id=int(sexo))
-
-#        try:
-#
-#            new_user, created = User.objects.get_or_create(str(cedula),"spam@spam.com",cedula)
-#        except:
-#            pass
-        print cedula,nombre,apellido,sexo
-
-
-
+         
         try:
-            new_user = User()
-            new_user.username=str(cedula)
-            new_user.email="spam@spam.com"
+        
+            new_user, created = User.objects.get_or_create(username=str(cedula),email="spam@spam.com",password=str(cedula))
+                
+            
             new_user.set_password(cedula)
             new_user.save()
+            
 
             persona=Personas()
             persona.user=new_user
             persona.nombres=nombre
             persona.apellidos=apellido
-            persona.sexo=sexo
+            persona.sexo=sexo.id # el sexo probar que funcione
             persona.cedula=str(cedula)
             persona.save()
 
@@ -356,12 +352,15 @@ def userreg(request):
                 'nombre':persona.nombres,
                 'html':"",
                 }
-
         except:
+            transaction.rollback()
             data={
                 'estado':0,
                 'error':"cedula ya registrada",
                 }
+        else:
+            transaction.commit()
+            
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
     data = {'estado': 0, 'error':"ni lo intentes"}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
@@ -379,7 +378,60 @@ def xmlcedula(request):
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
+import os
+import sys
+import shutil
 
+def convert_to_utf8(filename):
+    # gather the encodings you think that the file may be
+    # encoded inside a tuple
+    encodings = ('windows-1253', 'iso-8859-7', 'macgreek')
+
+    # try to open the file and exit if some IOError occurs
+    try:
+        f = open(filename, 'r').read()
+    except Exception:
+        sys.exit(1)
+
+    # now start iterating in our encodings tuple and try to
+    # decode the file
+    for enc in encodings:
+        try:
+            # try to decode the file with the first encoding
+            # from the tuple.
+            # if it succeeds then it will reach break, so we
+            # will be out of the loop (something we want on
+            # success).
+            # the data variable will hold our decoded text
+            data = f.decode(enc)
+            break
+        except Exception:
+            # if the first encoding fail, then with the continue
+            # keyword will start again with the second encoding
+            # from the tuple an so on.... until it succeeds.
+            # if for some reason it reaches the last encoding of
+            # our tuple without success, then exit the program.
+            if enc == encodings[-1]:
+                sys.exit(1)
+            continue
+
+    # now get the absolute path of our filename and append .bak
+    # to the end of it (for our backup file)
+    fpath = os.path.abspath(filename)
+    newfilename = fpath + '.bak'
+    # and make our backup file with shutil
+    shutil.copy(filename, newfilename)
+
+    # and at last convert it to utf-8
+    f = open(filename, 'w')
+    try:
+        f.write(data.encode('utf-8'))
+    except Exception, e:
+        print e
+    finally:
+        f.close()
+        
+############## juan cambio aqui
 @csrf_exempt
 def xmljuego(request):
     if request.method == "POST":
@@ -400,14 +452,18 @@ def xmljuego(request):
                 preguntas=Pregunta.objects.filter(encuesta=e,grupo=g)
                 for p in preguntas:
                     xml+="<preguntas correcta='"+str(p.respuesta_correcta.id)+"'>"
-                    xml+="<pregunta id='"+str(p.id)+"'>"+str(p.nombre)+"</pregunta>"
+                    xml+="<pregunta id='"+str(p.id)+"'>"+p.nombre+"</pregunta>"
                     for r in p.respuestas:
-                        xml+="<item id='"+str(r.id)+"'>"+str(r.nombre)+"</item>"
+                        xml+="<item id='"+str(r.id)+"'>"+r.nombre+"</item>"
                     xml+="</preguntas>"
             xml+="</nivel"+str(g.id)+">"
-        xml+="</xml>"
-        myfile = open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml','w')
-        myfile.write(xml.encode('ascii', 'ignore'))
+        xml+="</xml>"        
+
+        myfile =  codecs.open(MEDIA_ROOT+'/xml/xmlencuesta'+aleatorio+'.xml', 'wU', 'cp1252')
+        #xml = xml.decode('cp1252') # not 'ISO-8859-1'
+        myfile.write(xml )
+        myfile.close()
+        
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
@@ -473,11 +529,11 @@ def reportes(request):
     ganadores=Soluciones.objects.filter(contexto=gano)
     perdedores=Soluciones.objects.filter(contexto=perdio)
 
-    hombres_ganadores=ganadores.filter(persona__sexo='Hombre')
-    mujeres_ganadoras=ganadores.filter(persona__sexo='Mujer')
+    hombres_ganadores=ganadores.filter(persona__sexo__nombre='Hombre')
+    mujeres_ganadoras=ganadores.filter(persona__sexo__nombre='Mujer')
 
-    hombres_perdedores=perdedores.filter(persona__sexo='Hombre')
-    mujeres_perdedoras=perdedores.filter(persona__sexo='Mujer')
+    hombres_perdedores=perdedores.filter(persona__sexo__nombre='Hombre')
+    mujeres_perdedoras=perdedores.filter(persona__sexo__nombre='Mujer')
 
     print hombres_ganadores,mujeres_ganadoras,hombres_perdedores,mujeres_perdedoras
 
