@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from millonario.settings import MEDIA_ROOT
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.encoding import smart_str, smart_unicode
 
 from millonario.modulos.encuestas.models import *
@@ -19,6 +20,7 @@ from millonario.modulos.segmentacion.models import Sexo
 from millonario.modulos.recursos.models import *
 
 @login_required
+@staff_member_required
 def administrar(request):
     encuestas=Encuesta.objects.filter(activo=True)
     niveles=Grupo.objects.all()
@@ -272,6 +274,7 @@ def xmlencuestas(request):
     return HttpResponse(results, mimetype='text/xml')
 
 @login_required
+@staff_member_required
 def concursar(request):
     encuestas=Encuesta.objects.filter(activo=True)
     uens=Uens.objects.all()
@@ -319,7 +322,7 @@ def userlog(request):
     data = {'estado': 0}
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 ############## juan cambio aqui
-@transaction.commit_manually
+#@transaction.commit_manually
 @csrf_exempt
 def userreg(request):
     if request.method == "POST":
@@ -330,19 +333,21 @@ def userreg(request):
         sexo=Sexo.objects.get(id=int(sexo))
          
         try:
-        
-            new_user, created = User.objects.get_or_create(username=str(cedula),email="spam@spam.com",password=str(cedula))
+            try:
+                new_user, created = User.objects.get_or_create(username=str(cedula),email="spam@spam.com",password=str(cedula))
+            except:
+                new_user=User.objects.get(username=str(cedula))
                 
             
             new_user.set_password(cedula)
             new_user.save()
             
-
-            persona=Personas()
+            
+            persona,created=Personas.objects.get_or_create(user=new_user)
             persona.user=new_user
             persona.nombres=nombre
             persona.apellidos=apellido
-            persona.sexo=sexo.id # el sexo probar que funcione
+            persona.sexo=sexo # el sexo probar que funcione
             persona.cedula=str(cedula)
             persona.save()
 
@@ -353,13 +358,12 @@ def userreg(request):
                 'html':"",
                 }
         except:
-            transaction.rollback()
             data={
                 'estado':0,
                 'error':"cedula ya registrada",
                 }
-        else:
-            transaction.commit()
+        #else:
+        #transaction.commit()
             
         return HttpResponse(simplejson.dumps(data),mimetype='application/json')
     data = {'estado': 0, 'error':"ni lo intentes"}
@@ -374,7 +378,7 @@ def xmlcedula(request):
 
         xml=persona.render_xmlcedula
         myfile = open(MEDIA_ROOT+'/xml/xmlcedula'+aleatorio+'.xml','w')
-        myfile.write(xml.encode('utf-8'))
+        myfile.write(xml.encode('cp1252'))
         return HttpResponse(xml, mimetype='text/xml')
     xml="<estado>0</estado>"
     return HttpResponse(xml, mimetype='text/xml')
@@ -523,6 +527,7 @@ def enviar_datos(request):
 
 
 @login_required
+@staff_member_required
 def reportes(request):
     gano=ContextoSoluciones.objects.get(nombre="Gana")
     perdio=ContextoSoluciones.objects.get(nombre="Pierde")
@@ -587,7 +592,7 @@ def consultartodo(request):
         }
     return HttpResponse(simplejson.dumps(data),mimetype='application/json')
 
-
+@staff_member_required
 def reportecsv(request):
 #    # Create the HttpResponse object with the appropriate CSV header.
 #    response = HttpResponse(mimetype='text/csv')
@@ -611,7 +616,7 @@ def reportecsv(request):
 
     lResponse = HttpResponse(mimetype="text/csv")
     lResponse['Content-Disposition'] = 'attachment; filename="reportesoluciones.csv"'
-    lResponse.write(lCsvFile)
+    lResponse.write(lCsvFile.encode("cp1252"))
     return lResponse
 
 @csrf_exempt

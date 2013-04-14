@@ -58,10 +58,12 @@ class Pregunta(Maestra):
 
     @property
     def respuestas(self):
-        return Respuesta.objects.filter(pregunta__id=self.id).order_by('id')
+        return Respuesta.objects.filter(pregunta__id=self.id).order_by('?')
 
     @property
     def respuesta_correcta(self):
+        #print self.id
+        #print Respuesta.objects.filter(pregunta__id=self.id, es_correcta=True)
         return Respuesta.objects.filter(pregunta__id=self.id, es_correcta=True)[0]
 
 

@@ -19,8 +19,12 @@
     <div class="standar">
         <div class="contenido">
             <a href="{% url concursar %}"><img src="{{ MEDIA_URL }}img/bot_concurso.png" /></a>
-            <a href="{% url administrar %}"><img src="{{ MEDIA_URL }}img/bot_administrar.png" /></a>
-            <a href="{% url reportes %}"><img src="{{ MEDIA_URL }}img/bot_reportes.png" /></a>
+            {% if user.is_superuser %}
+                <a href="{% url administrar %}"><img src="{{ MEDIA_URL }}img/bot_administrar.png" /></a>
+            {% endif %}
+                <a href="{% url reportes %}"><img src="{{ MEDIA_URL }}img/bot_reportes.png" /></a>
+
+
 		</div>
 	</div>
     
