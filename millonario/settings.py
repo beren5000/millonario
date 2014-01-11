@@ -90,14 +90,14 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'media').replace('\\', '/')
+STATIC_ROOT = '/home/beren5000/webapps/millonariostat'
 STATIC_FILES_ROOT = os.path.join(PROJECT_DIR, 'security').replace('\\', '/')
 
 
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/media/'
+STATIC_URL = '/static/'
 STATIC_URL_ROOT = '/security/'
 
 # Additional locations of static files
